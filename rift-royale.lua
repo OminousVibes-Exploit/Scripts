@@ -933,7 +933,7 @@ Cache.Connections.OnTp = Player.OnTeleport:Connect(function(state)
 					AimVisCheck = Cache.Enabled.AimVisCheck,
 					ESPVisCheck = Cache.Enabled.ESPVisCheck,
 				})
-				.. '\'\ntask.wait(5)\nloadstring(game:HttpGet("https://gist.githubusercontent.com/DeveloperMikey/0787e77a45d5f1f9a5de709d71ff2f25/raw/rift.lua"))()'
+				.. '\'\ntask.wait(5)\nloadstring(game:HttpGet("https://raw.githubusercontent.com/OminousVibes-Exploit/Scripts/main/rift-royale.lua"))()'
 		)
 	end
 end)
