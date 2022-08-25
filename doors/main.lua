@@ -17,25 +17,26 @@ PadlockHint=q:WaitForChild'PadlockHint',EngageMinigame=q:WaitForChild
 WaitForChild'Screech'}local s=Instance.new'Sound'local t=10 local u={}local v=
 function(v)if v then local w=v:FindFirstChild'HumanoidRootPart'if w then local x
 =v:FindFirstChild'Humanoid'return x~=nil end end return false end local w=
-function(w,x)j:Notify(w)if x then s.TimePosition=0.25 s:Play()end end local x do
-x={}x.attached={}x.__index=x local y=f.CurrentCamera f:GetPropertyChangedSignal
-'CurrentCamera':Connect(function()y=f.CurrentCamera end)local z,A=Vector2.new,
-CFrame.new local B=y.WorldToViewportPoint function x.new(C)local D=setmetatable(
-{instance=C,destructed=false},x)D.instance.AncestryChanged:Connect(function(E,F)
-if F==nil then D:destroy()end end)return D:constructor(C)end function x.
-constructor(C,D)local E=D local F=E:WaitForChild('FigureRagdoll',2.5)C.quad=m.
-new'Quad'C.root=F:WaitForChild('Root',2.5)task.defer(C.onStart,C)return C end
-function x.onStart(C)x.attached[C.instance]=C local D=C.quad D.Visible=false D.
-Transparency=0.75 D.Color=Color3.new(1,0,0)D.Thickness=2 end function x.render(C
-)local D=C.quad local E=C.root if Toggles.FIGURE_ESP.Value then local F=E.CFrame
-local G=E.Size local H=B(y,(F*A(G.X,G.Y,0)).Position)local I=B(y,(F*A(-G.X,G.Y,0
-)).Position)local J=B(y,(F*A(-G.X,-G.Y,0)).Position)local K=B(y,(F*A(G.X,-G.Y,0)
-).Position)if math.min(H.Z,I.Z,J.Z,K.Z)>0 then D.PointA=z(I.X,I.Y)D.PointB=z(H.X
-,H.Y)D.PointC=z(K.X,K.Y)D.PointD=z(J.X,J.Y)D.Visible=true else D.Visible=false
-end else D.Visible=false end end function x.destroy(C)if C.destructed then
-return else C.destructed=true end C.quad:Remove()x.attached[C.instance]=nil end
-d.RenderStepped:Connect(function()for C,D in pairs(x.attached)do D:render()end
-end)end local y do y={}y.attached={}y.__index=y local z=f.CurrentCamera f:
+function(w,x)j:Notify(w)if x and Toggles.SOUND_NOTIFIER.Value then s.
+TimePosition=0.25 s:Play()end end local x do x={}x.attached={}x.__index=x local
+y=f.CurrentCamera f:GetPropertyChangedSignal'CurrentCamera':Connect(function()y=
+f.CurrentCamera end)local z,A=Vector2.new,CFrame.new local B=y.
+WorldToViewportPoint function x.new(C)local D=setmetatable({instance=C,
+destructed=false},x)D.instance.AncestryChanged:Connect(function(E,F)if F==nil
+then D:destroy()end end)return D:constructor(C)end function x.constructor(C,D)
+local E=D local F=E:WaitForChild('FigureRagdoll',2.5)C.quad=m.new'Quad'C.root=F:
+WaitForChild('Root',2.5)task.defer(C.onStart,C)return C end function x.onStart(C
+)x.attached[C.instance]=C local D=C.quad D.Visible=false D.Transparency=0.75 D.
+Color=Color3.new(1,0,0)D.Thickness=3 end function x.render(C)local D=C.quad
+local E=C.root if Toggles.FIGURE_ESP.Value then local F=E.CFrame*A(0,2.5,0)local
+G=E.Size*1.5 local H=B(y,(F*A(G.X,G.Y,0)).Position)local I=B(y,(F*A(-G.X,G.Y,0))
+.Position)local J=B(y,(F*A(-G.X,-G.Y,0)).Position)local K=B(y,(F*A(G.X,-G.Y,0)).
+Position)if math.min(H.Z,I.Z,J.Z,K.Z)>0 then D.PointA=z(I.X,I.Y)D.PointB=z(H.X,H
+.Y)D.PointC=z(K.X,K.Y)D.PointD=z(J.X,J.Y)D.Visible=true else D.Visible=false end
+else D.Visible=false end end function x.destroy(C)if C.destructed then return
+else C.destructed=true end C.quad:Remove()x.attached[C.instance]=nil end d.
+RenderStepped:Connect(function()for C,D in pairs(x.attached)do D:render()end end
+)end local y do y={}y.attached={}y.__index=y local z=f.CurrentCamera f:
 GetPropertyChangedSignal'CurrentCamera':Connect(function()z=f.CurrentCamera end)
 local A,B=Vector2.new,CFrame.new local C=z.WorldToViewportPoint function y.new(D
 )local E=setmetatable({instance=D,destructed=false},y)E.instance.AncestryChanged
@@ -61,7 +62,7 @@ then G:destroy()end end)return G:constructor(E,F)end function z.constructor(E,F,
 G)E.roomNumber=G E.quad=m.new'Quad'task.defer(E.onStart,E)return E end function
 z.onStart(E)z.attached[E.instance]=E local F=E.quad F.Visible=false F.
 Transparency=0.5 F.Color=Color3.new(0,0.5,1)F.Thickness=2 end function z.render(
-E)local F=E.quad local G=E.instance.Door if p.LatestRoom.Value-E.roomNumber>1
+E)local F=E.quad local G=E.instance.Door if p.LatestRoom.Value-E.roomNumber>2
 then F.Visible=false return end if Toggles.DOOR_ESP.Value then local H=G.CFrame
 local I=G.Size local J=D(A,(H*C(I.X/2,I.Y/2,0)).Position)local K=D(A,(H*C(-I.X/2
 ,I.Y/2,0)).Position)local L=D(A,(H*C(-I.X/2,-I.Y/2,0)).Position)local M=D(A,(H*
@@ -219,7 +220,7 @@ checkcaller()then if L(O)=='Instance'then if N(O,'RemoteEvent')then if O==r.
 ClutchHeartbeat then if Toggles.AUTO_HEARTBEAT.Value then local P={...}P[2]=true
 return K(O,M(P))end elseif O==r.Screech then if Toggles.AUTO_SCREECH.Value then
 local P={...}P[1]=true return K(O,M(P))end end end end end return K(O,...)end)
-end s.Name=a:GenerateGUID(false)s.SoundId='rbxassetid://6026984224's.Volume=5 s.
+end s.Name=a:GenerateGUID(false)s.SoundId='rbxassetid://6026984224's.Volume=6 s.
 Parent=e do local I=n.Character if I then D(I)end end do for I,J in ipairs(f.
 CurrentRooms:GetChildren())do task.defer(E,J)end end return j:Notify
 '[Doors] Loaded!'
