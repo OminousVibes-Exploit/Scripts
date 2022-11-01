@@ -11,69 +11,72 @@ loadstring(game:HttpGet(k..'Library.lua'))()local m=loadstring(game:HttpGet(k..
 'addons/SaveManager.lua'))()local n=loadstring(game:HttpGet(k..
 'addons/ThemeManager.lua'))()local o=c.LocalPlayer local p=o:WaitForChild(
 'PlayerGui',5):WaitForChild('MainGui',5):WaitForChild('Frame',5):WaitForChild(
-'Mobile',5)local q=function(q,r,...)l:Notify(r:format(...),q or 5)end local r=
-function(r,s)return math.deg(math.acos(r:Dot(s)))end local s do s={}s.__index=s
-function s.new(t,...)local u=setmetatable({},s)return u:constructor(t,...)or u
-end function s.constructor(t,u,...)t.instance=u t.destructed=false t.
-_destroyListener=t.instance.Destroying:Connect(function()t:destroy()end)task.
-defer(function()if not t.destructed then t:onInit()end if not t.destructed then
-t:onStart()end end)end function s.onInit(t)end function s.onStart(t)end function
-s.destroy(t)if t.destructed then return error('Component already destroyed!',1)
-end t.destructed=true t._destroyListener:Disconnect()end end local t do local u=
-s t=setmetatable({},{__index=u})t.__index=t t.attached={}local v=Vector3.new(1,0
-,1)function t.new(w,...)local x=setmetatable({},t)return x:constructor(w,...)or
-x end function t.constructor(w,x)u.constructor(w,x)w.hitbox=x:WaitForChild(
-'Touch',1)w.power=x:WaitForChild('Power',1)w.target=x:WaitForChild('Tracking',1)
-w.deflect=x:WaitForChild('WasHit',1)w.velocity=x:WaitForChild('Main',1):
-WaitForChild('BodyVelocity',1)w.lastDeflect=0 w.active=not w.deflect.Value w.
-_connections={}end function t.onInit(w)end function t.onStart(w)t.attached[w.
-instance]=w w:onLocked(w.deflect.Value)w._connections[1]=w.target.Changed:
-Connect(function(x)w:onLocked(x)end)w._connections[2]=w.deflect.Changed:Connect(
-function(x)w.active=not x end)end function t.onLocked(w,x)if x==o.Character then
-if Toggles.DEFLECT_ALERT.Value then q(1,'[Auto-Deflect]: Ball is tracking you!')
-end end end function t.onTick(w,x)local y=w.target.Value if y==o.Character and w
-.active then local z=8+(Options.DEFLECT_LATENCY.Value/50)+(w.power.Value/20)
-local A=w.hitbox.Position local B=w.hitbox.AssemblyLinearVelocity if B.Magnitude
->=4 then local C=y.HumanoidRootPart.Position-A local D=r((B*v).Unit,(C*v).Unit)
-local E=C.Magnitude if E<=z and(E<=5 or D<=25)then w:onDeflect()end end end end
-function t.onDeflect(w)local x=Toggles.DEFLECT_ENABLED.Value and Options.
-DEFLECT_KEYBIND:GetState()if x then local y=os.clock()if y-w.lastDeflect>0.1
-then firesignal(p.MouseButton1Down)w.lastDeflect=y if Toggles.DEFLECT_ALERT.
-Value then q(1,'[Auto-Deflect]: Deflected ball!')end end end end function t.
-destroy(w)u.destroy(w)t.attached[w.instance]=nil for x,y in ipairs(w.
-_connections)do y:Disconnect()end end end l:SetWatermark
-'Linoria Community (OminousVibes)'l:Notify'Loading UI...'do local u=l:
-CreateWindow(f..' ('..g..')')do local v=u:AddTab'Gameplay'do local w=v:
-AddLeftTabbox'Auto-Deflect'local x=w:AddTab'Deflect'x:AddToggle(
-'DEFLECT_ENABLED',{Text='Auto-Deflect',Default=false}):AddKeyPicker(
-'DEFLECT_KEYBIND',{Text='Auto-Deflect',Default='G',Mode='Toggle'})local y=w:
-AddTab'Advanced Settings'y:AddToggle('DEFLECT_ALERT',{Text='Deflect Alerts',
-Default=false})y:AddSlider('DEFLECT_LATENCY',{Text='Network Latency',Min=10,Max=
-1000,Default=0,Rounding=0,Suffix='ms'})end end do local v=u:AddTab'Visuals'end
-do local v=u:AddTab'Credits'local w=v:AddLeftGroupbox'Credits'w:AddLabel
-'OminousVibes - Creator'w:AddLabel'Inori @v3rm - UI Library'w:AddDivider()w:
-AddLabel'Contributors:'w:AddLabel'> IAmAGoodScammer @v3rm'w:AddLabel
-'> brickmane @v3rm'w:AddLabel'> yuuiz#1336 @Discord'w:AddDivider()w:AddLabel
-'Donators:'w:AddLabel'> reversing#2937 @Discord'local x=v:AddRightGroupbox
-'Socials'x:AddButton('Discord Server',function()setclipboard
-'https://discord.gg/8PATx7UKXZ'end)end do local v=u:AddTab'Settings'n:
+'Mobile',5)local q={'mouse1click','simulated'}local r=function(r,s,...)l:Notify(
+s:format(...),r or 5)end local s=function(s,t)return math.deg(math.acos(s:Dot(t)
+))end local t do t={}t.__index=t function t.new(u,...)local v=setmetatable({},t)
+return v:constructor(u,...)or v end function t.constructor(u,v,...)u.instance=v
+u.destructed=false u._destroyListener=u.instance.Destroying:Connect(function()u:
+destroy()end)task.defer(function()if not u.destructed then u:onInit()end if not
+u.destructed then u:onStart()end end)end function t.onInit(u)end function t.
+onStart(u)end function t.destroy(u)if u.destructed then return error(
+'Component already destroyed!',1)end u.destructed=true u._destroyListener:
+Disconnect()end end local u do local v=t u=setmetatable({},{__index=v})u.__index
+=u u.attached={}local w=Vector3.new(1,0,1)function u.new(x,...)local y=
+setmetatable({},u)return y:constructor(x,...)or y end function u.constructor(x,y
+)v.constructor(x,y)x.hitbox=y:WaitForChild('Touch',1)x.power=y:WaitForChild(
+'Power',1)x.target=y:WaitForChild('Tracking',1)x.deflect=y:WaitForChild('WasHit'
+,1)x.velocity=y:WaitForChild('Main',1):WaitForChild('BodyVelocity',1)x.
+lastDeflect=0 x.active=not x.deflect.Value x._connections={}end function u.
+onInit(x)end function u.onStart(x)u.attached[x.instance]=x x:onLocked(x.deflect.
+Value)x._connections[1]=x.target.Changed:Connect(function(y)x:onLocked(y)end)x.
+_connections[2]=x.deflect.Changed:Connect(function(y)x.active=not y end)end
+function u.onLocked(x,y)if y==o.Character then if Toggles.DEFLECT_ALERT.Value
+then r(1,'[Auto-Deflect]: Ball is tracking you!')end end end function u.onTick(x
+,y)local z=x.target.Value if z==o.Character and x.active then local A=8+(Options
+.DEFLECT_LATENCY.Value/50)+(x.power.Value/20)local B=x.hitbox.Position local C=x
+.hitbox.AssemblyLinearVelocity if C.Magnitude>=4 then local D=z.HumanoidRootPart
+.Position-B local E=s((C*w).Unit,(D*w).Unit)local F=D.Magnitude if F<=A and(F<=5
+or E<=25)then x:onDeflect()end end end end function u.onDeflect(x)local y=not
+Toggles.DEFLECT_KEYBIND.Value or Options.DEFLECT_KEYBIND:GetState()local z=
+Toggles.DEFLECT_ENABLED.Value and y if z then local A=os.clock()if A-x.
+lastDeflect>0.1 then if Options.DEFLECT_INPUT.Value==q[1]then mouse1click()else
+firesignal(p.MouseButton1Down)end x.lastDeflect=A if Toggles.DEFLECT_ALERT.Value
+then r(1,'[Auto-Deflect]: Deflected ball!')end end end end function u.destroy(x)
+v.destroy(x)u.attached[x.instance]=nil for y,z in ipairs(x._connections)do z:
+Disconnect()end end end l:SetWatermark'Linoria Community (OminousVibes)'l:Notify
+'Loading UI...'do local v=l:CreateWindow(f..' ('..g..')')do local w=v:AddTab
+'Gameplay'do local x=w:AddLeftTabbox'Auto-Deflect'local y=x:AddTab'Deflect'y:
+AddToggle('DEFLECT_ENABLED',{Text='Auto-Deflect',Default=false})y:AddToggle(
+'DEFLECT_KEYBIND',{Text='Use Keybind',Default=false}):AddKeyPicker(
+'DEFLECT_KEYBIND',{Text='Auto-Deflect',Default='G',Mode='Toggle'})local z=x:
+AddTab'Advanced Settings'z:AddToggle('DEFLECT_ALERT',{Text='Deflect Alerts',
+Default=false})z:AddSlider('DEFLECT_LATENCY',{Text='Network Latency',Min=10,Max=
+1000,Default=0,Rounding=0,Suffix='ms'})z:AddDropdown('DEFLECT_INPUT',{Text=
+'Input Type',Values=q,Default=1,Multi=false})end end do local w=v:AddTab
+'Visuals'end do local w=v:AddTab'Credits'local x=w:AddLeftGroupbox'Credits'x:
+AddLabel'OminousVibes - Creator'x:AddLabel'Inori @v3rm - UI Library'x:
+AddDivider()x:AddLabel'Contributors:'x:AddLabel'> IAmAGoodScammer @v3rm'x:
+AddLabel'> brickmane @v3rm'x:AddLabel'> yuuiz#1336 @Discord'x:AddDivider()x:
+AddLabel'Donators:'x:AddLabel'> reversing#2937 @Discord'local y=w:
+AddRightGroupbox'Socials'y:AddButton('Discord Server',function()setclipboard
+'https://discord.gg/8PATx7UKXZ'end)end do local w=v:AddTab'Settings'n:
 SetLibrary(l)m:SetLibrary(l)n:SetFolder(h)m:SetFolder(h..'/'..i)m:
-IgnoreThemeSettings()m:SetIgnoreIndexes{'MenuKeybind'}m:BuildConfigSection(v)n:
-ApplyToTab(v)local w=v:AddLeftGroupbox'Menu'w:AddButton('Unload',function()l:
-Unload()end)w:AddLabel'Menu bind':AddKeyPicker('MenuKeybind',{Default='End',NoUI
-=true,Text='Menu keybind'})w:AddToggle('Keybinds',{Text='Show Keybinds Menu',
+IgnoreThemeSettings()m:SetIgnoreIndexes{'MenuKeybind'}m:BuildConfigSection(w)n:
+ApplyToTab(w)local x=w:AddLeftGroupbox'Menu'x:AddButton('Unload',function()l:
+Unload()end)x:AddLabel'Menu bind':AddKeyPicker('MenuKeybind',{Default='End',NoUI
+=true,Text='Menu keybind'})x:AddToggle('Keybinds',{Text='Show Keybinds Menu',
 Default=true}):OnChanged(function()l.KeybindFrame.Visible=Toggles.Keybinds.Value
-end)w:AddToggle('Watermark',{Text='Show Watermark',Default=true}):OnChanged(
+end)x:AddToggle('Watermark',{Text='Show Watermark',Default=true}):OnChanged(
 function()l:SetWatermarkVisibility(Toggles.Watermark.Value)end)end end l:Notify
-'UI Built! [Right Ctrl or Right Shift]'m:LoadAutoloadConfig()local u=function(u)
-for v,w in pairs(t.attached)do w:onTick(u)end end d.Heartbeat:Connect(u)local v=
-function(v)if v.Name=='Ball'then t.new(v)end end e.ChildAdded:Connect(v)for w,x
-in ipairs(e:GetChildren())do v(x)end do local y=game.PlaceId local z=game.
-PlaceVersion local A=j[y]if not A then l:Notify
+'UI Built! [Right Ctrl or Right Shift]'m:LoadAutoloadConfig()local v=function(v)
+for w,x in pairs(u.attached)do x:onTick(v)end end d.Heartbeat:Connect(v)local w=
+function(w)if w.Name=='Ball'then u.new(w)end end e.ChildAdded:Connect(w)for x,y
+in ipairs(e:GetChildren())do w(y)end do local z=game.PlaceId local A=game.
+PlaceVersion local B=j[z]if not B then l:Notify
 [[Unable to recognize Place ID; Please contact the creator of the script.]]l:
 Notify'The place ID and Version has been copied to your clipboard.'setclipboard(
-'['..tostring(y)..'] = '..tostring(z)..',')elseif z>A then l:Notify
+'['..tostring(z)..'] = '..tostring(A)..',')elseif A>B then l:Notify
 [[Game has been updated! Please be careful when using this script.]]l:Notify
 'The place ID and Version has been copied to your clipboard.'setclipboard('['..
-tostring(y)..'] = '..tostring(z)..',')end end return l:Notify('['..f..
+tostring(z)..'] = '..tostring(A)..',')end end return l:Notify('['..f..
 '] Loaded! ('..g..')')
