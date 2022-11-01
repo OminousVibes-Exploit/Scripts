@@ -46,12 +46,11 @@ _connections)do y:Disconnect()end end end l:SetWatermark
 CreateWindow(f..' ('..g..')')do local v=u:AddTab'Gameplay'do local w=v:
 AddLeftTabbox'Auto-Deflect'local x=w:AddTab'Deflect'x:AddToggle(
 'DEFLECT_ENABLED',{Text='Auto-Deflect',Default=false}):AddKeyPicker(
-'DEFLECT_KEYBIND',{Text='Auto-Deflect',Default='G',Mode='Toggle'})x:AddToggle(
-'DEFLECT_IMMUNITY',{Text='Ball Immunity',Default=false})local y=w:AddTab
-'Advanced Settings'y:AddToggle('DEFLECT_ALERT',{Text='Deflect Alerts',Default=
-false})y:AddSlider('DEFLECT_LATENCY',{Text='Network Latency',Min=10,Max=1000,
-Default=0,Rounding=0,Suffix='ms'})end end do local v=u:AddTab'Visuals'end do
-local v=u:AddTab'Credits'local w=v:AddLeftGroupbox'Credits'w:AddLabel
+'DEFLECT_KEYBIND',{Text='Auto-Deflect',Default='G',Mode='Toggle'})local y=w:
+AddTab'Advanced Settings'y:AddToggle('DEFLECT_ALERT',{Text='Deflect Alerts',
+Default=false})y:AddSlider('DEFLECT_LATENCY',{Text='Network Latency',Min=10,Max=
+1000,Default=0,Rounding=0,Suffix='ms'})end end do local v=u:AddTab'Visuals'end
+do local v=u:AddTab'Credits'local w=v:AddLeftGroupbox'Credits'w:AddLabel
 'OminousVibes - Creator'w:AddLabel'Inori @v3rm - UI Library'w:AddDivider()w:
 AddLabel'Contributors:'w:AddLabel'> IAmAGoodScammer @v3rm'w:AddLabel
 '> brickmane @v3rm'w:AddLabel'> yuuiz#1336 @Discord'w:AddDivider()w:AddLabel
