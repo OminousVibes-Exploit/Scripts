@@ -243,12 +243,13 @@ then I.new(ac,'Book')elseif ae=='LiveBreakerPolePickup'then I.new(ac,'Fuse')end
 elseif O=='Holder'then if ae=='CrucifixOnTheWall'then I.new(ac,'Crucifix')end
 elseif O=='Lock'then if ae=='Door'then H.new(ac,'Lock')end elseif ae==
 'KeyObtain'then if O=='Hitbox'then I.new(ac,'Key')end elseif O=='Wardrobe'then G
-.new(ac,ab.id)end end function J.onFigure(ab)local ac=ab.instance:WaitForChild(
-'FigureSetup',5)E.new(ac)end function J.destroy(ab)J.attached[ab.instance]=nil
-aa.destroy(ab)end end m:SetWatermark'Linoria Community (OminousVibes)'m:Notify
-'Loading UI...'do local aa=m:CreateWindow(g..' ('..h..')')do local ab=aa:AddTab
-'Gameplay'do local ac=ab:AddLeftGroupbox'Character Mods'ac:AddToggle(
-'character.sprint.enabled',{Text='Sprint Enabled',Default=false,Tooltip=
+.new(ac,ab.id)elseif O=='Toolshed'then G.new(ac,ab.id)end end function J.
+onFigure(ab)local ac=ab.instance:WaitForChild('FigureSetup',5)E.new(ac)end
+function J.destroy(ab)J.attached[ab.instance]=nil aa.destroy(ab)end end m:
+SetWatermark'Linoria Community (OminousVibes)'m:Notify'Loading UI...'do local aa
+=m:CreateWindow(g..' ('..h..')')do local ab=aa:AddTab'Gameplay'do local ac=ab:
+AddLeftGroupbox'Character Mods'ac:AddToggle('character.sprint.enabled',{Text=
+'Sprint Enabled',Default=false,Tooltip=
 'Enables Sprinting by pressing the Keybind'}):AddKeyPicker(
 'character.sprint.keybind',{Text='Sprint',Default='LeftShift'})ac:AddSlider(
 'character.sprint.speed',{Text='Sprint Boost (in seconds)',Min=0,Max=7.5,Default
@@ -313,29 +314,31 @@ NoUI=true,Text='Menu keybind'})ac:AddToggle('Keybinds',{Text=
 Toggles.Keybinds.Value end)ac:AddToggle('Watermark',{Text='Show Watermark',
 Default=true}):OnChanged(function()m:SetWatermarkVisibility(Toggles.Watermark.
 Value)end)end end m:Notify'UI Built! [Right Ctrl or Right Shift]'n:
-LoadAutoloadConfig()local aa=function(aa)if aa.Name=='Screech'then C.new(aa)end
-end s.ChildAdded:Connect(aa)local ab=function(ab)local ac=ab.Name if ac==
-'RushMoving'or ab.Name=='AmbushMoving'then D.new(ab)elseif ac=='Eyes'then N(
-Toggles['alerts.entity'].Value,{message='Eyes spawned, look away from it!',audio
-=true,duration=5})end end f.ChildAdded:Connect(ab)local ac=function(ac)J.new(ac)
-end f.CurrentRooms.ChildAdded:Connect(ac)for ad,ae in ipairs(f.CurrentRooms:
-GetChildren())do ac(ae)end local O=function()N(Toggles['alerts.entity'].Value,{
-message='Screech spawned, turn around and look at it!',audio=true,duration=5})
-end u.Screech:Connect(O)local P=function(P,Q)if P and Q then w[P]=tostring(Q)
-else w={}end end u.PadlockHint:Connect(P)local Q=function(Q)for R,S in ipairs(K)
-do for T,U in pairs(S.attached)do U:onTick(Q)end end end local R=function(R)for
-S,T in ipairs(L)do for U,V in pairs(T.attached)do V:onRender(R)end end end local
-S=function(S,T)for U,V in ipairs(M)do for W,X in pairs(V.attached)do X:
-onPhysics(S,T)end end local W=z.attached if W then W:onPhysics(S,T)end end d.
-Heartbeat:Connect(Q)d.RenderStepped:Connect(R)d.Stepped:Connect(S)Options[
-'gameplay.parser.keybind']:OnClick(function()local T=''for U=1,5 do local V=w[x[
-U]]T=T..(V~=nil and V or'_')end N(Toggles['gameplay.parser.enabled'].Value,{
-message='[Code Parser]: '..T,audio=false,duration=7.5})end)table.insert(L,A)
+LoadAutoloadConfig()local aa=function()s=f.CurrentCamera or s end f:
+GetPropertyChangedSignal'CurrentCamera':Connect(aa)local ab=function(ab)if ab.
+Name=='Screech'then C.new(ab)end end s.ChildAdded:Connect(ab)local ac=function(
+ac)local ad=ac.Name if ad=='RushMoving'or ac.Name=='AmbushMoving'then D.new(ac)
+elseif ad=='Eyes'then N(Toggles['alerts.entity'].Value,{message=
+'Eyes spawned, look away from it!',audio=true,duration=5})end end f.ChildAdded:
+Connect(ac)local ad=function(ad)J.new(ad)end f.CurrentRooms.ChildAdded:Connect(
+ad)for ae,O in ipairs(f.CurrentRooms:GetChildren())do ad(O)end local P=function(
+)N(Toggles['alerts.entity'].Value,{message=
+'Screech spawned, turn around and look at it!',audio=true,duration=5})end u.
+Screech:Connect(P)local Q=function(Q,R)if Q and R then w[Q]=tostring(R)else w={}
+end end u.PadlockHint:Connect(Q)local R=function(R)for S,T in ipairs(K)do for U,
+V in pairs(T.attached)do V:onTick(R)end end end local S=function(S)for T,U in
+ipairs(L)do for V,W in pairs(U.attached)do W:onRender(S)end end end local T=
+function(T,U)for V,W in ipairs(M)do for X,Y in pairs(W.attached)do Y:onPhysics(T
+,U)end end local X=z.attached if X then X:onPhysics(T,U)end end d.Heartbeat:
+Connect(R)d.RenderStepped:Connect(S)d.Stepped:Connect(T)Options[
+'gameplay.parser.keybind']:OnClick(function()local U=''for V=1,5 do local W=w[x[
+V]]U=U..(W~=nil and W or'_')end N(Toggles['gameplay.parser.enabled'].Value,{
+message='[Code Parser]: '..U,audio=false,duration=7.5})end)table.insert(L,A)
 table.insert(L,C)table.insert(L,D)table.insert(L,E)table.insert(L,F)table.
 insert(L,G)table.insert(L,H)v.Name='Main'v.SoundId='rbxassetid://6026984224'v.
-Volume=6 v.Parent=e do local T=game.PlaceId local U=game.PlaceVersion local V=k[
-T]if U>V then m:Notify
+Volume=6 v.Parent=e do local U=game.PlaceId local V=game.PlaceVersion local W=k[
+U]if V>W then m:Notify
 [[Game has been updated! Please be careful when using this script.]]m:Notify
 'The place ID and Version has been copied to your clipboard.'setclipboard('['..
-tostring(T)..'] = '..tostring(U)..',')end end return m:Notify('['..g..
+tostring(U)..'] = '..tostring(V)..',')end end return m:Notify('['..g..
 '] Loaded! ('..h..')')
