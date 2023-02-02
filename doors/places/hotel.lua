@@ -1420,7 +1420,7 @@ end
 do
 local ac=ab:AddLeftGroupbox"Gameplay Mods"
 ac:AddToggle("gameplay.heartbeat.enabled",{
-Text="Heartbeat Minigame",
+Text="Heartbeat Minigame (WIP)",
 Default=false,
 Tooltip="Automatically does Heartbeat inputs for you.",
 })
