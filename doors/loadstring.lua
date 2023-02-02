@@ -12,6 +12,7 @@ end
 if not game:IsLoaded() then
 	game.Loaded:Wait()
 end
+task.wait(2.5) -- Buffer Wait
 
 -- Script Switch:
 local floor = ReplicatedStorage:WaitForChild("GameData", 10):WaitForChild("Floor", 10).Value
