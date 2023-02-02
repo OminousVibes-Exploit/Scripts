@@ -2,7 +2,7 @@ local a=game:GetService'ContextActionService'local b=game:GetService'Players'
 local c=game:GetService'ReplicatedStorage'local d=game:GetService'RunService'
 local e=game:GetService'SoundService'local f=game:GetService'Workspace'local g=
 game:GetService'VirtualInputManager'local h='Doors'local i='Rooms v1.0'local j=
-'OminousVibes/doors'local k='rooms'local l={[6839171747]=5898}do local m=game.
+'TerminalVibes/doors'local k='rooms'local l={[6839171747]=5898}do local m=game.
 PlaceId local n=game.PlaceVersion local o=l[m]if not o then warn
 'Script does not support this place instance.'warn
 [[The PlaceID and version has been set to your clipboard. Please report this to the developer.]]
@@ -220,8 +220,8 @@ elseif N=='Lockpick'then G.new(ac,'Lockpicks')elseif N=='Bandage'then G.new(ac,
 then if N=='CrucifixWall'then G.new(ac,'Crucifix')end elseif O=='Rooms_Locker'
 then E.new(ac,ab.id)elseif O=='Hitbox'then if N=='GoldPile'then end end end
 function H.destroy(ab)H.attached[ab.instance]=nil aa.destroy(ab)end end n:
-SetWatermark'Linoria Community (OminousVibes)'n:Notify'Loading UI...'do local aa
-=n:CreateWindow(h..' ('..i..')')do local ab=aa:AddTab'Gameplay'do local ac=ab:
+SetWatermark'Linoria Community (TerminalVibes)'n:Notify'Loading UI...'do local
+aa=n:CreateWindow(h..' ('..i..')')do local ab=aa:AddTab'Gameplay'do local ac=ab:
 AddLeftGroupbox'Character Mods'ac:AddToggle('character.sprint.enabled',{Text=
 'Sprint Enabled',Default=false,Tooltip=
 'Enables Sprinting by pressing the Keybind'}):AddKeyPicker(
@@ -265,7 +265,7 @@ Default=true,Tooltip='ESP for interactable items'}):AddColorPicker(
 Tooltip='ESP for items that can be picked up'}):AddColorPicker(
 'esp.obtainable.color',{Title='Obtainable ESP Color',Default=Color3.new(1,1,0)})
 end end end do local ab=aa:AddTab'Credits'local ac=ab:AddLeftGroupbox'Credits'ac
-:AddLabel'OminousVibes - Creator'ac:AddLabel'Inori @v3rm - UI Library'ac:
+:AddLabel'TerminalVibes - Creator'ac:AddLabel'Inori @v3rm - UI Library'ac:
 AddDivider()ac:AddLabel'Contributors:'ac:AddLabel'> IAmAGoodScammer @v3rm'ac:
 AddLabel'> brickmane @v3rm'ac:AddLabel'> yuuiz#1336 @Discord'ac:AddDivider()ac:
 AddLabel'Donators:'ac:AddLabel'> reversing#2937 @Discord'local M=ab:
