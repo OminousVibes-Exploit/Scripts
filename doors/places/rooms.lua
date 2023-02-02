@@ -243,7 +243,7 @@ Default=0,Rounding=0,Suffix=''})end do local ac=ab:AddLeftGroupbox
 'Entity Alerts',Default=true,Tooltip='Enabled alerts about entities spawning.'})
 end end do local ab=aa:AddTab'Blatant'do local ac=ab:AddLeftGroupbox
 'Entity Hooks'ac:AddToggle('blatant.a90.hook-damage',{Text='A90 immunity',
-Default=false,Tooltip='You will not be damaged by A60.'})end end do local ab=aa:
+Default=false,Tooltip='You will not be damaged by A90.'})end end do local ab=aa:
 AddTab'Visuals'do local ac=ab:AddLeftTabbox'ESP'local M=ac:AddTab'Entity ESP'do
 M:AddToggle('esp.player.enabled',{Text='Player ESP',Default=true,Tooltip=
 'ESP for other players'}):AddColorPicker('esp.player.color',{Title=
