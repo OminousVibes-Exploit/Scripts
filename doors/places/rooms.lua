@@ -242,7 +242,7 @@ Default=0,Rounding=0,Suffix=''})end do local ac=ab:AddLeftGroupbox
 'Enabled alerts related to script status.'})N:AddToggle('alerts.entity',{Text=
 'Entity Alerts',Default=true,Tooltip='Enabled alerts about entities spawning.'})
 end end do local ab=aa:AddTab'Blatant'do local ac=ab:AddLeftGroupbox
-'Entity Hooks'ac:AddToggle('blatant.a60.hook-damage',{Text='A60 immunity',
+'Entity Hooks'ac:AddToggle('blatant.a90.hook-damage',{Text='A90 immunity',
 Default=false,Tooltip='You will not be damaged by A60.'})end end do local ab=aa:
 AddTab'Visuals'do local ac=ab:AddLeftTabbox'ESP'local M=ac:AddTab'Entity ESP'do
 M:AddToggle('esp.player.enabled',{Text='Player ESP',Default=true,Tooltip=
@@ -292,17 +292,17 @@ Vector3.zero g:SendKeyEvent(false,Enum.KeyCode.W,false,game)g:SendKeyEvent(false
 SendKeyEvent(false,Enum.KeyCode.D,false,game)a:BindAction('a90.freeze',function(
 )return Enum.ContextActionResult.Sink end,false,Enum.KeyCode.W,Enum.KeyCode.A,
 Enum.KeyCode.S,Enum.KeyCode.D,Enum.KeyCode.E)local P=t.CFrame local Q=d.
-RenderStepped:Connect(function()t.CFrame=P end)task.wait(1.1)Q:Disconnect()a:
+RenderStepped:Connect(function()t.CFrame=P end)task.wait(1.25)Q:Disconnect()a:
 UnbindAction'a90.freeze'end end)local O=function(O)for P,Q in ipairs(I)do for R,
 S in pairs(Q.attached)do S:onTick(O)end end end local P=function(P)for Q,R in
 ipairs(J)do for S,T in pairs(R.attached)do T:onRender(P)end end end local Q=
 function(Q,R)for S,T in ipairs(K)do for U,V in pairs(T.attached)do V:onPhysics(Q
 ,R)end end local U=y.attached if U then U:onPhysics(Q,R)end end d.Heartbeat:
 Connect(O)d.RenderStepped:Connect(P)d.Stepped:Connect(Q)do local R local S=
-typeof local T=game.IsA local U=Toggles['blatant.a60.hook-damage']R=
+typeof local T=game.IsA local U=Toggles['blatant.a90.hook-damage']R=
 hookmetamethod(game,'__namecall',function(V,...)if checkcaller()then return R(V,
 ...)end local W=S(V)local X=getnamecallmethod()if W=='Instance'then if T(V,
-'RemoteEvent')and X=='FireServer'then if W==v.A90 then if U.Value then return R(
+'RemoteEvent')and X=='FireServer'then if V==v.A90 then if U.Value then return R(
 V,false)end end end end return R(V,...)end)end table.insert(J,z)table.insert(J,B
 )table.insert(J,C)table.insert(J,D)table.insert(J,E)table.insert(J,F)w.Name=
 'Main'w.SoundId='rbxassetid://6026984224'w.Volume=6 w.Parent=e do local R=game.
