@@ -308,9 +308,9 @@ local v=Instance.new"Sound"
 
 local w={}
 local x={}
+local y={}
 
 
-local y
 local z
 local A
 local B
@@ -322,10 +322,11 @@ local G
 local H
 local I
 local J
+local K
 
-local K={}
 local L={}
-local M={}local N=function(
+local M={}
+local N={}local O=function(
 
 
 
@@ -333,16 +334,16 @@ local M={}local N=function(
 
 
 
-N, O)
-if N and Toggles["alerts.enabled"].Value then
-local P={
-message=O.message or"",
-audio=O.audio or false,
-duration=O.duration or 5,
+O, P)
+if O and Toggles["alerts.enabled"].Value then
+local Q={
+message=P.message or"",
+audio=P.audio or false,
+duration=P.duration or 5,
 }
 
-m:Notify(P.message,P.duration)
-if P.audio and Toggles["alerts.audio"].Value then
+m:Notify(Q.message,Q.duration)
+if Q.audio and Toggles["alerts.audio"].Value then
 v.TimePosition=0.25
 v:Play()
 end
@@ -358,68 +359,14 @@ end end
 
 
 do
-local O=q
-y=setmetatable({},{__index=O})
-y.__index=y
-
-function y.__tostring(P)
-return"CharacterComponent - "..P.instance:GetFullName()
-end
-y.attached={}
-
-
-function y.new(P,...)
-local Q=setmetatable({},y)
-Q=Q:constructor(P,...)or Q
-Q:run()
-return Q
-end
-
-
-function y.constructor(P,Q)
-O.constructor(P,Q)
-P.client=B.attached[b:GetPlayerFromCharacter(Q)]
-P.root=Q:WaitForChild("HumanoidRootPart",5)
-P.humanoid=Q:WaitForChild("Humanoid",5)
-
-assert(P.client~=nil,"["..P:__tostring().."] is not a client's character")
-assert(P.root~=nil,"["..P:__tostring().."] is missing a HumanoidRootPart")
-assert(P.humanoid~=nil,"["..P:__tostring().."] is missing a Humanoid")
-
-P._maid:add(Q.AncestryChanged:Connect(function(R,S)
-if S==nil then
-P:destroy()
-end
-end))
-end
-
-
-function y.onStart(P)
-y.attached[P.instance]=P
-O.onStart(P)
-end
-
-
-function y.destroy(P)
-y.attached[P.instance]=nil
-O.destroy(P)
-end
-end
-
-
-
-do
-
-local O=Vector3.new(1,0,1)
-
-local P=y
+local P=q
 z=setmetatable({},{__index=P})
 z.__index=z
 
 function z.__tostring(Q)
-return"AvatarComponent - "..Q.instance:GetFullName()
+return"CharacterComponent - "..Q.instance:GetFullName()
 end
-z.attached=nil
+z.attached={}
 
 
 function z.new(Q,...)
@@ -432,45 +379,30 @@ end
 
 function z.constructor(Q,R)
 P.constructor(Q,R)
-Q.light=Instance.new"PointLight"
+Q.client=C.attached[b:GetPlayerFromCharacter(R)]
+Q.root=R:WaitForChild("HumanoidRootPart",5)
+Q.humanoid=R:WaitForChild("Humanoid",5)
+
+assert(Q.client~=nil,"["..Q:__tostring().."] is not a client's character")
+assert(Q.root~=nil,"["..Q:__tostring().."] is missing a HumanoidRootPart")
+assert(Q.humanoid~=nil,"["..Q:__tostring().."] is missing a Humanoid")
+
+Q._maid:add(R.AncestryChanged:Connect(function(S,T)
+if T==nil then
+Q:destroy()
+end
+end))
 end
 
 
 function z.onStart(Q)
-z.attached=Q
+z.attached[Q.instance]=Q
 P.onStart(Q)
-
-local R=Q.light
-R.Enabled=false
-R.Range=100
-R.Color=Color3.fromRGB(255,255,255)
-R.Shadows=false
-R.Parent=Q.root
-
-while Q.running do
-R.Enabled=Toggles["character.glow.enabled"].Value
-R.Brightness=Options["character.glow.brightness"].Value/50
-task.wait(0.5)
-end
-end
-
-function z.onPhysics(Q,R,S)
-local T=Options["character.sprint.speed"].Value
-if
-T>0
-and Toggles["character.sprint.enabled"].Value
-and Options["character.sprint.keybind"]:GetState()
-then
-local U=Q.humanoid.MoveDirection*O
-if U.Magnitude>0 then
-Q.instance:TranslateBy(U*T*S)
-end
-end
 end
 
 
 function z.destroy(Q)
-z.attached=nil
+z.attached[Q.instance]=nil
 P.destroy(Q)
 end
 end
@@ -479,81 +411,150 @@ end
 
 do
 
-local O=Vector3.new(5,7,0)
-local P=Vector3.new(0,-0.25,0)
-local Q,R,S,T=
-CFrame.new(P.X-(O.X/2),P.Y+(O.Y/2),P.Z),
-CFrame.new(P.X+(O.X/2),P.Y+(O.Y/2),P.Z),
-CFrame.new(P.X-(O.X/2),P.Y-(O.Y/2),P.Z),
-CFrame.new(P.X+(O.X/2),P.Y-(O.Y/2),P.Z)
-local U=s.WorldToViewportPoint
-local V=Vector2.new
-local W=math.min
+local P=Vector3.new(1,0,1)
 
-local X=y
-A=setmetatable({},{__index=X})
+local Q=z
+A=setmetatable({},{__index=Q})
 A.__index=A
 
-function A.__tostring(Y)
-return"FriendComponent - "..Y.instance:GetFullName()
+function A.__tostring(R)
+return"AvatarComponent - "..R.instance:GetFullName()
 end
-A.attached={}
+A.attached=nil
 
 
-function A.new(Y,...)
-local Z=setmetatable({},A)
-Z=Z:constructor(Y,...)or Z
-Z:run()
-return Z
+function A.new(R,...)
+local S=setmetatable({},A)
+S=S:constructor(R,...)or S
+S:run()
+return S
 end
 
 
-function A.constructor(Y,Z)
-X.constructor(Y,Z)
-Y.quad=Drawing.new"Quad"
-Y._maid:add(function()
-Y.quad:Remove()
+function A.constructor(R,S)
+Q.constructor(R,S)
+R.light=Instance.new"PointLight"
+end
+
+
+function A.onStart(R)
+A.attached=R
+Q.onStart(R)
+
+local S=R.light
+S.Enabled=false
+S.Range=100
+S.Color=Color3.fromRGB(255,255,255)
+S.Shadows=false
+S.Parent=R.root
+
+while R.running do
+S.Enabled=Toggles["character.glow.enabled"].Value
+S.Brightness=Options["character.glow.brightness"].Value/50
+task.wait(0.5)
+end
+end
+
+function A.onPhysics(R,S,T)
+local U=Options["character.sprint.speed"].Value
+if
+U>0
+and Toggles["character.sprint.enabled"].Value
+and Options["character.sprint.keybind"]:GetState()
+then
+local V=R.humanoid.MoveDirection*P
+if V.Magnitude>0 then
+R.instance:TranslateBy(V*U*T)
+end
+end
+end
+
+
+function A.destroy(R)
+A.attached=nil
+Q.destroy(R)
+end
+end
+
+
+
+do
+
+local P=Vector3.new(5,7,0)
+local Q=Vector3.new(0,-0.25,0)
+local R,S,T,U=
+CFrame.new(Q.X-(P.X/2),Q.Y+(P.Y/2),Q.Z),
+CFrame.new(Q.X+(P.X/2),Q.Y+(P.Y/2),Q.Z),
+CFrame.new(Q.X-(P.X/2),Q.Y-(P.Y/2),Q.Z),
+CFrame.new(Q.X+(P.X/2),Q.Y-(P.Y/2),Q.Z)
+local V=s.WorldToViewportPoint
+local W=Vector2.new
+local X=math.min
+
+local Y=z
+B=setmetatable({},{__index=Y})
+B.__index=B
+
+function B.__tostring(Z)
+return"FriendComponent - "..Z.instance:GetFullName()
+end
+B.attached={}
+
+
+function B.new(Z,...)
+local _=setmetatable({},B)
+_=_:constructor(Z,...)or _
+_:run()
+return _
+end
+
+
+function B.constructor(Z,_)
+Y.constructor(Z,_)
+Z.quad=Drawing.new"Quad"
+Z._maid:add(function()
+Z.quad:Remove()
 end)
 end
 
 
-function A.onStart(Y)
-A.attached[Y.instance]=Y
-X.onStart(Y)
+function B.onStart(Z)
+B.attached[Z.instance]=Z
+Y.onStart(Z)
 
-local Z=Y.quad
-Z.Visible=false
-Z.Thickness=1
-Z.Transparency=0.75
+local _=Z.quad
+_.Visible=false
+_.Thickness=1
+_.Transparency=0.75
 end
 
-function A.onRender(Y,Z)
-local _=Y.quad
+function B.onRender(Z,_)
+local aa=Z.quad
 if Toggles["esp.player.enabled"].Value then
-local aa=Y.root.CFrame
-local ab=U(s,(aa*Q).Position)
-local ac=U(s,(aa*R).Position)
-local ad=U(s,(aa*T).Position)
-local ae=U(s,(aa*S).Position)
-if W(ab.Z,ac.Z,ad.Z,ae.Z)>0 then
-_.PointA=V(ac.X,ac.Y)
-_.PointB=V(ab.X,ab.Y)
-_.PointC=V(ae.X,ae.Y)
-_.PointD=V(ad.X,ad.Y)
-_.Color=Options["esp.player.color"].Value
-_.Visible=true
+local ab=Z.root.CFrame
+local ac=V(s,(ab*R).Position)
+local ad=V(s,(ab*S).Position)
+local ae=V(s,(ab*U).Position)
+local af=V(s,(ab*T).Position)
+if X(ac.Z,ad.Z,ae.Z,af.Z)>0 then
+aa.PointA=W(ad.X,ad.Y)
+aa.PointB=W(ac.X,ac.Y)
+aa.PointC=W(af.X,af.Y)
+aa.PointD=W(ae.X,ae.Y)
+aa.Color=Options["esp.player.color"].Value
+aa.Visible=true
 else
-_.Visible=false
+aa.Visible=false
 end
 else
-_.Visible=false
+aa.Visible=false
 end
 end
 
 
-function A.destroy(aa)
-A.attached[aa.instance]=nil
-X.destroy(aa)
+function B.destroy(aa)
+B.attached[aa.instance]=nil
+Y.destroy(aa)
 end
 end
 
@@ -561,30 +562,30 @@ end
 
 do
 local aa=q
-B=setmetatable({},{__index=aa})
-B.__index=B
+C=setmetatable({},{__index=aa})
+C.__index=C
 
-function B.__tostring(ab)
+function C.__tostring(ab)
 return"ClientComponent - "..ab.instance:GetFullName()
 end
-B.attached={}
+C.attached={}
 
 
-function B.new(ab,...)
-local ac=setmetatable({},B)
+function C.new(ab,...)
+local ac=setmetatable({},C)
 ac=ac:constructor(ab,...)or ac
 ac:run()
 return ac
 end
 
 
-function B.constructor(ab,ac)
+function C.constructor(ab,ac)
 aa.constructor(ab,ac)
 end
 
 
-function B.onStart(ab)
-B.attached[ab.instance]=ab
+function C.onStart(ab)
+C.attached[ab.instance]=ab
 aa.onStart(ab)
 ab._maid:add(ab.instance.CharacterAdded:Connect(function(ac)
 ab:onCharacter(ac)
@@ -609,24 +610,24 @@ end
 end)
 end
 
-function B.onCharacter(ab,ac)
+function C.onCharacter(ab,ac)
 if ab.instance==r then
-ab.character=z.new(ac)
-else
 ab.character=A.new(ac)
+else
+ab.character=B.new(ac)
 end
 end
 
-function B.onTool(ab,ac)
+function C.onTool(ab,ac)
 if ac.Name=="LibraryHintPaper"then
 local ad=ac:WaitForChild("UI",1)
 if ad then
 local ae={}
-for O =1,5 do
-local P=ad:FindFirstChild(tostring(O))
+for af =1,5 do
+local P=ad:FindFirstChild(tostring(af))
 if P then
 local Q=P.ImageRectOffset.X/50
-ae[O]=Q
+ae[af]=Q
 end
 end
 x=ae
@@ -635,14 +636,14 @@ end
 end
 
 
-function B.destroy(ab)
-B.attached[ab.instance]=nil
+function C.destroy(ab)
+C.attached[ab.instance]=nil
 aa.destroy(ab)
 end
 
 
 local ab=function(ab)
-B.new(ab)
+C.new(ab)
 end
 
 b.PlayerAdded:Connect(ab)
@@ -659,40 +660,40 @@ local aa=s.WorldToViewportPoint
 local ab,ac,ad=Vector2.new,Vector3.new,CFrame.Angles
 
 local ae=q
-C=setmetatable({},{__index=ae})
-C.__index=C
+D=setmetatable({},{__index=ae})
+D.__index=D
 
-function C.__tostring(O)
-return"ScreechComponent - "..O.instance:GetFullName()
+function D.__tostring(af)
+return"ScreechComponent - "..af.instance:GetFullName()
 end
-C.attached={}
+D.attached={}
 
 
-function C.new(O,...)
-local P=setmetatable({},C)
-P=P:constructor(O,...)or P
+function D.new(af,...)
+local P=setmetatable({},D)
+P=P:constructor(af,...)or P
 P:run()
 return P
 end
 
 
-function C.constructor(O,P)
-ae.constructor(O,P)
-O.root=P:WaitForChild"Root"
-O.line=Drawing.new"Line"
-O.outline=Drawing.new"Line"
-O._maid:add(function()
-O.line:Remove()
-O.outline:Remove()
+function D.constructor(af,P)
+ae.constructor(af,P)
+af.root=P:WaitForChild"Root"
+af.line=Drawing.new"Line"
+af.outline=Drawing.new"Line"
+af._maid:add(function()
+af.line:Remove()
+af.outline:Remove()
 end)
 end
 
 
-function C.onStart(O)
-C.attached[O.instance]=O
-ae.onStart(O)
+function D.onStart(af)
+D.attached[af.instance]=af
+ae.onStart(af)
 
-local P,Q=O.line,O.outline
+local P,Q=af.line,af.outline
 P.Visible=false
 P.Color=Options["esp.screech.color"].Value
 P.ZIndex=1
@@ -704,11 +705,11 @@ Q.ZIndex=0
 Q.Thickness=2
 end
 
-function C.onRender(O,P)
+function D.onRender(af,P)
 local Q=Toggles["esp.screech.enabled"].Value
-local R,S=O.line,O.outline
+local R,S=af.line,af.outline
 if Q then
-local T=O.root.Position
+local T=af.root.Position
 local U=aa(s,T)
 if U.Z<0 then
 local V=s.CFrame:PointToObjectSpace(T)
@@ -730,9 +731,9 @@ S.Visible=Q
 end
 
 
-function C.destroy(O)
-C.attached[O.instance]=nil
-ae.destroy(O)
+function D.destroy(af)
+D.attached[af.instance]=nil
+ae.destroy(af)
 end
 end
 
@@ -742,107 +743,7 @@ do
 
 local aa=Vector3.new(4,6,0)
 local ab=Vector3.new(0,0,0)
-local ac,ad,ae,O=
-CFrame.new(ab.X-(aa.X/2),ab.Y+(aa.Y/2),ab.Z),
-CFrame.new(ab.X+(aa.X/2),ab.Y+(aa.Y/2),ab.Z),
-CFrame.new(ab.X-(aa.X/2),ab.Y-(aa.Y/2),ab.Z),
-CFrame.new(ab.X+(aa.X/2),ab.Y-(aa.Y/2),ab.Z)
-local P=s.WorldToViewportPoint
-local Q=Vector2.new
-local R=math.min
-
-local S=q
-D=setmetatable({},{__index=S})
-D.__index=D
-
-function D.__tostring(T)
-return"RushComponent - "..T.instance:GetFullName()
-end
-D.attached={}
-
-
-function D.new(T,...)
-local U=setmetatable({},D)
-U=U:constructor(T,...)or U
-U:run()
-return U
-end
-
-
-function D.constructor(T,U)
-S.constructor(T,U)
-T.root=U.PrimaryPart or U:WaitForChild("RushNew",5)
-assert(T.root,"["..T:__tostring().."] is missing a root part!")
-
-T.name=T.instance.Name=="RushMoving"and"Rush"or"Ambush"
-T.quad=Drawing.new"Quad"
-T._maid:add(function()
-T.quad:Remove()
-end)
-end
-
-
-function D.onStart(T)
-D.attached[T.instance]=T
-S.onStart(T)
-
-local U=T.quad
-U.Visible=false
-U.Thickness=1
-U.Color=T.name=="Rush"and Options["esp.rush.rush-color"].Value
-or Options["esp.rush.ambush-color"].Value
-
-task.delay(0.5,function()
-local V=(z.attached.root.Position-T.root.Position).Magnitude
-if V<=750 then
-N(Toggles["alerts.entity"].Value,{
-message=T.name=="Rush"and"Rush spawned, hide in a Wardrobe or get behind cover!"
-or"Ambush spawned, hide in a Wardrobe or get behind cover! Ambush can return up to 4 times.",
-audio=true,
-duration=10,
-})
-else
-T:destroy()
-end
-end)
-end
-
-function D.onRender(T,U)
-local V=T.quad
-if Toggles["esp.rush.enabled"].Value then
-local W=T.root.CFrame
-local X=P(s,(W*ac).Position)
-local Y=P(s,(W*ad).Position)
-local Z=P(s,(W*O).Position)
-local _=P(s,(W*ae).Position)
-if R(X.Z,Y.Z,Z.Z,_.Z)>0 then
-V.PointA=Q(Y.X,Y.Y)
-V.PointB=Q(X.X,X.Y)
-V.PointC=Q(_.X,_.Y)
-V.PointD=Q(Z.X,Z.Y)
-V.Visible=true
-else
-V.Visible=false
-end
-else
-V.Visible=false
-end
-end
-
-
-function D.destroy(T)
-D.attached[T.instance]=nil
-S.destroy(T)
-end
-end
-
-
-
-do
-
-local aa=Vector3.new(6,13,0)
-local ab=Vector3.new(0,-1,0)
-local ac,ad,ae,O=
+local ac,ad,ae,af=
 CFrame.new(ab.X-(aa.X/2),ab.Y+(aa.Y/2),ab.Z),
 CFrame.new(ab.X+(aa.X/2),ab.Y+(aa.Y/2),ab.Z),
 CFrame.new(ab.X-(aa.X/2),ab.Y-(aa.Y/2),ab.Z),
@@ -856,7 +757,7 @@ E=setmetatable({},{__index=S})
 E.__index=E
 
 function E.__tostring(T)
-return"FigureComponent - "..T.instance:GetFullName()
+return"RushComponent - "..T.instance:GetFullName()
 end
 E.attached={}
 
@@ -871,11 +772,10 @@ end
 
 function E.constructor(T,U)
 S.constructor(T,U)
-T.ragdoll=U:WaitForChild("FigureRagdoll",2.5)
-assert(T.ragdoll~=nil,"["..T:__tostring().."] is missing its ragdoll!")
-T.root=T.ragdoll:WaitForChild("Root",2.5)
-assert(T.root~=nil,"["..T:__tostring().."] is missing its root part!")
+T.root=U.PrimaryPart or U:WaitForChild("RushNew",5)
+assert(T.root,"["..T:__tostring().."] is missing a root part!")
 
+T.name=T.instance.Name=="RushMoving"and"Rush"or"Ambush"
 T.quad=Drawing.new"Quad"
 T._maid:add(function()
 T.quad:Remove()
@@ -889,23 +789,38 @@ S.onStart(T)
 
 local U=T.quad
 U.Visible=false
-U.Thickness=2
+U.Thickness=1
+U.Color=T.name=="Rush"and Options["esp.rush.rush-color"].Value
+or Options["esp.rush.ambush-color"].Value
+
+task.delay(0.5,function()
+local V=(A.attached.root.Position-T.root.Position).Magnitude
+if V<=750 then
+O(Toggles["alerts.entity"].Value,{
+message=T.name=="Rush"and"Rush spawned, hide in a Wardrobe or get behind cover!"
+or"Ambush spawned, hide in a Wardrobe or get behind cover! Ambush can return up to 4 times.",
+audio=true,
+duration=10,
+})
+else
+T:destroy()
+end
+end)
 end
 
 function E.onRender(T,U)
 local V=T.quad
-if Toggles["esp.figure.enabled"].Value then
+if Toggles["esp.rush.enabled"].Value then
 local W=T.root.CFrame
 local X=P(s,(W*ac).Position)
 local Y=P(s,(W*ad).Position)
-local Z=P(s,(W*O).Position)
+local Z=P(s,(W*af).Position)
 local _=P(s,(W*ae).Position)
 if R(X.Z,Y.Z,Z.Z,_.Z)>0 then
 V.PointA=Q(Y.X,Y.Y)
 V.PointB=Q(X.X,X.Y)
 V.PointC=Q(_.X,_.Y)
 V.PointD=Q(Z.X,Z.Y)
-V.Color=Options["esp.figure.color"].Value
 V.Visible=true
 else
 V.Visible=false
@@ -926,70 +841,156 @@ end
 
 do
 
+local aa=Vector3.new(6,13,0)
+local ab=Vector3.new(0,-1,0)
+local ac,ad,ae,af=
+CFrame.new(ab.X-(aa.X/2),ab.Y+(aa.Y/2),ab.Z),
+CFrame.new(ab.X+(aa.X/2),ab.Y+(aa.Y/2),ab.Z),
+CFrame.new(ab.X-(aa.X/2),ab.Y-(aa.Y/2),ab.Z),
+CFrame.new(ab.X+(aa.X/2),ab.Y-(aa.Y/2),ab.Z)
+local P=s.WorldToViewportPoint
+local Q=Vector2.new
+local R=math.min
+
+local S=q
+F=setmetatable({},{__index=S})
+F.__index=F
+
+function F.__tostring(T)
+return"FigureComponent - "..T.instance:GetFullName()
+end
+F.attached={}
+
+
+function F.new(T,...)
+local U=setmetatable({},F)
+U=U:constructor(T,...)or U
+U:run()
+return U
+end
+
+
+function F.constructor(T,U)
+S.constructor(T,U)
+T.ragdoll=U:WaitForChild("FigureRagdoll",2.5)
+assert(T.ragdoll~=nil,"["..T:__tostring().."] is missing its ragdoll!")
+T.root=T.ragdoll:WaitForChild("Root",2.5)
+assert(T.root~=nil,"["..T:__tostring().."] is missing its root part!")
+
+T.quad=Drawing.new"Quad"
+T._maid:add(function()
+T.quad:Remove()
+end)
+end
+
+
+function F.onStart(T)
+F.attached[T.instance]=T
+S.onStart(T)
+
+local U=T.quad
+U.Visible=false
+U.Thickness=2
+end
+
+function F.onRender(T,U)
+local V=T.quad
+if Toggles["esp.figure.enabled"].Value then
+local W=T.root.CFrame
+local X=P(s,(W*ac).Position)
+local Y=P(s,(W*ad).Position)
+local Z=P(s,(W*af).Position)
+local _=P(s,(W*ae).Position)
+if R(X.Z,Y.Z,Z.Z,_.Z)>0 then
+V.PointA=Q(Y.X,Y.Y)
+V.PointB=Q(X.X,X.Y)
+V.PointC=Q(_.X,_.Y)
+V.PointD=Q(Z.X,Z.Y)
+V.Color=Options["esp.figure.color"].Value
+V.Visible=true
+else
+V.Visible=false
+end
+else
+V.Visible=false
+end
+end
+
+
+function F.destroy(T)
+F.attached[T.instance]=nil
+S.destroy(T)
+end
+end
+
+
+
+do
+
 local aa=CFrame.new(0,0,1)
 local ab=s.WorldToViewportPoint
 local ac=Vector2.new
 local ad=math.min
 
 local ae=q
-F=setmetatable({},{__index=ae})
-F.__index=F
+G=setmetatable({},{__index=ae})
+G.__index=G
 
-function F.__tostring(O)
-return"DoorComponent - "..O.instance:GetFullName()
+function G.__tostring(af)
+return"DoorComponent - "..af.instance:GetFullName()
 end
-F.attached={}
+G.attached={}
 
 
-function F.new(O,...)
-local P=setmetatable({},F)
-P=P:constructor(O,...)or P
+function G.new(af,...)
+local P=setmetatable({},G)
+P=P:constructor(af,...)or P
 P:run()
 return P
 end
 
 
-function F.constructor(O,P,Q)
-ae.constructor(O,P)
-O.id=Q or 0
+function G.constructor(af,P,Q)
+ae.constructor(af,P)
+af.id=Q or 0
 
 local R=P.Size*0.5
 local S=P.CFrame*aa
-O.tl=(S*CFrame.new(R.X,R.Y,0)).Position
-O.tr=(S*CFrame.new(-R.X,R.Y,0)).Position
-O.bl=(S*CFrame.new(R.X,-R.Y,0)).Position
-O.br=(S*CFrame.new(-R.X,-R.Y,0)).Position
+af.tl=(S*CFrame.new(R.X,R.Y,0)).Position
+af.tr=(S*CFrame.new(-R.X,R.Y,0)).Position
+af.bl=(S*CFrame.new(R.X,-R.Y,0)).Position
+af.br=(S*CFrame.new(-R.X,-R.Y,0)).Position
 
-O.quad=Drawing.new"Quad"
-O._maid:add(function()
-O.quad:Remove()
+af.quad=Drawing.new"Quad"
+af._maid:add(function()
+af.quad:Remove()
 end)
 end
 
 
-function F.onStart(O)
-F.attached[O.instance]=O
-ae.onStart(O)
+function G.onStart(af)
+G.attached[af.instance]=af
+ae.onStart(af)
 
-local P=O.quad
+local P=af.quad
 P.Visible=false
 P.Thickness=2
 end
 
-function F.onRender(O,P)
-local Q=O.quad
+function G.onRender(af,P)
+local Q=af.quad
 if Toggles["esp.door.enabled"].Value then
-local R=ab(s,O.tl)
-local S=ab(s,O.tr)
-local T=ab(s,O.br)
-local U=ab(s,O.bl)
+local R=ab(s,af.tl)
+local S=ab(s,af.tr)
+local T=ab(s,af.br)
+local U=ab(s,af.bl)
 if ad(R.Z,S.Z,T.Z,U.Z)>0 then
 Q.PointA=ac(S.X,S.Y)
 Q.PointB=ac(R.X,R.Y)
 Q.PointC=ac(U.X,U.Y)
 Q.PointD=ac(T.X,T.Y)
 
-local V=O.id-t.LatestRoom.Value
+local V=af.id-t.LatestRoom.Value
 if V==0 then
 Q.Color=Options["esp.door.target-color"].Value
 else
@@ -1011,9 +1012,9 @@ end
 end
 
 
-function F.destroy(O)
-F.attached[O.instance]=nil
-ae.destroy(O)
+function G.destroy(af)
+G.attached[af.instance]=nil
+ae.destroy(af)
 end
 end
 
@@ -1023,7 +1024,7 @@ do
 
 local aa=Vector3.new(6.4,9.5,0)
 local ab=Vector3.new(0,0,-0.5)
-local ac,ad,ae,O=
+local ac,ad,ae,af=
 CFrame.new(ab.X-(aa.X/2),ab.Y+(aa.Y/2),ab.Z),
 CFrame.new(ab.X+(aa.X/2),ab.Y+(aa.Y/2),ab.Z),
 CFrame.new(ab.X-(aa.X/2),ab.Y-(aa.Y/2),ab.Z),
@@ -1033,24 +1034,24 @@ local Q=Vector2.new
 local R=math.min
 
 local S=q
-G=setmetatable({},{__index=S})
-G.__index=G
+H=setmetatable({},{__index=S})
+H.__index=H
 
-function G.__tostring(T)
+function H.__tostring(T)
 return"WardrobeComponent - "..T.instance:GetFullName()
 end
-G.attached={}
+H.attached={}
 
 
-function G.new(T,...)
-local U=setmetatable({},G)
+function H.new(T,...)
+local U=setmetatable({},H)
 U=U:constructor(T,...)or U
 U:run()
 return U
 end
 
 
-function G.constructor(T,U,V)
+function H.constructor(T,U,V)
 S.constructor(T,U)
 T.id=V
 T.root=U:WaitForChild("Main",5)
@@ -1063,8 +1064,8 @@ end)
 end
 
 
-function G.onStart(T)
-G.attached[T.instance]=T
+function H.onStart(T)
+H.attached[T.instance]=T
 S.onStart(T)
 
 local U=T.quad
@@ -1072,13 +1073,13 @@ U.Visible=false
 U.Thickness=2
 end
 
-function G.onRender(T,U)
+function H.onRender(T,U)
 local V=T.quad
 if Toggles["esp.wardrobe.enabled"].Value then
 local W=T.root.CFrame
 local X=P(s,(W*ac).Position)
 local Y=P(s,(W*ad).Position)
-local Z=P(s,(W*O).Position)
+local Z=P(s,(W*af).Position)
 local _=P(s,(W*ae).Position)
 if R(X.Z,Y.Z,Z.Z,_.Z)>0 then
 V.PointA=Q(Y.X,Y.Y)
@@ -1103,8 +1104,8 @@ end
 end
 
 
-function G.destroy(T)
-G.attached[T.instance]=nil
+function H.destroy(T)
+H.attached[T.instance]=nil
 S.destroy(T)
 end
 end
@@ -1118,25 +1119,25 @@ local ab=Vector2.new
 local ac=ab(0,3)
 
 local ad=q
-H=setmetatable({},{__index=ad})
-H.__index=H
+I=setmetatable({},{__index=ad})
+I.__index=I
 
-function H.__tostring(ae)
+function I.__tostring(ae)
 return"InteractableComponent - "..ae.instance:GetFullName()
 end
-H.attached={}
+I.attached={}
 
 
-function H.new(ae,O,...)
-local P=setmetatable({},H)
-P=P:constructor(ae,O,...)or P
+function I.new(ae,af,...)
+local P=setmetatable({},I)
+P=P:constructor(ae,af,...)or P
 P:run()
 return P
 end
 
 
-function H.constructor(ae,O,P)
-ad.constructor(ae,O)
+function I.constructor(ae,af,P)
+ad.constructor(ae,af)
 ae.name=P
 ae.label=Drawing.new"Text"
 ae.circle=Drawing.new"Circle"
@@ -1146,7 +1147,7 @@ ae.label:Remove()
 ae.circle:Remove()
 ae.outline:Remove()
 end)
-ae._maid:add(O.AncestryChanged:Connect(function(Q,R)
+ae._maid:add(af.AncestryChanged:Connect(function(Q,R)
 if R==nil then
 ae:destroy()
 end
@@ -1154,16 +1155,16 @@ end))
 end
 
 
-function H.onStart(ae)
-H.attached[ae.instance]=ae
+function I.onStart(ae)
+I.attached[ae.instance]=ae
 ad.onStart(ae)
 
-local O,P,Q=ae.label,ae.circle,ae.outline
-O.Text=ae.name
-O.Size=18
-O.Center=true
-O.Outline=true
-O.Visible=false
+local af,P,Q=ae.label,ae.circle,ae.outline
+af.Text=ae.name
+af.Size=18
+af.Center=true
+af.Outline=true
+af.Visible=false
 
 P.Thickness=1
 P.NumSides=6
@@ -1180,7 +1181,7 @@ Q.Visible=false
 Q.ZIndex=2
 end
 
-function H.onRender(ae,O)
+function I.onRender(ae,af)
 local P,Q,R=ae.label,ae.circle,ae.outline
 if ae:isVisualEnabled()then
 local S=aa(s,ae.instance.Position)
@@ -1206,16 +1207,16 @@ end
 end
 
 
-function H.isVisualEnabled(ae)
+function I.isVisualEnabled(ae)
 return Toggles["esp.interactable.enabled"].Value
 end
 
-function H.getColor(ae)
+function I.getColor(ae)
 return Options["esp.interactable.color"].Value
 end
 
-function H.destroy(ae)
-H.attached[ae.instance]=nil
+function I.destroy(ae)
+I.attached[ae.instance]=nil
 ad.destroy(ae)
 end
 end
@@ -1223,31 +1224,31 @@ end
 
 
 do
-local aa=H
-I=setmetatable({},{__index=aa})
-I.__index=I
+local aa=I
+J=setmetatable({},{__index=aa})
+J.__index=J
 
-function I.__tostring(ab)
+function J.__tostring(ab)
 return"ObtainableComponent - "..ab.instance:GetFullName()
 end
-I.attached={}
+J.attached={}
 
 
-function I.new(ab,ac,...)
-local ad=setmetatable({},I)
+function J.new(ab,ac,...)
+local ad=setmetatable({},J)
 ad=ad:constructor(ab,ac,...)or ad
 ad:run()
 return ad
 end
 
 
-function I.constructor(ab,ac,ad)
+function J.constructor(ab,ac,ad)
 aa.constructor(ab,ac,ad)
 end
 
 
-function I.onStart(ab)
-I.attached[ab.instance]=ab
+function J.onStart(ab)
+J.attached[ab.instance]=ab
 aa.onStart(ab)
 local ac,ad,ae=ab.label,ab.circle,ab.outline
 ad.NumSides=5
@@ -1255,16 +1256,16 @@ ae.NumSides=5
 end
 
 
-function I.isVisualEnabled(ab)
+function J.isVisualEnabled(ab)
 return Toggles["esp.obtainable.enabled"].Value
 end
 
-function I.getColor(ab)
+function J.getColor(ab)
 return Options["esp.obtainable.color"].Value
 end
 
-function I.destroy(ab)
-I.attached[ab.instance]=nil
+function J.destroy(ab)
+J.attached[ab.instance]=nil
 aa.destroy(ab)
 end
 end
@@ -1274,32 +1275,32 @@ end
 do
 
 local aa=q
-J=setmetatable({},{__index=aa})
-J.__index=J
+K=setmetatable({},{__index=aa})
+K.__index=K
 
-function J.__tostring(ab)
+function K.__tostring(ab)
 return"RoomComponent - "..ab.instance:GetFullName()
 end
-J.attached={}
+K.attached={}
 
 
-function J.new(ab,...)
-local ac=setmetatable({},J)
+function K.new(ab,...)
+local ac=setmetatable({},K)
 ac=ac:constructor(ab,...)or ac
 ac:run()
 return ac
 end
 
 
-function J.constructor(ab,ac)
+function K.constructor(ab,ac)
 aa.constructor(ab,ac)
 ab.id=tonumber(ac.Name)
 ab.assets=ac:WaitForChild("Assets",5)
 end
 
 
-function J.onStart(ab)
-J.attached[ab.instance]=ab
+function K.onStart(ab)
+K.attached[ab.instance]=ab
 aa.onStart(ab)
 
 
@@ -1308,7 +1309,7 @@ task.defer(ab.onFigure,ab)
 end
 local ac=ab.instance:WaitForChild("RoomExit",5)
 if ac then
-F.new(ac,ab.id)
+G.new(ac,ab.id)
 end
 
 
@@ -1323,61 +1324,61 @@ end
 end
 end
 
-function J.onDescendant(ab,ac)
+function K.onDescendant(ab,ac)
 local ad=ac.Parent
 local ae=ad.Name
-local O=ac.Name
-if O=="Main"then
+local af=ac.Name
+if af=="Main"then
 if ae=="LeverForGate"then
-H.new(ac,"Lever")
+I.new(ac,"Lever")
 elseif ae=="Lighter"then
-I.new(ac,"Lighter")
+J.new(ac,"Lighter")
 elseif ae=="Vitamins"then
-I.new(ac,"Vitamins")
+J.new(ac,"Vitamins")
 elseif ae=="Lockpick"then
-I.new(ac,"Lockpicks")
+J.new(ac,"Lockpicks")
 elseif ae=="Bandage"then
-I.new(ac,"Bandages")
+J.new(ac,"Bandages")
 elseif ae=="Battery"then
-I.new(ac,"Batteries")
+J.new(ac,"Batteries")
 end
-elseif O=="Base"then
+elseif af=="Base"then
 if ae=="LiveHintBook"then
-I.new(ac,"Book")
+J.new(ac,"Book")
 elseif ae=="LiveBreakerPolePickup"then
-I.new(ac,"Fuse")
+J.new(ac,"Fuse")
 end
-elseif O=="Holder"then
+elseif af=="Holder"then
 if ae=="CrucifixWall"then
-I.new(ac,"Crucifix")
+J.new(ac,"Crucifix")
 end
-elseif O=="Lock"then
+elseif af=="Lock"then
 if ae=="Door"then
-H.new(ac,"Lock")
+I.new(ac,"Lock")
 end
 elseif ae=="KeyObtain"then
-if O=="Hitbox"then
-I.new(ac,"Key")
+if af=="Hitbox"then
+J.new(ac,"Key")
 end
-elseif O=="Wardrobe"then
-G.new(ac,ab.id)
-elseif O=="Toolshed"then
-G.new(ac,ab.id)
-elseif O=="Hitbox"then
+elseif af=="Wardrobe"then
+H.new(ac,ab.id)
+elseif af=="Toolshed"then
+H.new(ac,ab.id)
+elseif af=="Hitbox"then
 if ae=="GoldPile"then
 
 end
 end
 end
 
-function J.onFigure(ab)
+function K.onFigure(ab)
 local ac=ab.instance:WaitForChild("FigureSetup",5)
-E.new(ac)
+F.new(ac)
 end
 
 
-function J.destroy(ab)
-J.attached[ab.instance]=nil
+function K.destroy(ab)
+K.attached[ab.instance]=nil
 aa.destroy(ab)
 end
 end
@@ -1435,9 +1436,12 @@ NoUI=true,
 Mode="Toggle",
 })
 ac:AddToggle("gameplay.breaker.enabled",{
-Text="Electrical Breaker",
 Default=false,
 Tooltip="Notifies you of Electrical Breaker code when it generates.",
+}):AddKeyPicker("gameplay.breaker.keybind",{
+Default="B",
+NoUI=true,
+Mode="Toggle",
 })
 end
 
@@ -1628,7 +1632,7 @@ f:GetPropertyChangedSignal"CurrentCamera":Connect(aa)
 
 local ab=function(ab)
 if ab.Name=="Screech"then
-C.new(ab)
+D.new(ab)
 end
 end
 s.ChildAdded:Connect(ab)
@@ -1636,9 +1640,9 @@ s.ChildAdded:Connect(ab)
 local ac=function(ac)
 local ad=ac.Name
 if ad=="RushMoving"or ac.Name=="AmbushMoving"then
-D.new(ac)
+E.new(ac)
 elseif ad=="Eyes"then
-N(Toggles["alerts.entity"].Value,{
+O(Toggles["alerts.entity"].Value,{
 message="Eyes spawned, look away from it!",
 audio=true,
 duration=5,
@@ -1648,17 +1652,17 @@ end
 f.ChildAdded:Connect(ac)
 
 local ad=function(ad)
-J.new(ad)
+K.new(ad)
 end
 f.CurrentRooms.ChildAdded:Connect(ad)
-for ae,O in ipairs(f.CurrentRooms:GetChildren())do
-ad(O)
+for ae,af in ipairs(f.CurrentRooms:GetChildren())do
+ad(af)
 end
 
 
 
 local P=function()
-N(Toggles["alerts.entity"].Value,{
+O(Toggles["alerts.entity"].Value,{
 message="Screech spawned, turn around and look at it!",
 audio=true,
 duration=5,
@@ -1676,26 +1680,26 @@ u.PadlockHint.OnClientEvent:Connect(Q)
 
 
 local R=function(R)
-for S,T in ipairs(K)do
+for S,T in ipairs(L)do
 for U,V in pairs(T.attached)do
 V:onTick(R)
 end
 end
 end
 local S=function(S)
-for T,U in ipairs(L)do
+for T,U in ipairs(M)do
 for V,W in pairs(U.attached)do
 W:onRender(S)
 end
 end
 end
 local T=function(T,U)
-for V,W in ipairs(M)do
+for V,W in ipairs(N)do
 for X,Y in pairs(W.attached)do
 Y:onPhysics(T,U)
 end
 end
-local X=z.attached
+local X=A.attached
 if X then
 X:onPhysics(T,U)
 end
@@ -1714,7 +1718,7 @@ for V =1,5 do
 local W=w[x[V] ]
 U=U..(W~=nil and W or"_")
 end
-N(Toggles["gameplay.parser.enabled"].Value,{
+O(Toggles["gameplay.parser.enabled"].Value,{
 message="[Code Parser]: "..U,
 audio=false,
 duration=7.5,
@@ -1722,54 +1726,75 @@ duration=7.5,
 end
 end)
 
+Options["gameplay.breaker.keybind"]:OnClick(function()
+local U=""
+for V =1,#y do
+local W,X=unpack(y[V])
+if X then
+U=U..tostring(W).." "
+end
+end
+O(Toggles["gameplay.breaker.enabled"].Value,{
+message="[Breaker Code]: "..U,
+audio=false,
+duration=7.5,
+})
+end)
 
 
 
 
 
 
-do
+
+task.defer(function()
 local U
+repeat
+task.wait(0.5)
 for V,W in pairs(getconnections(u.EngageMinigame.OnClientEvent))do
 local X=W.Function
 if X then
 local Y=getfenv(X).script
 if Y.Name=="MinigameHandler"then
-U=debug.getupvalue(X,1)
+local Z=debug.getupvalue(X,1)
+if type(Z)=="function"then
+U=Z
 end
 end
 end
-local X=debug.getupvalue(U,7)
-debug.setupvalue(U,7,function(Y,...)
-local Z=X(Y,...)
-if Toggles["gameplay.breaker.enabled"].Value then
-task.delay(0.1,function()
-local _={}
-local af={}
-for ag =1,#Y do
-local ah,ai=unpack(Y[ag])
-_[ah]=ai
-if ai then
-table.insert(af,ah)
+if V%2000==0 then
+task.wait()
 end
 end
+until U~=nil
 
+local V
+repeat
+V=debug.getupvalue(U,7)
+until V~=nil
+
+debug.setupvalue(U,7,function(W,...)
+local X=V(W,...)
+y=W
+task.delay(0.1,function()
 syn.set_thread_identity(7)
-local ag=""
-for ah,ai in ipairs(af)do
-ag=ag..tostring(ah).." "
+local Y=""
+for Z =1,#y do
+local _,ag=unpack(y[Z])
+if ag then
+Y=Y..tostring(_).." "
 end
-N(true,{
-message="[Breaker Code]: "..ag,
+end
+O(Toggles["gameplay.breaker.enabled"].Value,{
+message="[Breaker Code]: "..Y,
 audio=false,
 duration=7.5,
 })
 syn.set_thread_identity(2)
 end)
-end
-return Z
+return X
 end)
-end
+end)
 
 
 
@@ -1777,13 +1802,13 @@ end
 
 
 
-table.insert(L,A)
-table.insert(L,C)
-table.insert(L,D)
-table.insert(L,E)
-table.insert(L,F)
-table.insert(L,G)
-table.insert(L,H)
+table.insert(M,B)
+table.insert(M,D)
+table.insert(M,E)
+table.insert(M,F)
+table.insert(M,G)
+table.insert(M,H)
+table.insert(M,I)
 
 v.Name="Main"
 v.SoundId="rbxassetid://6026984224"
@@ -1791,13 +1816,13 @@ v.Volume=6
 v.Parent=e
 
 do
-local af=game.PlaceId
-local ag=game.PlaceVersion
-local ah=k[af]
-if ag>ah then
+local ag=game.PlaceId
+local U=game.PlaceVersion
+local V=k[ag]
+if U>V then
 m:Notify"Game has been updated! Please be careful when using this script."
 m:Notify"The place ID and Version has been copied to your clipboard."
-setclipboard("["..tostring(af).."] = "..tostring(ag)..",")
+setclipboard("["..tostring(ag).."] = "..tostring(U)..",")
 end
 end
 
