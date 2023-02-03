@@ -1596,6 +1596,7 @@ if W=="Instance"then
 if T(V,"RemoteEvent")and X=="FireServer"then
 if V==v.A90 then
 if U.Value then
+print"Hooked?"
 return R(V,false)
 end
 end
