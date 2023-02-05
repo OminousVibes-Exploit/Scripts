@@ -2,7 +2,7 @@ local a=game:GetService'ContextActionService'local b=game:GetService'Players'
 local c=game:GetService'ReplicatedStorage'local d=game:GetService'RunService'
 local e=game:GetService'SoundService'local f=game:GetService'Workspace'local g=
 game:GetService'VirtualInputManager'local h='Doors'local i='Rooms v5.3'local j=
-'TerminalVibes/doors'local k='rooms'local l={[6839171747]=5902}do local m=game.
+'TerminalVibes/doors'local k='rooms'local l={[6839171747]=5924}do local m=game.
 PlaceId local n=game.PlaceVersion local o=l[m]if not o then warn
 'Script does not support this place instance.'warn
 [[The PlaceID and version has been set to your clipboard. Please report this to the developer.]]
@@ -250,15 +250,15 @@ af)ad.constructor(ae,af)ae.id=tonumber(af.Name)ae.assets=af:WaitForChild(
 local af=ae.instance:WaitForChild('RoomExit',5)if af then E.new(af,ae.id)end ae.
 _maid:add(ae.instance.DescendantAdded:Connect(function(ag)ae:onDescendant(ag)end
 ))for ag,O in ipairs(ae.instance:GetDescendants())do task.defer(ae.onDescendant,
-O)end end function J.onDescendant(ae,af)local ag=af.Parent local O=ag.Name local
-P=af.Name if P=='Main'then if O=='LeverForGate'then G.new(af,'Lever')elseif O==
-'Lighter'then H.new(af,'Lighter')elseif O=='Vitamins'then H.new(af,'Vitamins')
-elseif O=='Lockpick'then H.new(af,'Lockpicks')elseif O=='Bandage'then H.new(af,
-'Bandages')elseif O=='Battery'then H.new(af,'Batteries')end elseif P=='Holder'
-then if O=='CrucifixWall'then H.new(af,'Crucifix')end elseif P=='Rooms_Locker'or
-P=='Rooms_Locker_Fridge'then F.new(af,ae.id)elseif P=='Hitbox'then if O==
-'GoldPile'then I.new(af)end end local Q=z.attached do if P=='Hitbox'and O==
-'GoldPile'then local R=ag:WaitForChild'LootPrompt'local S=R:GetAttribute
+ae,O)end end function J.onDescendant(ae,af)local ag=af.Parent local O=ag.Name
+local P=af.Name if P=='Main'then if O=='LeverForGate'then G.new(af,'Lever')
+elseif O=='Lighter'then H.new(af,'Lighter')elseif O=='Vitamins'then H.new(af,
+'Vitamins')elseif O=='Lockpick'then H.new(af,'Lockpicks')elseif O=='Bandage'then
+H.new(af,'Bandages')elseif O=='Battery'then H.new(af,'Batteries')end elseif P==
+'Holder'then if O=='CrucifixWall'then H.new(af,'Crucifix')end elseif P==
+'Rooms_Locker'or P=='Rooms_Locker_Fridge'then F.new(af,ae.id)elseif P=='Hitbox'
+then if O=='GoldPile'then I.new(af)end end local Q=z.attached do if P=='Hitbox'
+and O=='GoldPile'then local R=ag:WaitForChild'LootPrompt'local S=R:GetAttribute
 'Interactions'local T=R.MaxActivationDistance+3 while ae.running and S==nil do
 if ac()then local U=(af.Position-Q.root.Position).Magnitude if U<=T then
 fireproximityprompt(R)task.wait(0.1)end end S=R:GetAttribute'Interactions'task.
