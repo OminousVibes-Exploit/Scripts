@@ -293,28 +293,29 @@ af)ad.constructor(ae,af)ae.id=tonumber(af.Name)ae.assets=af:WaitForChild(
 ae.id==50 or ae.id==100 then task.defer(ae.onFigure,ae)end local af=ae.instance:
 WaitForChild('RoomExit',5)if af then K.new(af,ae.id)end ae._maid:add(ae.instance
 .DescendantAdded:Connect(function(ag)ae:onDescendant(ag)end))for ag,ah in
-ipairs(ae.instance:GetDescendants())do ae:onDescendant(ah)end end function P.
-onDescendant(ae,af)local ag=af.Parent local ah=ag.Name local ai=af.Name if ai==
-'Main'then if ah=='LeverForGate'then M.new(af,'Lever')elseif ah=='Lighter'then N
-.new(af,'Lighter')elseif ah=='Vitamins'then N.new(af,'Vitamins')elseif ah==
-'Lockpick'then N.new(af,'Lockpicks')elseif ah=='Bandage'then N.new(af,'Bandages'
-)elseif ah=='Battery'then N.new(af,'Batteries')elseif ah=='CrucifixWall'then N.
-new(af,'Crucifix')elseif ah=='ChestBox'then M.new(af,'Chest')elseif ah==
-'ChestBoxLocked'then M.new(af,'Chest [Locked]')end elseif ai=='Handle'then if ah
-=='Candle'then N.new(af,'Candle')end elseif ai=='Base'then if ah=='LiveHintBook'
-then N.new(af,'Book')elseif ah=='LiveBreakerPolePickup'then N.new(af,'Fuse')
-elseif ah=='Snare'then J.new(ag)end elseif ai=='Lock'then if ah=='Door'then M.
-new(af,'Lock')end elseif ah=='KeyObtain'then if ai=='Hitbox'then N.new(af,'Key')
-end elseif ai=='Wardrobe'then L.new(af,ae.id)elseif ai=='Toolshed'then L.new(af,
-ae.id)elseif ai=='Hitbox'then if ah=='GoldPile'then O.new(af)end end local aj=D.
-attached do local ak=ai=='DrawerContainer'local al=ai=='ChestBox'local am=ai==
-'RolltopContainer'if ak or al or am then local U=af:WaitForChild('Main',2)local
-V if ak then V=af:WaitForChild('Knobs',2):WaitForChild('ActivateEventPrompt',2)
-else V=af:WaitForChild('ActivateEventPrompt',2)end local W=V.
-MaxActivationDistance+3 local X=V:GetAttribute'Interactions'while ae.running and
-X==nil do if ac()then local Y=(U.Position-aj.root.Position).Magnitude if Y<=W
-then fireproximityprompt(V)task.wait(0.1)end end X=V:GetAttribute'Interactions'
-task.wait()end end if ai=='Hitbox'and ah=='GoldPile'then local U=ag:WaitForChild
+ipairs(ae.instance:GetDescendants())do task.defer(ae.onDescendant,ah)end end
+function P.onDescendant(ae,af)local ag=af.Parent local ah=ag.Name local ai=af.
+Name if ai=='Main'then if ah=='LeverForGate'then M.new(af,'Lever')elseif ah==
+'Lighter'then N.new(af,'Lighter')elseif ah=='Vitamins'then N.new(af,'Vitamins')
+elseif ah=='Lockpick'then N.new(af,'Lockpicks')elseif ah=='Bandage'then N.new(af
+,'Bandages')elseif ah=='Battery'then N.new(af,'Batteries')elseif ah==
+'CrucifixWall'then N.new(af,'Crucifix')elseif ah=='ChestBox'then M.new(af,
+'Chest')elseif ah=='ChestBoxLocked'then M.new(af,'Chest [Locked]')end elseif ai
+=='Handle'then if ah=='Candle'then N.new(af,'Candle')end elseif ai=='Base'then
+if ah=='LiveHintBook'then N.new(af,'Book')elseif ah=='LiveBreakerPolePickup'then
+N.new(af,'Fuse')elseif ah=='Snare'then J.new(ag)end elseif ai=='Lock'then if ah
+=='Door'then M.new(af,'Lock')end elseif ah=='KeyObtain'then if ai=='Hitbox'then
+N.new(af,'Key')end elseif ai=='Wardrobe'then L.new(af,ae.id)elseif ai==
+'Toolshed'then L.new(af,ae.id)elseif ai=='Hitbox'then if ah=='GoldPile'then O.
+new(af)end end local aj=D.attached do local ak=ai=='DrawerContainer'local al=ai
+=='ChestBox'local am=ai=='RolltopContainer'if ak or al or am then local U=af:
+WaitForChild('Main',4)local V if ak then V=af:WaitForChild('Knobs',2):
+WaitForChild('ActivateEventPrompt',2)else V=af:WaitForChild(
+'ActivateEventPrompt',2)end if U and V then local W=V.MaxActivationDistance+3
+local X=V:GetAttribute'Interactions'while ae.running and X==nil do if ac()then
+local Y=(U.Position-aj.root.Position).Magnitude if Y<=W then
+fireproximityprompt(V)task.wait(0.1)end end X=V:GetAttribute'Interactions'task.
+wait()end end end if ai=='Hitbox'and ah=='GoldPile'then local U=ag:WaitForChild
 'LootPrompt'local V=U:GetAttribute'Interactions'local W=U.MaxActivationDistance+
 3 while ae.running and V==nil do if ac()then local X=(af.Position-aj.root.
 Position).Magnitude if X<=W then fireproximityprompt(U)task.wait(0.1)end end V=U
