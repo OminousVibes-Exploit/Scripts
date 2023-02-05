@@ -249,24 +249,24 @@ af)ad.constructor(ae,af)ae.id=tonumber(af.Name)ae.assets=af:WaitForChild(
 'Assets',5)end function J.onStart(ae)J.attached[ae.instance]=ae ad.onStart(ae)
 local af=ae.instance:WaitForChild('RoomExit',5)if af then E.new(af,ae.id)end ae.
 _maid:add(ae.instance.DescendantAdded:Connect(function(ag)ae:onDescendant(ag)end
-))for ag,O in ipairs(ae.instance:GetDescendants())do ae:onDescendant(O)end end
-function J.onDescendant(ae,af)local ag=af.Parent local O=ag.Name local P=af.Name
-if P=='Main'then if O=='LeverForGate'then G.new(af,'Lever')elseif O=='Lighter'
-then H.new(af,'Lighter')elseif O=='Vitamins'then H.new(af,'Vitamins')elseif O==
-'Lockpick'then H.new(af,'Lockpicks')elseif O=='Bandage'then H.new(af,'Bandages')
-elseif O=='Battery'then H.new(af,'Batteries')end elseif P=='Holder'then if O==
-'CrucifixWall'then H.new(af,'Crucifix')end elseif P=='Rooms_Locker'or P==
-'Rooms_Locker_Fridge'then F.new(af,ae.id)elseif P=='Hitbox'then if O=='GoldPile'
-then I.new(af)end end local Q=z.attached do if P=='Hitbox'and O=='GoldPile'then
-local R=ag:WaitForChild'LootPrompt'local S=R:GetAttribute'Interactions'local T=R
-.MaxActivationDistance+3 while ae.running and S==nil do if ac()then local U=(af.
-Position-Q.root.Position).Magnitude if U<=T then fireproximityprompt(R)task.
-wait(0.1)end end S=R:GetAttribute'Interactions'task.wait()end end end end
-function J.destroy(ae)J.attached[ae.instance]=nil ad.destroy(ae)end end n:
-SetWatermark'Linoria Community (TerminalVibes)'n:Notify'Loading UI...'do local
-ac=n:CreateWindow(h..' ('..i..')')do local ad=ac:AddTab'Gameplay'do local ae=ad:
-AddLeftGroupbox'Character Mods'ae:AddToggle('character.sprint.enabled',{Text=
-'Sprint Enabled',Default=false,Tooltip=
+))for ag,O in ipairs(ae.instance:GetDescendants())do task.defer(ae.onDescendant,
+O)end end function J.onDescendant(ae,af)local ag=af.Parent local O=ag.Name local
+P=af.Name if P=='Main'then if O=='LeverForGate'then G.new(af,'Lever')elseif O==
+'Lighter'then H.new(af,'Lighter')elseif O=='Vitamins'then H.new(af,'Vitamins')
+elseif O=='Lockpick'then H.new(af,'Lockpicks')elseif O=='Bandage'then H.new(af,
+'Bandages')elseif O=='Battery'then H.new(af,'Batteries')end elseif P=='Holder'
+then if O=='CrucifixWall'then H.new(af,'Crucifix')end elseif P=='Rooms_Locker'or
+P=='Rooms_Locker_Fridge'then F.new(af,ae.id)elseif P=='Hitbox'then if O==
+'GoldPile'then I.new(af)end end local Q=z.attached do if P=='Hitbox'and O==
+'GoldPile'then local R=ag:WaitForChild'LootPrompt'local S=R:GetAttribute
+'Interactions'local T=R.MaxActivationDistance+3 while ae.running and S==nil do
+if ac()then local U=(af.Position-Q.root.Position).Magnitude if U<=T then
+fireproximityprompt(R)task.wait(0.1)end end S=R:GetAttribute'Interactions'task.
+wait()end end end end function J.destroy(ae)J.attached[ae.instance]=nil ad.
+destroy(ae)end end n:SetWatermark'Linoria Community (TerminalVibes)'n:Notify
+'Loading UI...'do local ac=n:CreateWindow(h..' ('..i..')')do local ad=ac:AddTab
+'Gameplay'do local ae=ad:AddLeftGroupbox'Character Mods'ae:AddToggle(
+'character.sprint.enabled',{Text='Sprint Enabled',Default=false,Tooltip=
 'Enables Sprinting by pressing the Keybind'}):AddKeyPicker(
 'character.sprint.keybind',{Text='Sprint',Default='LeftShift'})ae:AddSlider(
 'character.sprint.speed',{Text='Sprint Boost (in seconds)',Min=0,Max=7.5,Default
