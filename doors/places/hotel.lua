@@ -2,7 +2,7 @@ local a=game:GetService'Players'local b=game:GetService'ReplicatedStorage'local
 c=game:GetService'RunService'local d=game:GetService'SoundService'local e=game:
 GetService'Workspace'local f=game:GetService'VirtualInputManager'local g='Doors'
 local h='Hotel v5.3'local i='TerminalVibes/doors'local j='hotel'local k={[
-6839171747]=5902}do local l=game.PlaceId local m=game.PlaceVersion local n=k[l]
+6839171747]=5924}do local l=game.PlaceId local m=game.PlaceVersion local n=k[l]
 if not n then warn'Script does not support this place instance.'warn
 [[The PlaceID and version has been set to your clipboard. Please report this to the developer.]]
 return setclipboard('['..tostring(l)..'] = '..tostring(m)..',')end end do local
@@ -293,7 +293,7 @@ af)ad.constructor(ae,af)ae.id=tonumber(af.Name)ae.assets=af:WaitForChild(
 ae.id==50 or ae.id==100 then task.defer(ae.onFigure,ae)end local af=ae.instance:
 WaitForChild('RoomExit',5)if af then K.new(af,ae.id)end ae._maid:add(ae.instance
 .DescendantAdded:Connect(function(ag)ae:onDescendant(ag)end))for ag,ah in
-ipairs(ae.instance:GetDescendants())do task.defer(ae.onDescendant,ah)end end
+ipairs(ae.instance:GetDescendants())do task.defer(ae.onDescendant,ae,ah)end end
 function P.onDescendant(ae,af)local ag=af.Parent local ah=ag.Name local ai=af.
 Name if ai=='Main'then if ah=='LeverForGate'then M.new(af,'Lever')elseif ah==
 'Lighter'then N.new(af,'Lighter')elseif ah=='Vitamins'then N.new(af,'Vitamins')
