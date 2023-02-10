@@ -53,12 +53,12 @@ function()U:destroy()Q[Y]=nil end)end local ab=function(ab,ac)if ab and Toggles[
 'alerts.enabled'].Value then local ad={message=ac.message or'',audio=ac.audio or
 false,duration=ac.duration or 5}if Toggles['alerts.drawing'].Value then aa(ad.
 message,ad.duration)else q:Notify(ad.message,ad.duration)end if ad.audio and
-Toggles['alerts.audio'].Value then z.TimePosition=0.25 z:Play()end end end do
-local ac=u B=setmetatable({},{__index=ac})B.__index=B function B.__tostring(ad)
-return'CharacterComponent - '..ad.instance:GetFullName()end B.attached={}
-function B.new(ad,...)local ae=setmetatable({},B)ae=ae:constructor(ad,...)or ae
-ae:run()return ae end function B.constructor(ad,ae)ac.constructor(ad,ae)ad.
-client=E.attached[d:GetPlayerFromCharacter(ae)]ad.root=ae:WaitForChild(
+Toggles['alerts.audio.enabled'].Value then z.TimePosition=0.25 z:Play()end end
+end do local ac=u B=setmetatable({},{__index=ac})B.__index=B function B.
+__tostring(ad)return'CharacterComponent - '..ad.instance:GetFullName()end B.
+attached={}function B.new(ad,...)local ae=setmetatable({},B)ae=ae:constructor(ad
+,...)or ae ae:run()return ae end function B.constructor(ad,ae)ac.constructor(ad,
+ae)ad.client=E.attached[d:GetPlayerFromCharacter(ae)]ad.root=ae:WaitForChild(
 'HumanoidRootPart',5)ad.humanoid=ae:WaitForChild('Humanoid',5)assert(ad.client~=
 nil,'['..ad:__tostring().."] is not a client's character")assert(ad.root~=nil,
 '['..ad:__tostring()..'] is missing a HumanoidRootPart')assert(ad.humanoid~=nil,
@@ -384,11 +384,14 @@ Default=0,Rounding=0,Suffix=''})end do local ah=ae:AddLeftGroupbox
 AddToggle('alerts.enabled',{Text='Alerts Enabled',Default=true,Tooltip=
 'Master toggle for all script alerts.'})ai:AddToggle('alerts.drawing',{Text=
 'Use Drawing API',Default=true,Tooltip=
-'Enables the drawing API for script alerts.'})ai:AddToggle('alerts.audio',{Text=
-'Enable Sound',Default=true,Tooltip=
-'Plays a sound when an important alert is triggered.'})local aj=ah:AddTab
-'Advanced'aj:AddToggle('alerts.debug',{Text='Debug Alerts',Default=false,Tooltip
-='Enabled alerts related to script status.'})aj:AddToggle('alerts.entity',{Text=
+'Enables the drawing API for script alerts.'})ai:AddToggle(
+'alerts.audio.enabled',{Text='Enable Sound',Default=true,Tooltip=
+'Plays a sound when an important alert is triggered.'})ai:AddSlider(
+'alerts.audio.volume',{Text='Alert Volume',Min=1,Max=10,Default=6,Rounding=0,
+Suffix=''})ai:AddButton{Text='Test Alert',Func=function()ab(true,{message=
+'This is a test alert!',duration=4,audio=true})end}local aj=ah:AddTab'Advanced'
+aj:AddToggle('alerts.debug',{Text='Debug Alerts',Default=false,Tooltip=
+'Enabled alerts related to script status.'})aj:AddToggle('alerts.entity',{Text=
 'Entity Alerts',Default=true,Tooltip='Enabled alerts about entities spawning.'})
 end end do local ae=ad:AddTab'Blatant'do local ah=ae:AddLeftGroupbox
 'Pathfinder (Beta)'ah:AddToggle('pathfinder.enabled',{Text='Enabled',Default=
@@ -473,21 +476,22 @@ in ipairs(O)do for R,S in pairs(al.attached)do S:onRender(aj)end end end local
 ak=function(ak,al)for R,S in ipairs(P)do for T,U in pairs(S.attached)do U:
 onPhysics(ak,al)end end local T=C.attached if T then T:onPhysics(ak,al)end end A
 :add(f.Heartbeat:Connect(ai))A:add(f.RenderStepped:Connect(aj))A:add(f.Stepped:
-Connect(ak))Toggles['pathfinder.enabled']:OnChanged(function()if Toggles[
-'pathfinder.enabled'].Value then local al=h.CurrentRooms:FindFirstChild(
-tostring(x.LatestRoom.Value+1))if al then ac.new(al)end else for al,R in pairs(
-ac.attached)do R:destroy()end end end)Toggles['blatant.a90.remove']:OnChanged(
-function()local al={}for R,S in ipairs(getconnections(y.A90.OnClientEvent))do
-local T=S.Function if T then local U=getfenv(T).script if U and U.Name==
-'RemoteListener'then table.insert(al,S)end end end if Toggles[
+Connect(ak))Options['alerts.audio.volume']:OnChanged(function()z.Volume=Options[
+'alerts.audio.volume'].Value end)Toggles['pathfinder.enabled']:OnChanged(
+function()if Toggles['pathfinder.enabled'].Value then local al=h.CurrentRooms:
+FindFirstChild(tostring(x.LatestRoom.Value+1))if al then ac.new(al)end else for
+al,R in pairs(ac.attached)do R:destroy()end end end)Toggles['blatant.a90.remove'
+]:OnChanged(function()local al={}for R,S in ipairs(getconnections(y.A90.
+OnClientEvent))do local T=S.Function if T then local U=getfenv(T).script if U
+and U.Name=='RemoteListener'then table.insert(al,S)end end end if Toggles[
 'blatant.a90.remove'].Value then for T,U in ipairs(al)do U:Disable()end else for
 T,U in ipairs(al)do U:Enable()end end end)q:OnUnload(function()A:destroy()
 getgenv()[m..k]=nil local al={D,E,F,G,H,I,J,K,M}for R,S in ipairs(al)do for T,U
 in pairs(S.attached)do U:destroy()end end if C.attached then C.attached:destroy(
 )end end)table.insert(O,D)table.insert(O,F)table.insert(O,G)table.insert(O,H)
 table.insert(O,I)table.insert(O,J)table.insert(P,ac)z.Name='Main'z.SoundId=
-'rbxassetid://6026984224'z.Volume=6 z.Parent=g do local al=game.PlaceId local R=
-game.PlaceVersion local S=n[al]if R>S then q:Notify
+'rbxassetid://6026984224'z.Parent=g do local al=game.PlaceId local R=game.
+PlaceVersion local S=n[al]if R>S then q:Notify
 [[Game has been updated! Please be careful when using this script.]]q:Notify
 'The place ID and Version has been copied to your clipboard.'setclipboard('['..
 tostring(al)..'] = '..tostring(R)..',')end end return q:Notify('['..j..
