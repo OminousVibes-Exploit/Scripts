@@ -60,7 +60,7 @@ Visible=true end))task.delay(_,function()ab:destroy()Y[af]=nil end)end local ab=
 function(ab,ac)if ab and Toggles['alerts.enabled'].Value then local ad={message=
 ac.message or'',audio=ac.audio or false,duration=ac.duration or 5}if Toggles[
 'alerts.drawing'].Value then aa(ad.message,ad.duration)else r:Notify(ad.message,
-ad.duration)end if ad.audio and Toggles['alerts.audio'].Value then B.
+ad.duration)end if ad.audio and Toggles['alerts.audio.enabled'].Value then B.
 TimePosition=0.25 B:Play()end end end local ac=function(ac)local ad={}for ae,af
 in ipairs(getconnections(A.Screech.OnClientEvent))do local ag=af.Function if ag
 then local ah=getfenv(ag).script if ah and ah.Name=='RemoteListener'then table.
@@ -366,11 +366,14 @@ end do local ag=af:AddRightTabbox'Alerts'local aj=ag:AddTab'Alerts'aj:AddToggle(
 'alerts.enabled',{Text='Alerts Enabled',Default=true,Tooltip=
 'Master toggle for all script alerts.'})aj:AddToggle('alerts.drawing',{Text=
 'Use Drawing API',Default=true,Tooltip=
-'Enables the drawing API for script alerts.'})aj:AddToggle('alerts.audio',{Text=
-'Enable Sound',Default=true,Tooltip=
-'Plays a sound when an important alert is triggered.'})local ak=ag:AddTab
-'Advanced'ak:AddToggle('alerts.debug',{Text='Debug Alerts',Default=false,Tooltip
-='Enabled alerts related to script status.'})ak:AddToggle('alerts.entity',{Text=
+'Enables the drawing API for script alerts.'})aj:AddToggle(
+'alerts.audio.enabled',{Text='Enable Sound',Default=true,Tooltip=
+'Plays a sound when an important alert is triggered.'})aj:AddSlider(
+'alerts.audio.volume',{Text='Alert Volume',Min=1,Max=10,Default=6,Rounding=0,
+Suffix=''})aj:AddButton{Text='Test Alert',Func=function()ab(true,{message=
+'This is a test alert!',duration=4,audio=true})end}local ak=ag:AddTab'Advanced'
+ak:AddToggle('alerts.debug',{Text='Debug Alerts',Default=false,Tooltip=
+'Enabled alerts related to script status.'})ak:AddToggle('alerts.entity',{Text=
 'Entity Alerts',Default=true,Tooltip='Enabled alerts about entities spawning.'})
 end end do local af=ae:AddTab'Blatant'do local ag=af:AddRightGroupbox'Auto Loot'
 ag:AddToggle('auto-loot.enabled',{Text='Enabled',Default=false,Tooltip=
@@ -479,29 +482,31 @@ ab(Toggles['gameplay.parser.enabled'].Value,{message='[Code Parser]: '..ap,audio
 =false,duration=7.5})end end)Options['gameplay.breaker.keybind']:OnClick(
 function()local ap=''for aq=1,#E do local ar,as=unpack(E[aq])if as then ap=ap..
 tostring(ar)..' 'end end ab(Toggles['gameplay.breaker.enabled'].Value,{message=
-'[Breaker Code]: '..ap,audio=false,duration=7.5})end)Toggles[
-'blatant.screech.remove']:OnChanged(function()ac(Toggles[
-'blatant.screech.remove'].Value)end)Toggles['blatant.timothy.remove']:OnChanged(
-function()ad(Toggles['blatant.timothy.remove'].Value)end)r:OnUnload(function()F:
-destroy()getgenv()[k..i]=nil local ap={J,K,L,M,N,O,P,Q,R,S,U}for aq,ar in
-ipairs(ap)do for as,at in pairs(ar.attached)do at:destroy()end end if I.attached
-then I.attached:destroy()end end)task.defer(function()local ap repeat task.wait(
-0.5)for aq,ar in pairs(getconnections(A.EngageMinigame.OnClientEvent))do local
-as=ar.Function if as then local at=getfenv(as).script if at.Name==
-'MinigameHandler'then local au=debug.getupvalue(as,1)if type(au)=='function'then
-ap=au end end end if aq%2000==0 then task.wait()end end until ap~=nil local aq
-repeat task.wait()aq=debug.getupvalue(ap,7)until aq~=nil local ar=(syn and syn.
-set_thread_identity)or setidentity debug.setupvalue(ap,7,function(as,...)local
-at=aq(as,...)E=as task.delay(0.1,function()ar(7)local au=''for av=1,#E do local
-Z,_=unpack(E[av])ab(true,{message=tostring(Z)..' = '..tostring(_)})if _ then au=
-au..tostring(Z)..' 'end end ab(Toggles['gameplay.breaker.enabled'].Value,{
-message='[Breaker Code]: '..au,audio=false,duration=7.5})ar(2)end)return at end)
-F:add(function()debug.setupvalue(ap,7,aq)end)end)table.insert(W,J)table.insert(W
-,L)table.insert(W,M)table.insert(W,N)table.insert(W,O)table.insert(W,P)table.
-insert(W,Q)table.insert(W,R)B.Name='Main'B.SoundId='rbxassetid://6026984224'B.
-Volume=6 B.Parent=e task.delay(10,function()ac(Toggles['blatant.screech.remove']
-.Value)ad(Toggles['blatant.timothy.remove'].Value)end)do local ap=game.PlaceId
-local aq=game.PlaceVersion local ar=l[ap]if aq>ar then r:Notify
+'[Breaker Code]: '..ap,audio=false,duration=7.5})end)Options[
+'alerts.audio.volume']:OnChanged(function()B.Volume=Options[
+'alerts.audio.volume'].Value end)Toggles['blatant.screech.remove']:OnChanged(
+function()ac(Toggles['blatant.screech.remove'].Value)end)Toggles[
+'blatant.timothy.remove']:OnChanged(function()ad(Toggles[
+'blatant.timothy.remove'].Value)end)r:OnUnload(function()F:destroy()getgenv()[k
+..i]=nil local ap={J,K,L,M,N,O,P,Q,R,S,U}for aq,ar in ipairs(ap)do for as,at in
+pairs(ar.attached)do at:destroy()end end if I.attached then I.attached:destroy()
+end end)task.defer(function()local ap repeat task.wait(0.5)for aq,ar in pairs(
+getconnections(A.EngageMinigame.OnClientEvent))do local as=ar.Function if as
+then local at=getfenv(as).script if at.Name=='MinigameHandler'then local au=
+debug.getupvalue(as,1)if type(au)=='function'then ap=au end end end if aq%2000==
+0 then task.wait()end end until ap~=nil local aq repeat task.wait()aq=debug.
+getupvalue(ap,7)until aq~=nil local ar=(syn and syn.set_thread_identity)or
+setidentity debug.setupvalue(ap,7,function(as,...)local at=aq(as,...)E=as task.
+delay(0.1,function()ar(7)local au=''for av=1,#E do local Z,_=unpack(E[av])ab(
+true,{message=tostring(Z)..' = '..tostring(_)})if _ then au=au..tostring(Z)..' '
+end end ab(Toggles['gameplay.breaker.enabled'].Value,{message='[Breaker Code]: '
+..au,audio=false,duration=7.5})ar(2)end)return at end)F:add(function()debug.
+setupvalue(ap,7,aq)end)end)table.insert(W,J)table.insert(W,L)table.insert(W,M)
+table.insert(W,N)table.insert(W,O)table.insert(W,P)table.insert(W,Q)table.
+insert(W,R)B.Name='Main'B.SoundId='rbxassetid://6026984224'B.Volume=6 B.Parent=e
+task.delay(10,function()ac(Toggles['blatant.screech.remove'].Value)ad(Toggles[
+'blatant.timothy.remove'].Value)end)do local ap=game.PlaceId local aq=game.
+PlaceVersion local ar=l[ap]if aq>ar then r:Notify
 [[Game has been updated! Please be careful when using this script.]]r:Notify
 'The place ID and Version has been copied to your clipboard.'setclipboard('['..
 tostring(ap)..'] = '..tostring(aq)..',')end end return r:Notify('['..h..
