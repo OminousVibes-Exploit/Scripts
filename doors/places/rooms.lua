@@ -3,274 +3,277 @@ local c=game:GetService'PathfindingService'local d=game:GetService'Players'local
 e=game:GetService'ReplicatedStorage'local f=game:GetService'RunService'local g=
 game:GetService'SoundService'local h=game:GetService'Workspace'local i=game:
 GetService'VirtualInputManager'local j='Doors'local k='Rooms v5.4'local l=
-'TerminalVibes/doors'local m='rooms'local n={[6839171747]=5938}local o=0.1 do
-local p=game.PlaceId local q=game.PlaceVersion local r=n[p]if not r then warn
+'TerminalVibes/doors'local m='rooms'local n={[6839171747]=5938}do local o=game.
+PlaceId local p=game.PlaceVersion local q=n[o]if not q then warn
 'Script does not support this place instance.'warn
 [[The PlaceID and version has been set to your clipboard. Please report this to the developer.]]
-return setclipboard('['..tostring(p)..'] = '..tostring(q)..',')end end do local
-p=m..k if getgenv()[p]then return end getgenv()[p]=true end local p=
-[[https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/]]local q=
-loadstring(game:HttpGet(p..'Library.lua'))()local r=loadstring(game:HttpGet(p..
-'addons/SaveManager.lua'))()local s=loadstring(game:HttpGet(p..
-'addons/ThemeManager.lua'))()local t do local u,v=type,typeof t=setmetatable({},
-{__tostring=function()return'Bin'end})t.__index=t function t.new(...)local w=
-setmetatable({},t)return w:constructor(...)or w end function t.constructor(w)end
-function t.add(w,x,y)local z={item=x,method=y}if w.head==nil then w.head=z end
-if w.tail then w.tail.next=z end w.tail=z return x end function t.destroy(w)
-while w.head do local x=w.head.item local y=w.head.method if y then x[y](x)
-elseif u(x)=='function'then x()elseif v(x)=='RBXScriptConnection'then x:
-Disconnect()elseif u(x)=='thread'then task.cancel(x)elseif x.destroy~=nil then x
-:destroy()elseif x.Destroy~=nil then x:Destroy()end w.head=w.head.next end end
-function t.isEmpty(w)return w.head==nil end end local u do u={}u.__index=u
-function u.__tostring(v)return'BaseComponent - '..v.instance:GetFullName()end
-local v,w,x=setmetatable,assert,task.defer function u.new(y,...)local z=v({},u)z
-=z:constructor(y,...)or z z:run()return z end function u.constructor(y,z,...)y.
-instance=z y.running=false y.destructed=false y._maid=t.new()y._maid:add(z.
-Destroying:Connect(function()if not y.destructed then y:destroy()end end))end
-function u.onStart(y)end function u.run(y)w(not y.running,'['..y:__tostring()..
-'] is already running')x(function()y.running=true if not y.destructed then y:
-onStart()end end)end function u.destroy(y)w(not y.destructed,'['..y:__tostring()
-..'] is already destroyed')y.running=false y.destructed=true y._maid:destroy()
-end end local v=d.LocalPlayer local w=h.CurrentCamera local x=e:WaitForChild
-'GameData'local y={}do local z=e:WaitForChild'EntityInfo'local A={A90=z:
-WaitForChild'A90'}for B,C in pairs(A)do y[B]=C end end local z=Instance.new
-'Sound'local A=t.new()local B local C local D local E local F local G local H
-local I local J local K local L local M local N={}local O={}local P={}local Q={}
-local aa=function(R,S)local T=0.12 local U=t.new()local V=Drawing.new'Text'local
-W=Drawing.new'Square'local X=Drawing.new'Square'U:add(V,'Remove')U:add(W,
-'Remove')U:add(X,'Remove')V.Text=R or''V.Color=Color3.fromRGB(255,255,255)V.
-ZIndex=3 W.Color=Color3.fromRGB(25,25,25)W.Filled=true W.Thickness=0 W.Size=V.
-TextBounds+Vector2.new(10,8)W.ZIndex=2 X.Color=Color3.fromRGB(0,100,255)X.Filled
-=true X.Thickness=0 X.Size=Vector2.new(2,24)X.ZIndex=1 local Y=0 for Z in pairs(
-Q)do Y=math.max(Y,Z+1)end Q[Y]=U local _=0 local aa,ab,ac=pairs(Q)U:add(f.
-RenderStepped:Connect(function(ad)_+=ad local ae,af=aa(ab,ac)local ag=ae or 0
-while ae~=nil do ag=math.min(ag,ae)ae,af=aa(ab,ae)end local ah=Y-ag local ai=5
-if _<=T then ai=-(W.Size.X+2)+(_/T)*(W.Size.X+7)elseif _>=S-T then ai=5-(_-(S-T)
-)/T*(W.Size.X+7)end local aj=Vector2.new(ai,40+(ah*25))V.Position=aj+Vector2.
-new(7,4)W.Position=aj+Vector2.new(2,0)X.Position=aj end))U:add(f.RenderStepped:
-Once(function(ad)V.Visible=true W.Visible=true X.Visible=true end))task.delay(S,
-function()U:destroy()Q[Y]=nil end)end local ab=function(ab,ac)if ab and Toggles[
+return setclipboard('['..tostring(o)..'] = '..tostring(p)..',')end end do local
+o=m..k if getgenv()[o]then return end getgenv()[o]=true end local o=
+[[https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/]]local p=
+loadstring(game:HttpGet(o..'Library.lua'))()local q=loadstring(game:HttpGet(o..
+'addons/SaveManager.lua'))()local r=loadstring(game:HttpGet(o..
+'addons/ThemeManager.lua'))()local s do local t,u=type,typeof s=setmetatable({},
+{__tostring=function()return'Bin'end})s.__index=s function s.new(...)local v=
+setmetatable({},s)return v:constructor(...)or v end function s.constructor(v)end
+function s.add(v,w,x)local y={item=w,method=x}if v.head==nil then v.head=y end
+if v.tail then v.tail.next=y end v.tail=y return w end function s.destroy(v)
+while v.head do local w=v.head.item local x=v.head.method if x then w[x](w)
+elseif t(w)=='function'then w()elseif u(w)=='RBXScriptConnection'then w:
+Disconnect()elseif t(w)=='thread'then task.cancel(w)elseif w.destroy~=nil then w
+:destroy()elseif w.Destroy~=nil then w:Destroy()end v.head=v.head.next end end
+function s.isEmpty(v)return v.head==nil end end local t do t={}t.__index=t
+function t.__tostring(u)return'BaseComponent - '..u.instance:GetFullName()end
+local u,v,w=setmetatable,assert,task.defer function t.new(x,...)local y=u({},t)y
+=y:constructor(x,...)or y y:run()return y end function t.constructor(x,y,...)x.
+instance=y x.running=false x.destructed=false x._maid=s.new()x._maid:add(y.
+Destroying:Connect(function()if not x.destructed then x:destroy()end end))end
+function t.onStart(x)end function t.run(x)v(not x.running,'['..x:__tostring()..
+'] is already running')w(function()x.running=true if not x.destructed then x:
+onStart()end end)end function t.destroy(x)v(not x.destructed,'['..x:__tostring()
+..'] is already destroyed')x.running=false x.destructed=true x._maid:destroy()
+end end local u=d.LocalPlayer local v=h.CurrentCamera local w=e:WaitForChild
+'GameData'local x={}do local y=e:WaitForChild'EntityInfo'local z={A90=y:
+WaitForChild'A90'}for A,B in pairs(z)do x[A]=B end end local y=Instance.new
+'Sound'local z=s.new()local A local B local C local D local E local F local G
+local H local I local J local K local L local M={}local N={}local O={}local P={}
+local aa=function(Q,R)local S=0.12 local T=s.new()local U=Drawing.new'Text'local
+V=Drawing.new'Square'local W=Drawing.new'Square'T:add(U,'Remove')T:add(V,
+'Remove')T:add(W,'Remove')U.Text=Q or''U.Color=Color3.fromRGB(255,255,255)U.
+ZIndex=3 V.Color=Color3.fromRGB(25,25,25)V.Filled=true V.Thickness=0 V.Size=U.
+TextBounds+Vector2.new(10,8)V.ZIndex=2 W.Color=Color3.fromRGB(0,100,255)W.Filled
+=true W.Thickness=0 W.Size=Vector2.new(2,24)W.ZIndex=1 local X=0 for Y in pairs(
+P)do X=math.max(X,Y+1)end P[X]=T local Z=0 local _,aa,ab=pairs(P)T:add(f.
+RenderStepped:Connect(function(ac)Z+=ac local ad,ae=_(aa,ab)local af=ad or 0
+while ad~=nil do af=math.min(af,ad)ad,ae=_(aa,ad)end local ag=X-af local ah=5 if
+Z<=S then ah=-(V.Size.X+2)+(Z/S)*(V.Size.X+7)elseif Z>=R-S then ah=5-(Z-(R-S))/S
+*(V.Size.X+7)end local ai=Vector2.new(ah,40+(ag*25))U.Position=ai+Vector2.new(7,
+4)V.Position=ai+Vector2.new(2,0)W.Position=ai end))T:add(f.RenderStepped:Once(
+function(ac)U.Visible=true V.Visible=true W.Visible=true end))task.delay(R,
+function()T:destroy()P[X]=nil end)end local ab=function(ab,ac)if ab and Toggles[
 'alerts.enabled'].Value then local ad={message=ac.message or'',audio=ac.audio or
 false,duration=ac.duration or 5}if Toggles['alerts.drawing'].Value then aa(ad.
-message,ad.duration)else q:Notify(ad.message,ad.duration)end if ad.audio and
-Toggles['alerts.audio.enabled'].Value then z.TimePosition=0.25 z:Play()end end
-end do local ac=u B=setmetatable({},{__index=ac})B.__index=B function B.
-__tostring(ad)return'CharacterComponent - '..ad.instance:GetFullName()end B.
-attached={}function B.new(ad,...)local ae=setmetatable({},B)ae=ae:constructor(ad
-,...)or ae ae:run()return ae end function B.constructor(ad,ae)ac.constructor(ad,
-ae)ad.client=E.attached[d:GetPlayerFromCharacter(ae)]ad.root=ae:WaitForChild(
+message,ad.duration)else p:Notify(ad.message,ad.duration)end if ad.audio and
+Toggles['alerts.audio.enabled'].Value then y.TimePosition=0.25 y:Play()end end
+end do local ac=t A=setmetatable({},{__index=ac})A.__index=A function A.
+__tostring(ad)return'CharacterComponent - '..ad.instance:GetFullName()end A.
+attached={}function A.new(ad,...)local ae=setmetatable({},A)ae=ae:constructor(ad
+,...)or ae ae:run()return ae end function A.constructor(ad,ae)ac.constructor(ad,
+ae)ad.client=D.attached[d:GetPlayerFromCharacter(ae)]ad.root=ae:WaitForChild(
 'HumanoidRootPart',5)ad.humanoid=ae:WaitForChild('Humanoid',5)assert(ad.client~=
 nil,'['..ad:__tostring().."] is not a client's character")assert(ad.root~=nil,
 '['..ad:__tostring()..'] is missing a HumanoidRootPart')assert(ad.humanoid~=nil,
 '['..ad:__tostring()..'] is missing a Humanoid')ad._maid:add(ae.AncestryChanged:
-Connect(function(af,ag)if ag==nil then ad:destroy()end end))end function B.
-onStart(ad)B.attached[ad.instance]=ad ac.onStart(ad)end function B.destroy(ad)B.
+Connect(function(af,ag)if ag==nil then ad:destroy()end end))end function A.
+onStart(ad)A.attached[ad.instance]=ad ac.onStart(ad)end function A.destroy(ad)A.
 attached[ad.instance]=nil ac.destroy(ad)end end do local ac=Vector3.new(1,0,1)
-local ad=B C=setmetatable({},{__index=ad})C.__index=C function C.__tostring(ae)
-return'AvatarComponent - '..ae.instance:GetFullName()end C.attached=nil function
-C.new(ae,...)local af=setmetatable({},C)af=af:constructor(ae,...)or af af:run()
-return af end function C.constructor(ae,af)ad.constructor(ae,af)ae.parts={ae.
+local ad=A B=setmetatable({},{__index=ad})B.__index=B function B.__tostring(ae)
+return'AvatarComponent - '..ae.instance:GetFullName()end B.attached=nil function
+B.new(ae,...)local af=setmetatable({},B)af=af:constructor(ae,...)or af af:run()
+return af end function B.constructor(ae,af)ad.constructor(ae,af)ae.parts={ae.
 _maid:add(Instance.new'Part'),ae._maid:add(Instance.new'Part'),ae._maid:add(
 Instance.new'Part'),ae._maid:add(Instance.new'Part')}ae.lights={ae._maid:add(
 Instance.new'PointLight'),ae._maid:add(Instance.new'PointLight'),ae._maid:add(
 Instance.new'PointLight'),ae._maid:add(Instance.new'PointLight'),ae._maid:add(
-Instance.new'PointLight')}end function C.onStart(ae)C.attached=ae ad.onStart(ae)
+Instance.new'PointLight')}end function B.onStart(ae)B.attached=ae ad.onStart(ae)
 for af,ag in ipairs(ae.lights)do ag.Enabled=false ag.Range=60 ag.Color=Color3.
-new(1,1,1)ag.Shadows=false end for ah,ai in ipairs(ae.parts)do local aj=ai local
-R=ae._maid:add(Instance.new'WeldConstraint')local S=ae.lights[ah]aj.Size=Vector3
-.zero aj.Massless=true aj.CanCollide=false aj.CanTouch=false aj.CanQuery=false R
-.Part0=ae.root R.Part1=aj local T=(ah-1)*math.pi/2 aj.Position=ae.root.Position+
-Vector3.new(math.cos(T)*25,5,math.sin(T)*25)R.Parent=aj S.Parent=aj aj.Parent=h
-end ae.lights[5].Parent=ae.root while ae.running do for aj,R in ipairs(ae.lights
-)do R.Enabled=Toggles['character.glow.enabled'].Value R.Brightness=Options[
-'character.glow.brightness'].Value/50 end task.wait(0.3)end end function C.
-onPhysics(ae,ah,ai)local aj=Options['character.sprint.speed'].Value if aj>0 and
+new(1,1,1)ag.Shadows=false end for ah,ai in ipairs(ae.parts)do local Q=ai local
+R=ae._maid:add(Instance.new'WeldConstraint')local S=ae.lights[ah]Q.Size=Vector3.
+zero Q.Massless=true Q.CanCollide=false Q.CanTouch=false Q.CanQuery=false R.
+Part0=ae.root R.Part1=Q local T=(ah-1)*math.pi/2 Q.Position=ae.root.Position+
+Vector3.new(math.cos(T)*25,5,math.sin(T)*25)R.Parent=Q S.Parent=Q Q.Parent=h end
+ae.lights[5].Parent=ae.root while ae.running do for Q,R in ipairs(ae.lights)do R
+.Enabled=Toggles['character.glow.enabled'].Value R.Brightness=Options[
+'character.glow.brightness'].Value/50 end task.wait(0.3)end end function B.
+onPhysics(ae,ah,ai)local Q=Options['character.sprint.speed'].Value if Q>0 and
 Toggles['character.sprint.enabled'].Value and Options['character.sprint.keybind'
 ]:GetState()then local R=ae.humanoid.MoveDirection*ac if R.Magnitude>0 then ae.
-instance:TranslateBy(R*aj*ai)end end end function C.destroy(ae)C.attached=nil ad
-.destroy(ae)end end do local ac=Vector3.new(5,7,0)local ad=Vector3.new(0,-0.25,0
-)local ae,ah,ai,aj=CFrame.new(ad.X-(ac.X/2),ad.Y+(ac.Y/2),ad.Z),CFrame.new(ad.X+
-(ac.X/2),ad.Y+(ac.Y/2),ad.Z),CFrame.new(ad.X-(ac.X/2),ad.Y-(ac.Y/2),ad.Z),CFrame
-.new(ad.X+(ac.X/2),ad.Y-(ac.Y/2),ad.Z)local R=w.WorldToViewportPoint local S=
-Vector2.new local T=math.min local U=B D=setmetatable({},{__index=U})D.__index=D
-function D.__tostring(V)return'FriendComponent - '..V.instance:GetFullName()end
-D.attached={}function D.new(V,...)local W=setmetatable({},D)W=W:constructor(V,
-...)or W W:run()return W end function D.constructor(V,W)U.constructor(V,W)V.quad
-=Drawing.new'Quad'V._maid:add(V.quad,'Remove')end function D.onStart(V)D.
+instance:TranslateBy(R*Q*ai)end end end function B.destroy(ae)B.attached=nil ad.
+destroy(ae)end end do local ac=Vector3.new(5,7,0)local ad=Vector3.new(0,-0.25,0)
+local ae,ah,ai,Q=CFrame.new(ad.X-(ac.X/2),ad.Y+(ac.Y/2),ad.Z),CFrame.new(ad.X+(
+ac.X/2),ad.Y+(ac.Y/2),ad.Z),CFrame.new(ad.X-(ac.X/2),ad.Y-(ac.Y/2),ad.Z),CFrame.
+new(ad.X+(ac.X/2),ad.Y-(ac.Y/2),ad.Z)local R=v.WorldToViewportPoint local S=
+Vector2.new local T=math.min local U=A C=setmetatable({},{__index=U})C.__index=C
+function C.__tostring(V)return'FriendComponent - '..V.instance:GetFullName()end
+C.attached={}function C.new(V,...)local W=setmetatable({},C)W=W:constructor(V,
+...)or W W:run()return W end function C.constructor(V,W)U.constructor(V,W)V.quad
+=Drawing.new'Quad'V._maid:add(V.quad,'Remove')end function C.onStart(V)C.
 attached[V.instance]=V U.onStart(V)local W=V.quad W.Visible=false W.Thickness=1
-W.Transparency=0.75 end function D.onRender(V,W)local X=V.quad if Toggles[
-'esp.player.enabled'].Value then local Y=V.root.CFrame local Z=R(w,(Y*ae).
-Position)local _=R(w,(Y*ah).Position)local ak=R(w,(Y*aj).Position)local al=R(w,(
-Y*ai).Position)if T(Z.Z,_.Z,ak.Z,al.Z)>0 then X.PointA=S(_.X,_.Y)X.PointB=S(Z.X,
-Z.Y)X.PointC=S(al.X,al.Y)X.PointD=S(ak.X,ak.Y)X.Color=Options['esp.player.color'
-].Value X.Visible=true else X.Visible=false end else X.Visible=false end end
-function D.destroy(ak)D.attached[ak.instance]=nil U.destroy(ak)end end do local
-ac=u E=setmetatable({},{__index=ac})E.__index=E function E.__tostring(ad)return
-'ClientComponent - '..ad.instance:GetFullName()end E.attached={}function E.new(
-ad,...)local ae=setmetatable({},E)ae=ae:constructor(ad,...)or ae ae:run()return
-ae end function E.constructor(ad,ae)ac.constructor(ad,ae)end function E.onStart(
-ad)E.attached[ad.instance]=ad ac.onStart(ad)ad._maid:add(ad.instance.
+W.Transparency=0.75 end function C.onRender(V,W)local X=V.quad if Toggles[
+'esp.player.enabled'].Value then local Y=V.root.CFrame local Z=R(v,(Y*ae).
+Position)local _=R(v,(Y*ah).Position)local aj=R(v,(Y*Q).Position)local ak=R(v,(Y
+*ai).Position)if T(Z.Z,_.Z,aj.Z,ak.Z)>0 then X.PointA=S(_.X,_.Y)X.PointB=S(Z.X,Z
+.Y)X.PointC=S(ak.X,ak.Y)X.PointD=S(aj.X,aj.Y)X.Color=Options['esp.player.color']
+.Value X.Visible=true else X.Visible=false end else X.Visible=false end end
+function C.destroy(aj)C.attached[aj.instance]=nil U.destroy(aj)end end do local
+ac=t D=setmetatable({},{__index=ac})D.__index=D function D.__tostring(ad)return
+'ClientComponent - '..ad.instance:GetFullName()end D.attached={}function D.new(
+ad,...)local ae=setmetatable({},D)ae=ae:constructor(ad,...)or ae ae:run()return
+ae end function D.constructor(ad,ae)ac.constructor(ad,ae)end function D.onStart(
+ad)D.attached[ad.instance]=ad ac.onStart(ad)ad._maid:add(ad.instance.
 CharacterAdded:Connect(function(ae)ad:onCharacter(ae)end))ad._maid:add(ad.
 instance.Backpack.ChildAdded:Connect(function(ae)if ae:IsA'Tool'then ad:onTool(
 ae)end end))task.defer(function()local ae=ad.instance.Character if ae then ad:
 onCharacter(ae)end end)task.defer(function()for ae,ah in ipairs(ad.instance.
 Backpack:GetChildren())do if ah:IsA'Tool'then ad:onTool(ah)end end end)end
-function E.onCharacter(ad,ae)if ad.instance==v then ad.character=C.new(ae)else
-ad.character=D.new(ae)end end function E.onTool(ad,ae)if ae.Name==
+function D.onCharacter(ad,ae)if ad.instance==u then ad.character=B.new(ae)else
+ad.character=C.new(ae)end end function D.onTool(ad,ae)if ae.Name==
 'LibraryHintPaper'then local ah=ae:WaitForChild('UI',1)if ah then local ai={}for
-aj=1,5 do local ak=ah:FindFirstChild(tostring(aj))if ak then local al=ak.
-ImageRectOffset.X/50 ai[aj]=al end end libraryOrder=ai end end end function E.
-destroy(ad)E.attached[ad.instance]=nil ac.destroy(ad)end local ad=function(ad)E.
+aj=1,5 do local ak=ah:FindFirstChild(tostring(aj))if ak then local Q=ak.
+ImageRectOffset.X/50 ai[aj]=Q end end libraryOrder=ai end end end function D.
+destroy(ad)D.attached[ad.instance]=nil ac.destroy(ad)end local ad=function(ad)D.
 new(ad)end d.PlayerAdded:Connect(ad)for ae,ah in ipairs(d:GetPlayers())do task.
 defer(ad,ah)end end do local ac=Vector3.new(4,6,0)local ad=Vector3.new(0,0,0)
 local ae,ah,ai,aj=CFrame.new(ad.X-(ac.X/2),ad.Y+(ac.Y/2),ad.Z),CFrame.new(ad.X+(
 ac.X/2),ad.Y+(ac.Y/2),ad.Z),CFrame.new(ad.X-(ac.X/2),ad.Y-(ac.Y/2),ad.Z),CFrame.
-new(ad.X+(ac.X/2),ad.Y-(ac.Y/2),ad.Z)local ak=w.WorldToViewportPoint local al=
-Vector2.new local R=math.min local S=u F=setmetatable({},{__index=S})F.__index=F
-function F.__tostring(T)return'A60Component - '..T.instance:GetFullName()end F.
-attached={}function F.new(T,...)local U=setmetatable({},F)U=U:constructor(T,...)
-or U U:run()return U end function F.constructor(T,U)S.constructor(T,U)T.root=U.
+new(ad.X+(ac.X/2),ad.Y-(ac.Y/2),ad.Z)local ak=v.WorldToViewportPoint local Q=
+Vector2.new local R=math.min local S=t E=setmetatable({},{__index=S})E.__index=E
+function E.__tostring(T)return'A60Component - '..T.instance:GetFullName()end E.
+attached={}function E.new(T,...)local U=setmetatable({},E)U=U:constructor(T,...)
+or U U:run()return U end function E.constructor(T,U)S.constructor(T,U)T.root=U.
 PrimaryPart or U:WaitForChild('Main',5)assert(T.root,'['..T:__tostring()..
+'] is missing a root part!')T.quad=Drawing.new'Quad'T._maid:add(T.quad,'Remove')
+end function E.onStart(T)E.attached[T.instance]=T S.onStart(T)local U=T.quad U.
+Visible=false U.Thickness=1 U.Color=T:getColor()ab(Toggles['alerts.entity'].
+Value,{message='A60 spawned, run and hide in the closest locker!',duration=7.5,
+audio=true})end function E.onRender(T,U)local V=T.quad if T:isEnabled()then
+local W=T.root.CFrame local X=ak(v,(W*ae).Position)local Y=ak(v,(W*ah).Position)
+local Z=ak(v,(W*aj).Position)local _=ak(v,(W*ai).Position)if R(X.Z,Y.Z,Z.Z,_.Z)>
+0 then V.PointA=Q(Y.X,Y.Y)V.PointB=Q(X.X,X.Y)V.PointC=Q(_.X,_.Y)V.PointD=Q(Z.X,Z
+.Y)V.Visible=true else V.Visible=false end else V.Visible=false end end function
+E.isEnabled(T)return Toggles['esp.rush.enabled'].Value end function E.getColor(T
+)return Options['esp.rush.a60-color'].Value end function E.destroy(T)E.attached[
+T.instance]=nil S.destroy(T)end end do local ac=Vector3.new(4,6,0)local ad=
+Vector3.new(0,0,0)local ae,ah,ai,aj=CFrame.new(ad.X-(ac.X/2),ad.Y+(ac.Y/2),ad.Z)
+,CFrame.new(ad.X+(ac.X/2),ad.Y+(ac.Y/2),ad.Z),CFrame.new(ad.X-(ac.X/2),ad.Y-(ac.
+Y/2),ad.Z),CFrame.new(ad.X+(ac.X/2),ad.Y-(ac.Y/2),ad.Z)local ak=v.
+WorldToViewportPoint local Q=Vector2.new local R=math.min local S=t F=
+setmetatable({},{__index=S})F.__index=F function F.__tostring(T)return
+'A120Component - '..T.instance:GetFullName()end F.attached={}function F.new(T,
+...)local U=setmetatable({},F)U=U:constructor(T,...)or U U:run()return U end
+function F.constructor(T,U)S.constructor(T,U)T.root=U.PrimaryPart or U:
+WaitForChild('Main',5)assert(T.root,'['..T:__tostring()..
 '] is missing a root part!')T.quad=Drawing.new'Quad'T._maid:add(T.quad,'Remove')
 end function F.onStart(T)F.attached[T.instance]=T S.onStart(T)local U=T.quad U.
 Visible=false U.Thickness=1 U.Color=T:getColor()ab(Toggles['alerts.entity'].
-Value,{message='A60 spawned, run and hide in the closest locker!',duration=7.5,
-audio=true})end function F.onRender(T,U)local V=T.quad if T:isEnabled()then
-local W=T.root.CFrame local X=ak(w,(W*ae).Position)local Y=ak(w,(W*ah).Position)
-local Z=ak(w,(W*aj).Position)local _=ak(w,(W*ai).Position)if R(X.Z,Y.Z,Z.Z,_.Z)>
-0 then V.PointA=al(Y.X,Y.Y)V.PointB=al(X.X,X.Y)V.PointC=al(_.X,_.Y)V.PointD=al(Z
-.X,Z.Y)V.Visible=true else V.Visible=false end else V.Visible=false end end
-function F.isEnabled(T)return Toggles['esp.rush.enabled'].Value end function F.
-getColor(T)return Options['esp.rush.a60-color'].Value end function F.destroy(T)F
-.attached[T.instance]=nil S.destroy(T)end end do local ac=Vector3.new(4,6,0)
-local ad=Vector3.new(0,0,0)local ae,ah,ai,aj=CFrame.new(ad.X-(ac.X/2),ad.Y+(ac.Y
-/2),ad.Z),CFrame.new(ad.X+(ac.X/2),ad.Y+(ac.Y/2),ad.Z),CFrame.new(ad.X-(ac.X/2),
-ad.Y-(ac.Y/2),ad.Z),CFrame.new(ad.X+(ac.X/2),ad.Y-(ac.Y/2),ad.Z)local ak=w.
-WorldToViewportPoint local al=Vector2.new local R=math.min local S=u G=
-setmetatable({},{__index=S})G.__index=G function G.__tostring(T)return
-'A120Component - '..T.instance:GetFullName()end G.attached={}function G.new(T,
-...)local U=setmetatable({},G)U=U:constructor(T,...)or U U:run()return U end
-function G.constructor(T,U)S.constructor(T,U)T.root=U.PrimaryPart or U:
-WaitForChild('Main',5)assert(T.root,'['..T:__tostring()..
-'] is missing a root part!')T.quad=Drawing.new'Quad'T._maid:add(T.quad,'Remove')
-end function G.onStart(T)G.attached[T.instance]=T S.onStart(T)local U=T.quad U.
-Visible=false U.Thickness=1 U.Color=T:getColor()ab(Toggles['alerts.entity'].
 Value,{message='A120 spawned, run and hide in the closest locker!',duration=7.5,
-audio=true})end function G.onRender(T,U)local V=T.quad if T:isEnabled()then
-local W=T.root.CFrame local X=ak(w,(W*ae).Position)local Y=ak(w,(W*ah).Position)
-local Z=ak(w,(W*aj).Position)local _=ak(w,(W*ai).Position)if R(X.Z,Y.Z,Z.Z,_.Z)>
-0 then V.PointA=al(Y.X,Y.Y)V.PointB=al(X.X,X.Y)V.PointC=al(_.X,_.Y)V.PointD=al(Z
-.X,Z.Y)V.Visible=true else V.Visible=false end else V.Visible=false end end
-function G.isEnabled(T)return Toggles['esp.rush.enabled'].Value end function G.
-getColor(T)return Options['esp.rush.a120-color'].Value end function G.destroy(T)
-G.attached[T.instance]=nil S.destroy(T)ab(Toggles['alerts.entity'].Value,{
-message='A120 despawned, you are safe to continue your run!',duration=4,audio=
-true})end end do local ac=CFrame.new(0,0,1)local ad=w.WorldToViewportPoint local
-ae=Vector2.new local ah=math.min local ai=u H=setmetatable({},{__index=ai})H.
-__index=H function H.__tostring(aj)return'DoorComponent - '..aj.instance:
-GetFullName()end H.attached={}function H.new(aj,...)local ak=setmetatable({},H)
-ak=ak:constructor(aj,...)or ak ak:run()return ak end function H.constructor(aj,
-ak,al)ai.constructor(aj,ak)aj.id=al or 0 local R=ak.Size*0.5 local S=ak.CFrame*
-ac aj.tl=(S*CFrame.new(R.X,R.Y,0)).Position aj.tr=(S*CFrame.new(-R.X,R.Y,0)).
+audio=true})end function F.onRender(T,U)local V=T.quad if T:isEnabled()then
+local W=T.root.CFrame local X=ak(v,(W*ae).Position)local Y=ak(v,(W*ah).Position)
+local Z=ak(v,(W*aj).Position)local _=ak(v,(W*ai).Position)if R(X.Z,Y.Z,Z.Z,_.Z)>
+0 then V.PointA=Q(Y.X,Y.Y)V.PointB=Q(X.X,X.Y)V.PointC=Q(_.X,_.Y)V.PointD=Q(Z.X,Z
+.Y)V.Visible=true else V.Visible=false end else V.Visible=false end end function
+F.isEnabled(T)return Toggles['esp.rush.enabled'].Value end function F.getColor(T
+)return Options['esp.rush.a120-color'].Value end function F.destroy(T)F.attached
+[T.instance]=nil S.destroy(T)ab(Toggles['alerts.entity'].Value,{message=
+'A120 despawned, you are safe to continue your run!',duration=4,audio=true})end
+end do local ac=CFrame.new(0,0,1)local ad=v.WorldToViewportPoint local ae=
+Vector2.new local ah=math.min local ai=t G=setmetatable({},{__index=ai})G.
+__index=G function G.__tostring(aj)return'DoorComponent - '..aj.instance:
+GetFullName()end G.attached={}function G.new(aj,...)local ak=setmetatable({},G)
+ak=ak:constructor(aj,...)or ak ak:run()return ak end function G.constructor(aj,
+ak,Q)ai.constructor(aj,ak)aj.id=Q or 0 local R=ak.Size*0.5 local S=ak.CFrame*ac
+aj.tl=(S*CFrame.new(R.X,R.Y,0)).Position aj.tr=(S*CFrame.new(-R.X,R.Y,0)).
 Position aj.bl=(S*CFrame.new(R.X,-R.Y,0)).Position aj.br=(S*CFrame.new(-R.X,-R.Y
 ,0)).Position aj.quad=Drawing.new'Quad'aj._maid:add(aj.quad,'Remove')end
-function H.onStart(aj)H.attached[aj.instance]=aj ai.onStart(aj)local ak=aj.quad
-ak.Visible=false ak.Thickness=2 end function H.onRender(aj,ak)local al=aj.quad
-if Toggles['esp.door.enabled'].Value then local R=ad(w,aj.tl)local S=ad(w,aj.tr)
-local T=ad(w,aj.br)local U=ad(w,aj.bl)if ah(R.Z,S.Z,T.Z,U.Z)>0 then al.PointA=
-ae(S.X,S.Y)al.PointB=ae(R.X,R.Y)al.PointC=ae(U.X,U.Y)al.PointD=ae(T.X,T.Y)local
-V=aj.id-x.LatestRoom.Value if V==0 then al.Color=Options['esp.door.target-color'
-].Value else al.Color=Options['esp.door.default-color'].Value if V<0 then al.
-Transparency=0.5 else al.Transparency=1 end end al.Visible=true else al.Visible=
-false end else al.Visible=false end end function H.destroy(aj)H.attached[aj.
+function G.onStart(aj)G.attached[aj.instance]=aj ai.onStart(aj)local ak=aj.quad
+ak.Visible=false ak.Thickness=2 end function G.onRender(aj,ak)local Q=aj.quad if
+Toggles['esp.door.enabled'].Value then local R=ad(v,aj.tl)local S=ad(v,aj.tr)
+local T=ad(v,aj.br)local U=ad(v,aj.bl)if ah(R.Z,S.Z,T.Z,U.Z)>0 then Q.PointA=ae(
+S.X,S.Y)Q.PointB=ae(R.X,R.Y)Q.PointC=ae(U.X,U.Y)Q.PointD=ae(T.X,T.Y)local V=aj.
+id-w.LatestRoom.Value if V==0 then Q.Color=Options['esp.door.target-color'].
+Value else Q.Color=Options['esp.door.default-color'].Value if V<0 then Q.
+Transparency=0.5 else Q.Transparency=1 end end Q.Visible=true else Q.Visible=
+false end else Q.Visible=false end end function G.destroy(aj)G.attached[aj.
 instance]=nil ai.destroy(aj)end end do local ac=Vector3.new(4.675,7.15,0)local
 ad=Vector3.new(0,0,-1.25)local ae,ah,ai,aj=CFrame.new(ad.X-(ac.X/2),ad.Y+(ac.Y/2
 ),ad.Z),CFrame.new(ad.X+(ac.X/2),ad.Y+(ac.Y/2),ad.Z),CFrame.new(ad.X-(ac.X/2),ad
-.Y-(ac.Y/2),ad.Z),CFrame.new(ad.X+(ac.X/2),ad.Y-(ac.Y/2),ad.Z)local ak=w.
-WorldToViewportPoint local al=Vector2.new local R=math.min local S=u I=
-setmetatable({},{__index=S})I.__index=I function I.__tostring(T)return
-'WardrobeComponent - '..T.instance:GetFullName()end I.attached={}function I.new(
-T,...)local U=setmetatable({},I)U=U:constructor(T,...)or U U:run()return U end
-function I.constructor(T,U,V)S.constructor(T,U)T.id=V T.root=U:WaitForChild(
+.Y-(ac.Y/2),ad.Z),CFrame.new(ad.X+(ac.X/2),ad.Y-(ac.Y/2),ad.Z)local ak=v.
+WorldToViewportPoint local Q=Vector2.new local R=math.min local S=t H=
+setmetatable({},{__index=S})H.__index=H function H.__tostring(T)return
+'WardrobeComponent - '..T.instance:GetFullName()end H.attached={}function H.new(
+T,...)local U=setmetatable({},H)U=U:constructor(T,...)or U U:run()return U end
+function H.constructor(T,U,V)S.constructor(T,U)T.id=V T.root=U:WaitForChild(
 'Base',5)T.occupant=U:WaitForChild('HiddenPlayer',5)T.quad=Drawing.new'Quad'T.
-_maid:add(T.quad,'Remove')end function I.onStart(T)I.attached[T.instance]=T S.
-onStart(T)local U=T.quad U.Visible=false U.Thickness=2 end function I.onRender(T
+_maid:add(T.quad,'Remove')end function H.onStart(T)H.attached[T.instance]=T S.
+onStart(T)local U=T.quad U.Visible=false U.Thickness=2 end function H.onRender(T
 ,U)local V=T.quad if Toggles['esp.locker.enabled'].Value then local W=T.root.
-CFrame local X=ak(w,(W*ae).Position)local Y=ak(w,(W*ah).Position)local Z=ak(w,(W
-*aj).Position)local _=ak(w,(W*ai).Position)if R(X.Z,Y.Z,Z.Z,_.Z)>0 then V.PointA
-=al(Y.X,Y.Y)V.PointB=al(X.X,X.Y)V.PointC=al(_.X,_.Y)V.PointD=al(Z.X,Z.Y)V.Color=
+CFrame local X=ak(v,(W*ae).Position)local Y=ak(v,(W*ah).Position)local Z=ak(v,(W
+*aj).Position)local _=ak(v,(W*ai).Position)if R(X.Z,Y.Z,Z.Z,_.Z)>0 then V.PointA
+=Q(Y.X,Y.Y)V.PointB=Q(X.X,X.Y)V.PointC=Q(_.X,_.Y)V.PointD=Q(Z.X,Z.Y)V.Color=
 Options['esp.locker.color'].Value if T.occupant.Value then V.Transparency=0.1
-elseif x.LatestRoom.Value-T.id>1 then V.Transparency=0.25 else V.Transparency=
+elseif w.LatestRoom.Value-T.id>1 then V.Transparency=0.25 else V.Transparency=
 0.6 end V.Visible=true else V.Visible=false end else V.Visible=false end end
-function I.destroy(T)I.attached[T.instance]=nil S.destroy(T)end end do local ac=
-w.WorldToViewportPoint local ad=Vector2.new local ae=ad(0,3)local ah=u J=
-setmetatable({},{__index=ah})J.__index=J function J.__tostring(ai)return
-'InteractableComponent - '..ai.instance:GetFullName()end J.attached={}function J
-.new(ai,aj,...)local ak=setmetatable({},J)ak=ak:constructor(ai,aj,...)or ak ak:
-run()return ak end function J.constructor(ai,aj,ak)ah.constructor(ai,aj)ai.name=
+function H.destroy(T)H.attached[T.instance]=nil S.destroy(T)end end do local ac=
+v.WorldToViewportPoint local ad=Vector2.new local ae=ad(0,3)local ah=t I=
+setmetatable({},{__index=ah})I.__index=I function I.__tostring(ai)return
+'InteractableComponent - '..ai.instance:GetFullName()end I.attached={}function I
+.new(ai,aj,...)local ak=setmetatable({},I)ak=ak:constructor(ai,aj,...)or ak ak:
+run()return ak end function I.constructor(ai,aj,ak)ah.constructor(ai,aj)ai.name=
 ak ai.label=Drawing.new'Text'ai.circle=Drawing.new'Circle'ai.outline=Drawing.new
 'Circle'ai._maid:add(ai.label,'Remove')ai._maid:add(ai.circle,'Remove')ai._maid:
-add(ai.outline,'Remove')ai._maid:add(aj.AncestryChanged:Connect(function(al,R)if
-R==nil then ai:destroy()end end))end function J.onStart(ai)J.attached[ai.
-instance]=ai ah.onStart(ai)local aj,ak,al=ai.label,ai.circle,ai.outline aj.Text=
+add(ai.outline,'Remove')ai._maid:add(aj.AncestryChanged:Connect(function(Q,R)if
+R==nil then ai:destroy()end end))end function I.onStart(ai)I.attached[ai.
+instance]=ai ah.onStart(ai)local aj,ak,Q=ai.label,ai.circle,ai.outline aj.Text=
 ai.name aj.Size=18 aj.Center=true aj.Outline=true aj.Visible=false ak.Thickness=
-1 ak.NumSides=6 ak.Radius=5 ak.Filled=true ak.Visible=false al.Color=Color3.new(
-)al.Thickness=1.5 al.NumSides=6 al.Radius=5 al.Filled=false al.Visible=false al.
-ZIndex=2 end function J.onRender(ai,aj)local ak,al,R=ai.label,ai.circle,ai.
-outline if ai:isVisualEnabled()then local S=ac(w,ai.instance.Position)local T=S.
-Z>0 if T then local U=ad(S.X,S.Y)ak.Position=U+ae al.Position=U R.Position=U
-local V=ai:getColor()ak.Color=V al.Color=V end ak.Visible=T al.Visible=T R.
-Visible=T else ak.Visible=false al.Visible=false R.Visible=false end end
-function J.isVisualEnabled(ai)return Toggles['esp.interactable.enabled'].Value
-end function J.getColor(ai)return Options['esp.interactable.color'].Value end
-function J.destroy(ai)J.attached[ai.instance]=nil ah.destroy(ai)end end do local
-ac=J K=setmetatable({},{__index=ac})K.__index=K function K.__tostring(ad)return
-'ObtainableComponent - '..ad.instance:GetFullName()end K.attached={}function K.
-new(ad,ae,...)local ah=setmetatable({},K)ah=ah:constructor(ad,ae,...)or ah ah:
-run()return ah end function K.constructor(ad,ae,ah)ac.constructor(ad,ae,ah)end
-function K.onStart(ad)K.attached[ad.instance]=ad ac.onStart(ad)local ae,ah,ai=ad
-.label,ad.circle,ad.outline ah.NumSides=5 ai.NumSides=5 end function K.
-isVisualEnabled(ad)return Toggles['esp.obtainable.enabled'].Value end function K
-.getColor(ad)return Options['esp.obtainable.color'].Value end function K.destroy
-(ad)K.attached[ad.instance]=nil ac.destroy(ad)end end do local ac=K L=
-setmetatable({},{__index=ac})L.__index=L function L.__tostring(ad)return
-'GoldComponent - '..ad.instance:GetFullName()end function L.new(ad,...)local ae=
-setmetatable({},L)ae=ae:constructor(ad,...)or ae ae:run()return ae end function
-L.constructor(ad,ae)ac.constructor(ad,ae,'Gold')ad.denomination=0 end function L
-.onStart(ad)ac.onStart(ad)ad:onDenominationChanged()ad.instance:
-GetAttributeChangedSignal'GoldValue':Connect(function()ad:onDenominationChanged(
-)end)end function L.onRender(ad,ae)ad.label.Text=Options['esp.gold.format'].
-Value:gsub('{amount}',tostring(ad.denomination))ac.onRender(ad,ae)end function L
-.onDenominationChanged(ad)ad.denomination=ad.instance.Parent:GetAttribute
-'GoldValue'or 0 end function L.isVisualEnabled(ad)return Toggles[
-'esp.gold.enabled'].Value and ad.denomination>=Options['esp.gold.minimum'].Value
-end function L.getColor(ad)return Options['esp.gold.color'].Value end end do
-local ac=function()return Toggles['auto-loot.enabled'].Value and Options[
-'auto-loot.keybind']:GetState()end local ad=u M=setmetatable({},{__index=ad})M.
-__index=M function M.__tostring(ae)return'RoomComponent - '..ae.instance:
-GetFullName()end M.attached={}function M.new(ae,...)local ah=setmetatable({},M)
-ah=ah:constructor(ae,...)or ah ah:run()return ah end function M.constructor(ae,
-ah)ad.constructor(ae,ah)ae.id=tonumber(ah.Name)ae.assets=ah:WaitForChild(
-'Assets',5)end function M.onStart(ae)M.attached[ae.instance]=ae ad.onStart(ae)
-local ah=ae.instance:WaitForChild('RoomExit',5)if ah then H.new(ah,ae.id)end ae.
-_maid:add(ae.instance.DescendantAdded:Connect(function(ai)ae:onDescendant(ai)end
-))for ai,aj in ipairs(ae.instance:GetDescendants())do task.defer(ae.onDescendant
-,ae,aj)end end function M.onDescendant(ae,ah)local ai=ah.Parent local aj=ai.Name
-local ak=ah.Name if ak=='Main'then if aj=='Battery'then K.new(ah,'Batteries')end
-elseif ak=='Rooms_Locker'or ak=='Rooms_Locker_Fridge'then I.new(ah,ae.id)elseif
-ak=='Hitbox'then if aj=='GoldPile'then L.new(ah)end end if ah:IsA
-'ProximityPrompt'then local al=t.new()ae._maid:add(al)local R local S=ah local T
-=os.clock()local U=S.MaxActivationDistance+5 if aj=='GoldPile'then R=ai:
-WaitForChild('Hitbox',5)end if aj=='Battery'then R=ai:WaitForChild('Main',5)end
-if R then al:add(f.Heartbeat:Connect(function()if not S:IsDescendantOf(ae.
-instance)then return al:destroy()end local V=S:GetAttribute'Interactions'if V
-then return al:destroy()end if not ac()then return end local W=os.clock()if W-T<
-o then return end local X=C.attached local Y=(R.Position-X.root.Position).
-Magnitude if Y<=U then fireproximityprompt(S)T=W end end))end return end end
-function M.destroy(ae)M.attached[ae.instance]=nil ad.destroy(ae)end local ae=
-function(ae)M.new(ae)end A:add(h.CurrentRooms.ChildAdded:Connect(ae))for ah,ai
+1 ak.NumSides=6 ak.Radius=5 ak.Filled=true ak.Visible=false Q.Color=Color3.new()
+Q.Thickness=1.5 Q.NumSides=6 Q.Radius=5 Q.Filled=false Q.Visible=false Q.ZIndex=
+2 end function I.onRender(ai,aj)local ak,Q,R=ai.label,ai.circle,ai.outline if ai
+:isVisualEnabled()then local S=ac(v,ai.instance.Position)local T=S.Z>0 if T then
+local U=ad(S.X,S.Y)ak.Position=U+ae Q.Position=U R.Position=U local V=ai:
+getColor()ak.Color=V Q.Color=V end ak.Visible=T Q.Visible=T R.Visible=T else ak.
+Visible=false Q.Visible=false R.Visible=false end end function I.isVisualEnabled
+(ai)return Toggles['esp.interactable.enabled'].Value end function I.getColor(ai)
+return Options['esp.interactable.color'].Value end function I.destroy(ai)I.
+attached[ai.instance]=nil ah.destroy(ai)end end do local ac=I J=setmetatable({},
+{__index=ac})J.__index=J function J.__tostring(ad)return'ObtainableComponent - '
+..ad.instance:GetFullName()end J.attached={}function J.new(ad,ae,...)local ah=
+setmetatable({},J)ah=ah:constructor(ad,ae,...)or ah ah:run()return ah end
+function J.constructor(ad,ae,ah)ac.constructor(ad,ae,ah)end function J.onStart(
+ad)J.attached[ad.instance]=ad ac.onStart(ad)local ae,ah,ai=ad.label,ad.circle,ad
+.outline ah.NumSides=5 ai.NumSides=5 end function J.isVisualEnabled(ad)return
+Toggles['esp.obtainable.enabled'].Value end function J.getColor(ad)return
+Options['esp.obtainable.color'].Value end function J.destroy(ad)J.attached[ad.
+instance]=nil ac.destroy(ad)end end do local ac=J K=setmetatable({},{__index=ac}
+)K.__index=K function K.__tostring(ad)return'GoldComponent - '..ad.instance:
+GetFullName()end function K.new(ad,...)local ae=setmetatable({},K)ae=ae:
+constructor(ad,...)or ae ae:run()return ae end function K.constructor(ad,ae)ac.
+constructor(ad,ae,'Gold')ad.denomination=0 end function K.onStart(ad)ac.onStart(
+ad)ad:onDenominationChanged()ad.instance:GetAttributeChangedSignal'GoldValue':
+Connect(function()ad:onDenominationChanged()end)end function K.onRender(ad,ae)ad
+.label.Text=Options['esp.gold.format'].Value:gsub('{amount}',tostring(ad.
+denomination))ac.onRender(ad,ae)end function K.onDenominationChanged(ad)ad.
+denomination=ad.instance.Parent:GetAttribute'GoldValue'or 0 end function K.
+isVisualEnabled(ad)return Toggles['esp.gold.enabled'].Value and ad.denomination
+>=Options['esp.gold.minimum'].Value end function K.getColor(ad)return Options[
+'esp.gold.color'].Value end end do local ac=function()return Toggles[
+'interact.enabled'].Value and Options['interact.keybind']:GetState()end local ad
+=t L=setmetatable({},{__index=ad})L.__index=L function L.__tostring(ae)return
+'RoomComponent - '..ae.instance:GetFullName()end L.attached={}function L.new(ae,
+...)local ah=setmetatable({},L)ah=ah:constructor(ae,...)or ah ah:run()return ah
+end function L.constructor(ae,ah)ad.constructor(ae,ah)ae.id=tonumber(ah.Name)ae.
+assets=ah:WaitForChild('Assets',5)end function L.onStart(ae)L.attached[ae.
+instance]=ae ad.onStart(ae)local ah=ae.instance:WaitForChild('RoomExit',5)if ah
+then G.new(ah,ae.id)end ae._maid:add(ae.instance.DescendantAdded:Connect(
+function(ai)ae:onDescendant(ai)end))for ai,aj in ipairs(ae.instance:
+GetDescendants())do task.defer(ae.onDescendant,ae,aj)end end function L.
+onDescendant(ae,ah)local ai=ah.Parent local aj=ai.Name local ak=ah.Name if ak==
+'Main'then if aj=='Battery'then J.new(ah,'Batteries')end elseif ak==
+'Rooms_Locker'or ak=='Rooms_Locker_Fridge'then H.new(ah,ae.id)elseif ak==
+'Hitbox'then if aj=='GoldPile'then K.new(ah)end end if ah:IsA'ProximityPrompt'
+then local Q=s.new()ae._maid:add(Q)local R local S=ah local T=os.clock()local U=
+''local V=0.2 local W=1 local X=S.MaxActivationDistance+5 if aj=='GoldPile'then
+U='Gold'R=ai:WaitForChild('Hitbox',5)end if aj=='Battery'then U='Battery'V=0.5 W
+=math.huge R=ai:WaitForChild('Main',5)end if R then local Y=game.IsDescendantOf
+local Z=function()if not ae.destructed and Y(S,ae.instance)then local Z=S:
+GetAttribute'Interactions'if not Z or Z<W then return true end end return false
+end local _=function()if ac()then local _=Options['interact.filter'].Value
+return _[U]==nil end return false end Q:add(f.Heartbeat:Connect(function()if not
+Z()then return Q:destroy()end if not _()then return end local al=os.clock()if al
+-T>=V then local am=B.attached local an=(R.Position-am.root.Position).Magnitude
+if an<=X then fireproximityprompt(S)T=al end end end))end return end end
+function L.destroy(ae)L.attached[ae.instance]=nil ad.destroy(ae)end local ae=
+function(ae)L.new(ae)end z:add(h.CurrentRooms.ChildAdded:Connect(ae))for ah,ai
 in ipairs(h.CurrentRooms:GetChildren())do ae(ai)end end local ac do local ad=
-Vector3.new(1,0,1)local ae=u ac=setmetatable({},{__index=ae})ac.__index=ac
+Vector3.new(1,0,1)local ae=t ac=setmetatable({},{__index=ae})ac.__index=ac
 function ac.__tostring(ah)return'PathfindRoom - '..ah.instance.Name end ac.
 attached={}function ac.new(ah,...)local ai=setmetatable({},ac)ai=ai:constructor(
 ah,...)or ai ai:run()return ai end function ac.constructor(ah,ai)ae.constructor(
@@ -284,52 +287,52 @@ tostring(ah.id)local aj=ah.instance:GetAttribute'OriginalName'local ak=Toggles[
 ' recognized! Generating nodes for: '..aj,duration=5})else ab(ak,{message=
 'Room '..ai..' is not recognized! No nodes found for: '..aj,duration=5})end end
 function ac.onPhysics(ah,ai,aj)if not ah:isValid()then return ah:destroy()end if
-ah:isCurrent()then local ak=C.attached if not ak then return end local al=ak.
-root local R=ak.humanoid if al.Anchored or R.MoveDirection.Magnitude>0 then
-return end local S=ah.entrance.CFrame*ah.nodes[ah.index]local T=ak.root.Position
-local U=(S-T)*ad local V=U.Magnitude if V<=0.5 then ah:onNode(ah.index+1)else
-local W=U.Unit local X=Options['pathfinder.speed'].Value*aj ak.instance:PivotTo(
-CFrame.new(T+(W*X)))end end end function ac.onNode(ah,ai)if ai<=#ah.nodes then
-ah.index=ai else ah:destroy()end end function ac.isValid(ah)return ah.id>=x.
-LatestRoom.Value end function ac.isCurrent(ah)return ah.id==x.LatestRoom.Value
-end function ac.generateNodes(ah)local ai=ah.nodes local aj=ah.generation_id
-local ak=ah.entrance.CFrame:ToObjectSpace(ah.exit.CFrame).Position table.insert(
-ai,CFrame.new(0,0,0))if aj=='Rooms_Start'then table.insert(ai,CFrame.new(0,0,-10
-))table.insert(ai,CFrame.new(0,0,-35.75))elseif aj=='Rooms_End'then table.
-insert(ai,CFrame.new(0,0,-5))table.insert(ai,CFrame.new(-12,0,-8))table.insert(
-ai,CFrame.new(-3,0,-20))table.insert(ai,CFrame.new(0,0,-39))elseif aj==
-'Rooms_Empty1'then table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.
-new(0,0,-54))elseif aj=='Rooms_Lockers1'then table.insert(ai,CFrame.new(0,0,-10)
-)table.insert(ai,CFrame.new(0,0,-54))elseif aj=='Rooms_Lockers2'then table.
-insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(0,0,-64))elseif aj==
-'Rooms_Lockers3'then table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.
-new(6,0,-64))elseif aj=='Rooms_Lockers4'then table.insert(ai,CFrame.new(0,0,-10)
-)table.insert(ai,CFrame.new(-6,0,-64))elseif aj=='Rooms_Curve1'then table.
-insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(10,0,-40))table.insert(
-ai,CFrame.new(12.13,0,-54))elseif aj=='Rooms_Curve2'then table.insert(ai,CFrame.
-new(0,0,-10))table.insert(ai,CFrame.new(10,0,-50))table.insert(ai,CFrame.new(
-12.13,0,-64))elseif aj=='Rooms_Curve3'then table.insert(ai,CFrame.new(0,0,-10))
-table.insert(ai,CFrame.new(20,0,-50))table.insert(ai,CFrame.new(22.13,0,-64))
-elseif aj=='Rooms_AltCurve1'then table.insert(ai,CFrame.new(0,0,-3))table.
-insert(ai,CFrame.new(-12.13,0,-54))elseif aj=='Rooms_AltCurve2'then table.
-insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(-12.13,0,-64))elseif aj
-=='Rooms_AltCurve3'then table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,
-CFrame.new(-22.13,0,-64))elseif aj=='Rooms_Cubby1'then table.insert(ai,CFrame.
-new(0,0,-5))table.insert(ai,CFrame.new(7.5,0,-12.5))table.insert(ai,CFrame.new(
-7.5,0,-37.5))table.insert(ai,CFrame.new(-9.38,0,-54))elseif aj=='Rooms_Cubby2'
-then table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(6,0,-23.5))
-table.insert(ai,CFrame.new(6,0,-45))table.insert(ai,CFrame.new(-9.38,0,-64))
-elseif aj=='Rooms_AltCubby1'then if ak:FuzzyEq(Vector3.new(0,0,-54),0.05)then
-table.insert(ai,CFrame.new(-10,0,-20))table.insert(ai,CFrame.new(-10,0,-30))
-table.insert(ai,CFrame.new(0,0,-54))elseif ak:FuzzyEq(Vector3.new(9.38,0,-54),
-0.05)then table.insert(ai,CFrame.new(-5.75,0,-15))table.insert(ai,CFrame.new(-
-5.75,0,-35))table.insert(ai,CFrame.new(9.38,0,-54))end elseif aj==
-'Rooms_AltCubby2'then if ak:FuzzyEq(Vector3.new(0,0,-64),0.05)then table.insert(
-ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(-11.4,0,-35))table.insert(ai,
-CFrame.new(-11,0,-40))table.insert(ai,CFrame.new(0,0,-64))elseif ak:FuzzyEq(
-Vector3.new(9.38,0,-64),0.05)then table.insert(ai,CFrame.new(0,0,-10))table.
-insert(ai,CFrame.new(-5,0,-26))table.insert(ai,CFrame.new(-5,0,-45))table.
-insert(ai,CFrame.new(9.38,0,-64))end elseif aj=='Rooms_Skinny1'then table.
+ah:isCurrent()then local ak=B.attached if not ak then return end local al=ak.
+root local am=ak.humanoid if al.Anchored or am.MoveDirection.Magnitude>0 then
+return end local an=ah.entrance.CFrame*ah.nodes[ah.index]local Q=ak.root.
+Position local R=(an-Q)*ad local S=R.Magnitude if S<=0.5 then ah:onNode(ah.index
++1)else local T=R.Unit local U=Options['pathfinder.speed'].Value*aj ak.instance:
+PivotTo(CFrame.new(Q+(T*U)))end end end function ac.onNode(ah,ai)if ai<=#ah.
+nodes then ah.index=ai else ah:destroy()end end function ac.isValid(ah)return ah
+.id>=w.LatestRoom.Value end function ac.isCurrent(ah)return ah.id==w.LatestRoom.
+Value end function ac.generateNodes(ah)local ai=ah.nodes local aj=ah.
+generation_id local ak=ah.entrance.CFrame:ToObjectSpace(ah.exit.CFrame).Position
+table.insert(ai,CFrame.new(0,0,0))if aj=='Rooms_Start'then table.insert(ai,
+CFrame.new(0,0,-10))table.insert(ai,CFrame.new(0,0,-35.75))elseif aj==
+'Rooms_End'then table.insert(ai,CFrame.new(0,0,-5))table.insert(ai,CFrame.new(-
+12,0,-8))table.insert(ai,CFrame.new(-3,0,-20))table.insert(ai,CFrame.new(0,0,-39
+))elseif aj=='Rooms_Empty1'then table.insert(ai,CFrame.new(0,0,-10))table.
+insert(ai,CFrame.new(0,0,-54))elseif aj=='Rooms_Lockers1'then table.insert(ai,
+CFrame.new(0,0,-10))table.insert(ai,CFrame.new(0,0,-54))elseif aj==
+'Rooms_Lockers2'then table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.
+new(0,0,-64))elseif aj=='Rooms_Lockers3'then table.insert(ai,CFrame.new(0,0,-10)
+)table.insert(ai,CFrame.new(6,0,-64))elseif aj=='Rooms_Lockers4'then table.
+insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(-6,0,-64))elseif aj==
+'Rooms_Curve1'then table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.
+new(10,0,-40))table.insert(ai,CFrame.new(12.13,0,-54))elseif aj=='Rooms_Curve2'
+then table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(10,0,-50))
+table.insert(ai,CFrame.new(12.13,0,-64))elseif aj=='Rooms_Curve3'then table.
+insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(20,0,-50))table.insert(
+ai,CFrame.new(22.13,0,-64))elseif aj=='Rooms_AltCurve1'then table.insert(ai,
+CFrame.new(0,0,-3))table.insert(ai,CFrame.new(-12.13,0,-54))elseif aj==
+'Rooms_AltCurve2'then table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame
+.new(-12.13,0,-64))elseif aj=='Rooms_AltCurve3'then table.insert(ai,CFrame.new(0
+,0,-10))table.insert(ai,CFrame.new(-22.13,0,-64))elseif aj=='Rooms_Cubby1'then
+table.insert(ai,CFrame.new(0,0,-5))table.insert(ai,CFrame.new(7.5,0,-12.5))table
+.insert(ai,CFrame.new(7.5,0,-37.5))table.insert(ai,CFrame.new(-9.38,0,-54))
+elseif aj=='Rooms_Cubby2'then table.insert(ai,CFrame.new(0,0,-10))table.insert(
+ai,CFrame.new(6,0,-23.5))table.insert(ai,CFrame.new(6,0,-45))table.insert(ai,
+CFrame.new(-9.38,0,-64))elseif aj=='Rooms_AltCubby1'then if ak:FuzzyEq(Vector3.
+new(0,0,-54),0.05)then table.insert(ai,CFrame.new(-10,0,-20))table.insert(ai,
+CFrame.new(-10,0,-30))table.insert(ai,CFrame.new(0,0,-54))elseif ak:FuzzyEq(
+Vector3.new(9.38,0,-54),0.05)then table.insert(ai,CFrame.new(-5.75,0,-15))table.
+insert(ai,CFrame.new(-5.75,0,-35))table.insert(ai,CFrame.new(9.38,0,-54))end
+elseif aj=='Rooms_AltCubby2'then if ak:FuzzyEq(Vector3.new(0,0,-64),0.05)then
+table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(-11.4,0,-35))
+table.insert(ai,CFrame.new(-11,0,-40))table.insert(ai,CFrame.new(0,0,-64))elseif
+ak:FuzzyEq(Vector3.new(9.38,0,-64),0.05)then table.insert(ai,CFrame.new(0,0,-10)
+)table.insert(ai,CFrame.new(-5,0,-26))table.insert(ai,CFrame.new(-5,0,-45))table
+.insert(ai,CFrame.new(9.38,0,-64))end elseif aj=='Rooms_Skinny1'then table.
 insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(-6,0,-35))table.insert(
 ai,CFrame.new(-6.13,0,-54))elseif aj=='Rooms_Skinny2'then table.insert(ai,CFrame
 .new(0,0,-10))table.insert(ai,CFrame.new(-6.13,0,-45))table.insert(ai,CFrame.
@@ -365,9 +368,9 @@ insert(ai,CFrame.new(-8,0,-64))elseif aj=='Rooms_Storage4'then table.insert(ai,
 CFrame.new(0,0,-10))table.insert(ai,CFrame.new(5.75,0,-30))table.insert(ai,
 CFrame.new(-3.34,0,-54.18))table.insert(ai,CFrame.new(8,0,-64))end end function
 ac.destroy(ah)ac.attached[ah.instance]=nil ae.destroy(ah)end local ah=function(
-ah)if Toggles['pathfinder.enabled'].Value then ac.new(ah)end end A:add(h.
-CurrentRooms.ChildAdded:Connect(ah))end q:SetWatermark
-'Linoria Community (TerminalVibes)'q:Notify'Loading UI...'do local ad=q:
+ah)if Toggles['pathfinder.enabled'].Value then ac.new(ah)end end z:add(h.
+CurrentRooms.ChildAdded:Connect(ah))end p:SetWatermark
+'Linoria Community (TerminalVibes)'p:Notify'Loading UI...'do local ad=p:
 CreateWindow(j..' ('..k..')')do local ae=ad:AddTab'Gameplay'do local ah=ae:
 AddLeftGroupbox'Character Mods'ah:AddToggle('character.sprint.enabled',{Text=
 'Sprint Enabled',Default=false,Tooltip=
@@ -399,10 +402,13 @@ false,Tooltip='Automatically finds the fastest path to the next room.'})ah:
 AddToggle('pathfinder.stop-on-exit',{Text='Stop on Checkpoints',Default=true,
 Tooltip='Stops the pathfinder when it reaches a checkpoint.'})ah:AddSlider(
 'pathfinder.speed',{Text='Speed',Min=1,Max=30,Default=16,Rounding=0,Suffix=
-' studs'})end do local ah=ae:AddRightGroupbox'Auto Loot'ah:AddToggle(
-'auto-loot.enabled',{Text='Enabled',Default=false,Tooltip=
-'Automatically loots items for you.'}):AddKeyPicker('auto-loot.keybind',{Text=
-'Auto-loot',Default='F'})end do local ah=ae:AddRightGroupbox'Entity Hooks'ah:
+' studs'})end do local ah=ae:AddRightGroupbox'Auto Interact'ah:AddToggle(
+'interact.enabled',{Text='Enabled',Default=false,Tooltip=
+'Automatically loots items for you.'}):AddKeyPicker('interact.keybind',{Text=
+'Auto-Interact',Default='F'})ah:AddDropdown('interact.filter',{Text=
+'Interact Filter (Work In Progress)',Tooltip=
+'Selected items will be ignored by the auto-loot.',Values={'Gold','Battery'},
+Default={},Multi=true})end do local ah=ae:AddRightGroupbox'Entity Hooks'ah:
 AddToggle('blatant.a90.remove',{Text='Remove A90',Default=false,Tooltip=
 'A90 will no longer spawn for you.'})end end do local ae=ad:AddTab'Visuals'do
 local ah=ae:AddLeftTabbox'ESP'local ai=ah:AddTab'Entity ESP'do ai:AddToggle(
@@ -434,11 +440,11 @@ Placeholder='Label Text',Tooltip=
 })ah:AddSlider('esp.gold.minimum',{Text='Minimum Gold',Default=10,Min=0,Max=100,
 Rounding=0,Tooltip='Minimum amount of gold to display'})end do local ah=ae:
 AddRightGroupbox'Lighting'ah:AddButton{Text='Full Bright',Func=function()b.
-Ambient=Color3.fromRGB(200,200,200)b.Brightness=1 b.ClockTime=12 A:add(b:
+Ambient=Color3.fromRGB(200,200,200)b.Brightness=1 b.ClockTime=12 z:add(b:
 GetPropertyChangedSignal'Ambient':Connect(function()local ai=Color3.fromRGB(200,
-200,200)if b.Ambient~=ai then b.Ambient=ai end end))A:add(b:
+200,200)if b.Ambient~=ai then b.Ambient=ai end end))z:add(b:
 GetPropertyChangedSignal'Brightness':Connect(function()if b.Brightness~=1 then b
-.Brightness=1 end end))A:add(b:GetPropertyChangedSignal'ClockTime':Connect(
+.Brightness=1 end end))z:add(b:GetPropertyChangedSignal'ClockTime':Connect(
 function()if b.ClockTime~=12 then b.ClockTime=12 end end))end}end end do local
 ae=ad:AddTab'Credits'local ah=ae:AddLeftGroupbox'Credits'ah:AddLabel
 'TerminalVibes - Creator'ah:AddLabel'Inori @v3rm - UI Library'ah:AddDivider()ah:
@@ -447,52 +453,52 @@ AddLabel'Contributors:'ah:AddLabel'> reversing#2937 @discord'ah:AddLabel
 '> Lythicals#0001 @discord'ah:AddLabel'> brickmane @v3rm'ah:AddLabel
 '> BlockOfGaming'local ai=ae:AddRightGroupbox'Socials'ai:AddButton{Text=
 'Discord Server',Func=function()setclipboard'https://discord.gg/8PATx7UKXZ'end}
-end do local ae=ad:AddTab'Settings's:SetLibrary(q)r:SetLibrary(q)s:SetFolder(l)r
-:SetFolder(l..'/'..m)r:IgnoreThemeSettings()r:SetIgnoreIndexes{'MenuKeybind'}r:
-BuildConfigSection(ae)s:ApplyToTab(ae)local ah=ae:AddLeftGroupbox'Menu'ah:
-AddButton('Unload',function()q:Unload()end)ah:AddLabel'Menu bind':AddKeyPicker(
+end do local ae=ad:AddTab'Settings'r:SetLibrary(p)q:SetLibrary(p)r:SetFolder(l)q
+:SetFolder(l..'/'..m)q:IgnoreThemeSettings()q:SetIgnoreIndexes{'MenuKeybind'}q:
+BuildConfigSection(ae)r:ApplyToTab(ae)local ah=ae:AddLeftGroupbox'Menu'ah:
+AddButton('Unload',function()p:Unload()end)ah:AddLabel'Menu bind':AddKeyPicker(
 'MenuKeybind',{Default='End',NoUI=true,Text='Menu keybind'})ah:AddToggle(
-'Keybinds',{Text='Show Keybinds Menu',Default=true}):OnChanged(function()q.
+'Keybinds',{Text='Show Keybinds Menu',Default=true}):OnChanged(function()p.
 KeybindFrame.Visible=Toggles.Keybinds.Value end)ah:AddToggle('Watermark',{Text=
-'Show Watermark',Default=true}):OnChanged(function()q:SetWatermarkVisibility(
-Toggles.Watermark.Value)end)end end q:Notify
-'UI Built! [Right Ctrl or Right Shift]'r:LoadAutoloadConfig()local ad=function()
-w=h.CurrentCamera or w end A:add(h:GetPropertyChangedSignal'CurrentCamera':
-Connect(ad))local ae=function(ae)local ah=ae.Name if ah=='A60'then F.new(ae)
-elseif ah=='A120'then G.new(ae)end end A:add(h.ChildAdded:Connect(ae))local ah=
+'Show Watermark',Default=true}):OnChanged(function()p:SetWatermarkVisibility(
+Toggles.Watermark.Value)end)end end p:Notify
+'UI Built! [Right Ctrl or Right Shift]'q:LoadAutoloadConfig()local ad=function()
+v=h.CurrentCamera or v end z:add(h:GetPropertyChangedSignal'CurrentCamera':
+Connect(ad))local ae=function(ae)local ah=ae.Name if ah=='A60'then E.new(ae)
+elseif ah=='A120'then F.new(ae)end end z:add(h.ChildAdded:Connect(ae))local ah=
 function()if Toggles['blatant.a90.remove'].Value then ab(Toggles['alerts.debug']
 ,{message='A90 was eaten by TerminalVibes',duration=4})return end if Toggles[
-'gameplay.a90.disable-movement'].Value then task.wait(0.9)local ah=C.attached ah
+'gameplay.a90.disable-movement'].Value then task.wait(0.9)local ah=B.attached ah
 .root.AssemblyLinearVelocity=Vector3.zero i:SendKeyEvent(false,Enum.KeyCode.W,
 false,game)i:SendKeyEvent(false,Enum.KeyCode.A,false,game)i:SendKeyEvent(false,
 Enum.KeyCode.S,false,game)i:SendKeyEvent(false,Enum.KeyCode.D,false,game)a:
 BindAction('a90.freeze',function()return Enum.ContextActionResult.Sink end,false
 ,Enum.KeyCode.W,Enum.KeyCode.A,Enum.KeyCode.S,Enum.KeyCode.D,Enum.KeyCode.E)
-local ai=w.CFrame local aj=f.RenderStepped:Connect(function()w.CFrame=ai end)
-task.wait(0.4)aj:Disconnect()a:UnbindAction'a90.freeze'end end A:add(y.A90.
-OnClientEvent:Connect(ah))local ai=function(ai)for aj,ak in ipairs(N)do for al,R
-in pairs(ak.attached)do R:onTick(ai)end end end local aj=function(aj)for ak,al
-in ipairs(O)do for R,S in pairs(al.attached)do S:onRender(aj)end end end local
-ak=function(ak,al)for R,S in ipairs(P)do for T,U in pairs(S.attached)do U:
-onPhysics(ak,al)end end local T=C.attached if T then T:onPhysics(ak,al)end end A
-:add(f.Heartbeat:Connect(ai))A:add(f.RenderStepped:Connect(aj))A:add(f.Stepped:
-Connect(ak))Options['alerts.audio.volume']:OnChanged(function()z.Volume=Options[
+local ai=v.CFrame local aj=f.RenderStepped:Connect(function()v.CFrame=ai end)
+task.wait(0.4)aj:Disconnect()a:UnbindAction'a90.freeze'end end z:add(x.A90.
+OnClientEvent:Connect(ah))local ai=function(ai)for aj,ak in ipairs(M)do for al,
+am in pairs(ak.attached)do am:onTick(ai)end end end local aj=function(aj)for ak,
+al in ipairs(N)do for am,an in pairs(al.attached)do an:onRender(aj)end end end
+local ak=function(ak,al)for am,an in ipairs(O)do for Q,R in pairs(an.attached)do
+R:onPhysics(ak,al)end end local Q=B.attached if Q then Q:onPhysics(ak,al)end end
+z:add(f.Heartbeat:Connect(ai))z:add(f.RenderStepped:Connect(aj))z:add(f.Stepped:
+Connect(ak))Options['alerts.audio.volume']:OnChanged(function()y.Volume=Options[
 'alerts.audio.volume'].Value end)Toggles['pathfinder.enabled']:OnChanged(
 function()if Toggles['pathfinder.enabled'].Value then local al=h.CurrentRooms:
-FindFirstChild(tostring(x.LatestRoom.Value+1))if al then ac.new(al)end else for
-al,R in pairs(ac.attached)do R:destroy()end end end)Toggles['blatant.a90.remove'
-]:OnChanged(function()local al={}for R,S in ipairs(getconnections(y.A90.
-OnClientEvent))do local T=S.Function if T then local U=getfenv(T).script if U
-and U.Name=='RemoteListener'then table.insert(al,S)end end end if Toggles[
-'blatant.a90.remove'].Value then for T,U in ipairs(al)do U:Disable()end else for
-T,U in ipairs(al)do U:Enable()end end end)q:OnUnload(function()A:destroy()
-getgenv()[m..k]=nil local al={D,E,F,G,H,I,J,K,M}for R,S in ipairs(al)do for T,U
-in pairs(S.attached)do U:destroy()end end if C.attached then C.attached:destroy(
-)end end)table.insert(O,D)table.insert(O,F)table.insert(O,G)table.insert(O,H)
-table.insert(O,I)table.insert(O,J)table.insert(P,ac)z.Name='Main'z.SoundId=
-'rbxassetid://6026984224'z.Parent=g do local al=game.PlaceId local R=game.
-PlaceVersion local S=n[al]if R>S then q:Notify
-[[Game has been updated! Please be careful when using this script.]]q:Notify
+FindFirstChild(tostring(w.LatestRoom.Value+1))if al then ac.new(al)end else for
+al,am in pairs(ac.attached)do am:destroy()end end end)Toggles[
+'blatant.a90.remove']:OnChanged(function()local al={}for am,an in ipairs(
+getconnections(x.A90.OnClientEvent))do local Q=an.Function if Q then local R=
+getfenv(Q).script if R and R.Name=='RemoteListener'then table.insert(al,an)end
+end end if Toggles['blatant.a90.remove'].Value then for Q,R in ipairs(al)do R:
+Disable()end else for Q,R in ipairs(al)do R:Enable()end end end)p:OnUnload(
+function()z:destroy()getgenv()[m..k]=nil local al={C,D,E,F,G,H,I,J,L}for am,an
+in ipairs(al)do for Q,R in pairs(an.attached)do R:destroy()end end if B.attached
+then B.attached:destroy()end end)table.insert(N,C)table.insert(N,E)table.insert(
+N,F)table.insert(N,G)table.insert(N,H)table.insert(N,I)table.insert(O,ac)y.Name=
+'Main'y.SoundId='rbxassetid://6026984224'y.Parent=g do local al=game.PlaceId
+local am=game.PlaceVersion local an=n[al]if am>an then p:Notify
+[[Game has been updated! Please be careful when using this script.]]p:Notify
 'The place ID and Version has been copied to your clipboard.'setclipboard('['..
-tostring(al)..'] = '..tostring(R)..',')end end return q:Notify('['..j..
+tostring(al)..'] = '..tostring(am)..',')end end return p:Notify('['..j..
 '] Loaded! ('..k..')')
