@@ -462,9 +462,9 @@ add(z.ChildAdded:Connect(af))local ag=function(ag)local aj=ag.Name if aj==
 'RushMoving'or ag.Name=='AmbushMoving'then N.new(ag)elseif aj=='Eyes'then ab(
 Toggles['alerts.entity'].Value,{message='Eyes spawned, look away from it!',audio
 =true,duration=5})end end G:add(f.ChildAdded:Connect(ag))local aj=function()if
-Toggles['blatant.screech.remove'].Value then ab(Toggles['alerts.debug'],{message
-='Screech was eaten by TerminalVibes',duration=4})task.wait(1)return B.Screech:
-FireServer(true)end ab(Toggles['alerts.entity'].Value,{message=
+Toggles['blatant.screech.remove'].Value then ab(Toggles['alerts.debug'].Value,{
+message='Screech was eaten by TerminalVibes',duration=4})task.wait(1)return B.
+Screech:FireServer(true)end ab(Toggles['alerts.entity'].Value,{message=
 'Screech spawned, turn around and look at it!',audio=true,duration=5})end G:add(
 B.Screech.OnClientEvent:Connect(aj))local ak=function(ak,al)if ak and al then D[
 ak]=tostring(al)end end G:add(B.PadlockHint.OnClientEvent:Connect(ak))local al=
