@@ -317,7 +317,7 @@ aj,ag.id)end ag._maid:add(ag.instance.DescendantAdded:Connect(function(ak)ag:
 onDescendant(ak)end))for ak,al in ipairs(ag.instance:GetDescendants())do task.
 spawn(ag.onDescendant,ag,al)end end function V.onDescendant(ag,aj)local ak=aj.
 Parent local al=ak.Name local am=aj.Name if am=='Main'then if p[al]then T.new(aj
-,p[al])elseif al=='LeverForGate'then S.new(aj,'Lever')elseif al=='ChestBox'then
+,q[al])elseif al=='LeverForGate'then S.new(aj,'Lever')elseif al=='ChestBox'then
 S.new(aj,'Chest')elseif al=='ChestBoxLocked'then S.new(aj,'Chest [Locked]')end
 elseif am=='Handle'then if n[al]then T.new(aj,o[al])end elseif am=='Base'then if
 al=='LiveHintBook'then T.new(aj,'Book')elseif al=='LiveBreakerPolePickup'then T.
