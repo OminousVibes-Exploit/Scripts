@@ -290,12 +290,12 @@ function ac.onPhysics(ah,ai,aj)if not ah:isValid()then return ah:destroy()end if
 ah:isCurrent()then local ak=B.attached if not ak then return end local al=ak.
 root local am=ak.humanoid if al.Anchored or am.MoveDirection.Magnitude>0 then
 return end local an=ah.entrance.CFrame*ah.nodes[ah.index]local Q=ak.root.
-Position local R=(an-Q)*ad local S=R.Magnitude if S<=0.5 then ah:onNode(ah.index
-+1)else local T=R.Unit local U=Options['pathfinder.speed'].Value*aj ak.instance:
-PivotTo(CFrame.new(Q+(T*U)))end end end function ac.onNode(ah,ai)if ai<=#ah.
-nodes then ah.index=ai else ah:destroy()end end function ac.isValid(ah)return ah
-.id>=w.LatestRoom.Value end function ac.isCurrent(ah)return ah.id==w.LatestRoom.
-Value end function ac.generateNodes(ah)local ai=ah.nodes local aj=ah.
+Position local R=(an-Q)*ad local S=R.Magnitude if S<=1 then ah:onNode(ah.index+1
+)else local T=R.Unit local U=math.min(Options['pathfinder.speed'].Value*aj,S)ak.
+instance:PivotTo(CFrame.new(Q+(T*U)))end end end function ac.onNode(ah,ai)if ai
+<=#ah.nodes then ah.index=ai else ah:destroy()end end function ac.isValid(ah)
+return ah.id>=w.LatestRoom.Value end function ac.isCurrent(ah)return ah.id==w.
+LatestRoom.Value end function ac.generateNodes(ah)local ai=ah.nodes local aj=ah.
 generation_id local ak=ah.entrance.CFrame:ToObjectSpace(ah.exit.CFrame).Position
 table.insert(ai,CFrame.new(0,0,0))if aj=='Rooms_Start'then table.insert(ai,
 CFrame.new(0,0,-10))table.insert(ai,CFrame.new(0,0,-35.75))elseif aj==
@@ -353,25 +353,25 @@ then table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(-12,0,-20))
 table.insert(ai,CFrame.new(-12,0,-66))elseif aj=='Rooms_Kitchen1'then table.
 insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(-10.5,0,-30))table.
 insert(ai,CFrame.new(0,0,-54))elseif aj=='Rooms_Kitchen2'then table.insert(ai,
-CFrame.new(0,0,-10))table.insert(ai,CFrame.new(-11,0,-30))table.insert(ai,CFrame
-.new(0,0,-64))elseif aj=='Rooms_Desk1'then table.insert(ai,CFrame.new(0,0,-10))
-table.insert(ai,CFrame.new(0,0,-54))elseif aj=='Rooms_Desk2'then table.insert(ai
-,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(0,0,-64))elseif aj==
-'Rooms_Desk3'then table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.
-new(10,0,-64))elseif aj=='Rooms_Storage1'then table.insert(ai,CFrame.new(-9,0,-
-43.65))table.insert(ai,CFrame.new(0,0,-54))elseif aj=='Rooms_Storage2'then table
-.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(-3.65,0,-40))table.
-insert(ai,CFrame.new(-11.7,0,-51.5))table.insert(ai,CFrame.new(-5.53,0,-57.49))
-table.insert(ai,CFrame.new(0,0,-64))elseif aj=='Rooms_Storage3'then table.
-insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(-18,0,-55.5))table.
-insert(ai,CFrame.new(-8,0,-64))elseif aj=='Rooms_Storage4'then table.insert(ai,
-CFrame.new(0,0,-10))table.insert(ai,CFrame.new(5.75,0,-30))table.insert(ai,
-CFrame.new(-3.34,0,-54.18))table.insert(ai,CFrame.new(8,0,-64))end end function
-ac.destroy(ah)ac.attached[ah.instance]=nil ae.destroy(ah)end local ah=function(
-ah)if Toggles['pathfinder.enabled'].Value then ac.new(ah)end end z:add(h.
-CurrentRooms.ChildAdded:Connect(ah))end p:SetWatermark
-'Linoria Community (TerminalVibes)'p:Notify'Loading UI...'do local ad=p:
-CreateWindow(j..' ('..k..')')do local ae=ad:AddTab'Gameplay'do local ah=ae:
+CFrame.new(0,0,-10))table.insert(ai,CFrame.new(-9,0,-35))table.insert(ai,CFrame.
+new(-7,0,-45))table.insert(ai,CFrame.new(0,0,-64))elseif aj=='Rooms_Desk1'then
+table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.new(0,0,-54))elseif
+aj=='Rooms_Desk2'then table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame
+.new(0,0,-64))elseif aj=='Rooms_Desk3'then table.insert(ai,CFrame.new(0,0,-10))
+table.insert(ai,CFrame.new(10,0,-64))elseif aj=='Rooms_Storage1'then table.
+insert(ai,CFrame.new(-9,0,-43.65))table.insert(ai,CFrame.new(0,0,-54))elseif aj
+=='Rooms_Storage2'then table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,
+CFrame.new(-3.65,0,-40))table.insert(ai,CFrame.new(-11.7,0,-51.5))table.insert(
+ai,CFrame.new(-5.53,0,-57.49))table.insert(ai,CFrame.new(0,0,-64))elseif aj==
+'Rooms_Storage3'then table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.
+new(-18,0,-55.5))table.insert(ai,CFrame.new(-8,0,-64))elseif aj==
+'Rooms_Storage4'then table.insert(ai,CFrame.new(0,0,-10))table.insert(ai,CFrame.
+new(5.75,0,-30))table.insert(ai,CFrame.new(-3.34,0,-54.18))table.insert(ai,
+CFrame.new(8,0,-64))end end function ac.destroy(ah)ac.attached[ah.instance]=nil
+ae.destroy(ah)end local ah=function(ah)if Toggles['pathfinder.enabled'].Value
+then ac.new(ah)end end z:add(h.CurrentRooms.ChildAdded:Connect(ah))end p:
+SetWatermark'Linoria Community (TerminalVibes)'p:Notify'Loading UI...'do local
+ad=p:CreateWindow(j..' ('..k..')')do local ae=ad:AddTab'Gameplay'do local ah=ae:
 AddLeftGroupbox'Character Mods'ah:AddToggle('character.sprint.enabled',{Text=
 'Sprint Enabled',Default=false,Tooltip=
 'Enables Sprinting by pressing the Keybind'}):AddKeyPicker(
