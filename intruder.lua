@@ -1,8 +1,9 @@
 local a=game:GetService"ContentProvider"
 local b=game:GetService"CoreGui"
-local c=game:GetService"Players"
-local d=game:GetService"ProximityPromptService"
-local e=game:GetService"Workspace"
+local c=game:GetService"Lighting"
+local d=game:GetService"Players"
+local e=game:GetService"ProximityPromptService"
+local f=game:GetService"Workspace"
 
 
 
@@ -10,14 +11,25 @@ local e=game:GetService"Workspace"
 
 
 
-local f="Intruder"
-local g="v1.0"
-local h="TerminalVibes"
-local i="intruder"
+local g="Intruder"
+local h="v1.0"
+local i="TerminalVibes"
+local j="intruder"
 
-local j={
-[12545349775]=11,
-[8939045894]=56,
+local k={
+[12545349775]=12,
+[8939045894]=57,
+}
+
+local l={
+["room"]="Error Room",
+["outside"]="Backyard",
+["street"]="Street",
+["frontDoor"]="Front Door",
+["livingRoom"]="Living Room",
+["stairs"]="Basement Stairs",
+["basement"]="Basement",
+["hallway"]="Hallway",
 }
 
 
@@ -27,25 +39,32 @@ local j={
 
 
 do
-local k=i..g
-if getgenv()[k]then
-return
+local m=game.PlaceId
+if not k[m]then
+warn"Place not supported"
+return setclipboard("["..m.."] = "..game.PlaceVersion..",")
 end
-getgenv()[k]=true
 end
 do
-local k
-k=hookfunction(a.PreloadAsync,function(l,m,n)
-if table.find(m,b)then
-local o=function(o,p)
-if o:match"^rbxasset://"or o:match"^rbxthumb://"then
-return n(o,p)
+local m=j..h
+if getgenv()[m]then
+return
+end
+getgenv()[m]=true
+end
+do
+local m
+m=hookfunction(a.PreloadAsync,function(n,o,p)
+if table.find(o,b)then
+local q=function(q,r)
+if q:match"^rbxasset://"or q:match"^rbxthumb://"then
+return p(q,r)
 end
 end
 warn"Anticheat Check Detected"
-return k(l,m,o)
+return m(n,o,q)
 end
-return k(l,m,n)
+return m(n,o,p)
 end)
 end
 
@@ -55,13 +74,11 @@ end
 
 
 
-local k="https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/"
+local m="https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/"
 
-local l=loadstring(game:HttpGet(k.."Library.lua"))()
-local m=loadstring(game:HttpGet(k.."addons/SaveManager.lua"))()
-local n=loadstring(game:HttpGet(k.."addons/ThemeManager.lua"))()
-
-
+local n=loadstring(game:HttpGet(m.."Library.lua"))()
+local o=loadstring(game:HttpGet(m.."addons/SaveManager.lua"))()
+local p=loadstring(game:HttpGet(m.."addons/ThemeManager.lua"))()
 
 
 
@@ -89,112 +106,114 @@ local n=loadstring(game:HttpGet(k.."addons/ThemeManager.lua"))()
 
 
 
-local o
+
+
+local q
 do
-local p,q=type,typeof
-o=setmetatable({},{
+local r,s=type,typeof
+q=setmetatable({},{
 __tostring=function()
 return"Bin"
 end,
 })
-o.__index=o
-function o.new(...)
-local r=setmetatable({},o)
-return r:constructor(...)or r
+q.__index=q
+function q.new(...)
+local t=setmetatable({},q)
+return t:constructor(...)or t
 end
-function o.constructor(r)end
-function o.add(r,s,t)
-local u={
-item=s,
-method=t,
+function q.constructor(t)end
+function q.add(t,u,v)
+local w={
+item=u,
+method=v,
 }
-if r.head==nil then
-r.head=u
+if t.head==nil then
+t.head=w
 end
-if r.tail then
-r.tail.next=u
+if t.tail then
+t.tail.next=w
 end
-r.tail=u
-return s
-end
-function o.destroy(r)
-while r.head do
-local s=r.head.item
-local t=r.head.method
-if t then
-s[t](s)
-elseif p(s)=="function"then
-s()
-elseif q(s)=="RBXScriptConnection"then
-s:Disconnect()
-elseif p(s)=="thread"then
-task.cancel(s)
-elseif s.destroy~=nil then
-s:destroy()
-elseif s.Destroy~=nil then
-s:Destroy()
-end
-r.head=r.head.next
-end
-end
-function o.isEmpty(r)
-return r.head==nil
-end
-end
-
-
-
-local p
-do
-p={}
-p.__index=p
-function p.__tostring(q)
-return"BaseComponent - "..q.instance:GetFullName()
-end
-
-
-local q,r,s=setmetatable,assert,task.defer
-
-
-function p.new(t,...)
-local u=q({},p)
-u=u:constructor(t,...)or u
-u:run()
+t.tail=w
 return u
 end
+function q.destroy(t)
+while t.head do
+local u=t.head.item
+local v=t.head.method
+if v then
+u[v](u)
+elseif r(u)=="function"then
+u()
+elseif s(u)=="RBXScriptConnection"then
+u:Disconnect()
+elseif r(u)=="thread"then
+task.cancel(u)
+elseif u.destroy~=nil then
+u:destroy()
+elseif u.Destroy~=nil then
+u:Destroy()
+end
+t.head=t.head.next
+end
+end
+function q.isEmpty(t)
+return t.head==nil
+end
+end
 
 
-function p.constructor(t,u,...)
-t.instance=u
-t.running=false
-t.destructed=false
-t._maid=o.new()
-t._maid:add(u.Destroying:Connect(function()
-if not t.destructed then
-t:destroy()
+
+local r
+do
+r={}
+r.__index=r
+function r.__tostring(s)
+return"BaseComponent - "..s.instance:GetFullName()
+end
+
+
+local s,t,u=setmetatable,assert,task.defer
+
+
+function r.new(v,...)
+local w=s({},r)
+w=w:constructor(v,...)or w
+w:run()
+return w
+end
+
+
+function r.constructor(v,w,...)
+v.instance=w
+v.running=false
+v.destructed=false
+v._maid=q.new()
+v._maid:add(w.Destroying:Connect(function()
+if not v.destructed then
+v:destroy()
 end
 end))
 end
 
 
-function p.onStart(t)end
+function r.onStart(v)end
 
 
-function p.run(t)
-r(not t.running,"["..t:__tostring().."] is already running")
-s(function()
-t.running=true
-if not t.destructed then
-t:onStart()
+function r.run(v)
+t(not v.running,"["..v:__tostring().."] is already running")
+u(function()
+v.running=true
+if not v.destructed then
+v:onStart()
 end
 end)
 end
 
-function p.destroy(t)
-r(not t.destructed,"["..t:__tostring().."] is already destroyed")
-t.running=false
-t.destructed=true
-t._maid:destroy()
+function r.destroy(v)
+t(not v.destructed,"["..v:__tostring().."] is already destroyed")
+v.running=false
+v.destructed=true
+v._maid:destroy()
 end
 end
 
@@ -220,30 +239,31 @@ end
 
 
 
-local q=c.LocalPlayer
 
-local r=e:WaitForChild("Map",25)
-local s=e:WaitForChild("Values",25)
+local s=d.LocalPlayer
+local t=s.PlayerGui
 
-
-
-
-
-local t local u=function(
+local u=f:WaitForChild("Values",25)
 
 
 
 
 
+local v local w=function(
 
 
-u, v)
-if u then
-local w={
-message=v.message or"",
-duration=v.duration or 5,
+
+
+
+
+
+w, x)
+if w then
+local y={
+message=x.message or"",
+duration=x.duration or 5,
 }
-l:Notify(w.message,w.duration)
+n:Notify(y.message,y.duration)
 end end
 
 
@@ -256,38 +276,46 @@ end end
 
 
 do
-local v=p
-t=setmetatable({},{__index=v})
-t.__index=t
+local x=r
+v=setmetatable({},{__index=x})
+v.__index=v
 
-function t.__tostring(w)
-return"Component - "..w.instance:GetFullName()
+function v.__tostring(y)
+return"MapComponent - "..y.instance:GetFullName()
 end
-t.attached={}
+v.attached={}
 
 
-function t.new(w,...)
-local x=setmetatable({},t)
-x=x:constructor(w,...)or x
-x:run()
-return x
-end
-
-
-function t.constructor(w,x)
-v.constructor(w,x)
+function v.new(y,...)
+local z=setmetatable({},v)
+z=z:constructor(y,...)or z
+z:run()
+return z
 end
 
 
-function t.onStart(w)
-t.attached[w.instance]=w
-v.onStart(w)
+function v.constructor(y,z)
+x.constructor(y,z)
+y.phone=z:WaitForChild("Phone",10)
 end
 
 
-function t.destroy(w)
-t.attached[w.instance]=nil
-v.destroy(w)
+function v.onStart(y)
+x.onStart(y)
+v.attached[y.instance]=y
+
+y._maid:add(y.phone.Speaker.isBroken.Changed:Connect(function(z)
+w(z and Toggles["alerts.phone.broken"].Value,{
+message="Phone is ringing!",
+duration=5,
+})
+end))
+end
+
+
+function v.destroy(y)
+v.attached[y.instance]=nil
+x.destroy(y)
 end
 end
 
@@ -297,31 +325,31 @@ end
 
 
 
-l:SetWatermark"Linoria Community (OminousVibes)"
-l:Notify"Loading UI..."
+n:SetWatermark"Linoria Community (OminousVibes)"
+n:Notify"Loading UI..."
 
 do
-local v=l:CreateWindow(f.." ("..g..")")
+local x=n:CreateWindow(g.." ("..h..")")
 
 do
-local w=v:AddTab"Gameplay"
+local y=x:AddTab"Gameplay"
 
 do
-local x=w:AddLeftGroupbox"Alerts"
+local z=y:AddLeftGroupbox"Alerts"
 
-x:AddToggle("alerts.intruder.entered",{
+z:AddToggle("alerts.intruder.entered",{
 Text="Intruder Entered",
 Default=false,
 Tooltip="Alerts you when the intruder enters your room!",
 })
 
-x:AddToggle("alerts.intruder.position",{
+z:AddToggle("alerts.intruder.position",{
 Text="Intruder Moved",
 Default=false,
 Tooltip="Alerts you when the intruder moves to another room!",
 })
 
-x:AddToggle("alerts.phone.broken",{
+z:AddToggle("alerts.phone.broken",{
 Text="Phone Ringing",
 Default=false,
 Tooltip="Alerts you when the phone is ringing!",
@@ -330,11 +358,11 @@ end
 end
 
 do
-local w=v:AddTab"Blatant"
+local y=x:AddTab"Blatant"
 
 do
-local x=w:AddLeftGroupbox"Proximity Prompt"
-x:AddToggle("blatant.prompt.instant",{
+local z=y:AddLeftGroupbox"Proximity Prompt"
+z:AddToggle("blatant.prompt.instant",{
 Text="Instant Interact",
 Default=false,
 Tooltip="Instantly triggers the prompt when interacted!",
@@ -343,58 +371,71 @@ end
 end
 
 do
-local w=v:AddTab"Credits"
+local y=x:AddTab"Visuals"
 
-local x=w:AddLeftGroupbox"Credits"
-x:AddLabel"OminousVibes - Creator"
-x:AddLabel"Inori @v3rm - UI Library"
-x:AddDivider()
-x:AddLabel"Contributors:"
-x:AddLabel"> IAmAGoodScammer @v3rm"
-x:AddLabel"> brickmane @v3rm"
-x:AddLabel"> yuuiz#1336 @Discord"
-x:AddDivider()
-x:AddLabel"Donators:"
-x:AddLabel"> reversing#2937 @Discord"
+do
+local z=y:AddLeftGroupbox"World Render"
+z:AddToggle("visuals.lighting.darkvision",{
+Text="Dark Vision",
+Default=false,
+Tooltip="Improves vision in the dark!",
+})
+end
+end
 
-local y=w:AddRightGroupbox"Socials"
-y:AddButton("Discord Server",function()
+do
+local y=x:AddTab"Credits"
+
+local z=y:AddLeftGroupbox"Credits"
+z:AddLabel"OminousVibes - Creator"
+z:AddLabel"Inori @v3rm - UI Library"
+z:AddDivider()
+z:AddLabel"Contributors:"
+z:AddLabel"> IAmAGoodScammer @v3rm"
+z:AddLabel"> brickmane @v3rm"
+z:AddLabel"> yuuiz#1336 @Discord"
+z:AddDivider()
+z:AddLabel"Donators:"
+z:AddLabel"> reversing#2937 @Discord"
+
+local A=y:AddRightGroupbox"Socials"
+A:AddButton("Discord Server",function()
 setclipboard"https://discord.gg/8PATx7UKXZ"
 end)
 end
 
 do
-local w=v:AddTab"Settings"
+local y=x:AddTab"Settings"
 
-n:SetLibrary(l)
-m:SetLibrary(l)
+p:SetLibrary(n)
+o:SetLibrary(n)
 
-n:SetFolder(h)
-m:SetFolder(h.."/"..i)
+p:SetFolder(i)
+o:SetFolder(i.."/"..j)
 
-m:IgnoreThemeSettings()
-m:SetIgnoreIndexes{"MenuKeybind"}
+o:IgnoreThemeSettings()
+o:SetIgnoreIndexes{"MenuKeybind"}
 
-m:BuildConfigSection(w)
-n:ApplyToTab(w)
+o:BuildConfigSection(y)
+p:ApplyToTab(y)
 
-local x=w:AddLeftGroupbox"Menu"
-x:AddButton("Unload",function()
-l:Unload()
+local z=y:AddLeftGroupbox"Menu"
+z:AddButton("Unload",function()
+n:Unload()
 end)
-x:AddLabel"Menu bind":AddKeyPicker("MenuKeybind",{Default="End",NoUI=true,Text="Menu keybind"})
+z:AddLabel"Menu bind":AddKeyPicker("MenuKeybind",{Default="End",NoUI=true,Text="Menu keybind"})
 
-x:AddToggle("Keybinds",{Text="Show Keybinds Menu",Default=true}):OnChanged(function()
-l.KeybindFrame.Visible=Toggles.Keybinds.Value
+z:AddToggle("Keybinds",{Text="Show Keybinds Menu",Default=true}):OnChanged(function()
+n.KeybindFrame.Visible=Toggles.Keybinds.Value
 end)
-x:AddToggle("Watermark",{Text="Show Watermark",Default=true}):OnChanged(function()
-l:SetWatermarkVisibility(Toggles.Watermark.Value)
+z:AddToggle("Watermark",{Text="Show Watermark",Default=true}):OnChanged(function()
+n:SetWatermarkVisibility(Toggles.Watermark.Value)
 end)
 end
 end
 
-l:Notify"UI Built! [Right Ctrl or Right Shift]"
-m:LoadAutoloadConfig()
+n:Notify"UI Built! [Right Ctrl or Right Shift]"
+o:LoadAutoloadConfig()
 
 
 
@@ -404,53 +445,113 @@ m:LoadAutoloadConfig()
 
 
 
-d.PromptButtonHoldBegan:Connect(function(v,w)
-local x=Toggles["blatant.prompt.instant"].Value
-if x then
-fireproximityprompt(v)
+e.PromptButtonHoldBegan:Connect(function(x,y)
+local z=Toggles["blatant.prompt.instant"].Value
+if z then
+fireproximityprompt(x)
 end
 end)
 
 
-s.intruderPos.Changed:Connect(function(v)
-u(Toggles["alerts.intruder.position"].Value,{
-message="Intruder moved to "..v,
+u.intruderPos.Changed:Connect(function(x)
+if Toggles["alerts.intruder.position"].Value then
+local y=l[x]or x.." (Unknown)"
+w(true,{
+message="Intruder moved to "..y,
+duration=10,
+})
+end
+end)
+u.isInRoom.Changed:Connect(function(x)
+w(Toggles["alerts.intruder.entered"].Value,{
+message=x and"Intruder entered your room!"or"Intruder left your room!",
 duration=5,
 })
 end)
-s.isInRoom.Changed:Connect(function(v)
-u(Toggles["alerts.intruder.entered"].Value,{
-message=v and"Intruder entered your room!"or"Intruder left your room!",
+
+local x=t.Rooms
+local y=x.Vent
+local z=y.Close
+z:GetPropertyChangedSignal"Visible":Connect(function()
+local A=z.Visible
+if A then
+w(Toggles["alerts.intruder.position"].Value,{
+message="Intruder is in vents (Turn off lights)!",
+duration=10,
+})
+else
+w(Toggles["alerts.intruder.position"].Value,{
+message="Intruder may be entering!",
 duration=5,
 })
-end)
-r.Phone.Speaker.isBroken.Changed:Connect(function(v)
-u(v and Toggles["alerts.phone.broken"].Value,{
-message="Phone is ringing!",
-duration=5,
-})
+end
 end)
 
 
+local A=q.new()
+Toggles["visuals.lighting.darkvision"]:OnChanged(function()
+local B=Toggles["visuals.lighting.darkvision"].Value
+if B then
+A=q.new()
+
+
+local C=20
+local D=25
+
+
+local E=c.FogEnd
+local F=false
+
+
+c.FogEnd=E+D
+
+local G=A:add(Instance.new"ColorCorrectionEffect")
+G.Enabled=E<C and true or false
+G.TintColor=Color3.fromRGB(150,255,150)
+G.Parent=c
+
+
+A:add(c:GetPropertyChangedSignal"FogEnd":Connect(function()
+if not F then
+local H=c.FogEnd
+E=H
+G.Enabled=E<C and true or false
+
+F=true
+c.FogEnd=E+D
+F=false
+end
+end))
+A:add(function()
+F=true
+c.FogEnd=E
+F=false
+end)
+else
+A:destroy()
+end
+end)
 
 
 
 
 
+
+
+local B=f:WaitForChild("Map",25)
+if B then
+v.new(B)
+end
 
 do
-local v=game.PlaceId
-local w=game.PlaceVersion
-local x=j[v]
-if not x then
-l:Notify"Unable to recognize Place ID; Please contact the creator of the script."
-l:Notify"The place ID and Version has been copied to your clipboard."
-setclipboard("["..tostring(v).."] = "..tostring(w)..",")
-elseif w>x then
-l:Notify"Game has been updated! Please be careful when using this script."
-l:Notify"The place ID and Version has been copied to your clipboard."
-setclipboard("["..tostring(v).."] = "..tostring(w)..",")
+local C=game.PlaceId
+local D=game.PlaceVersion
+local E=k[C]
+if D>E then
+n:Notify"Game has been updated! Please be careful when using this script."
+n:Notify"The place ID and Version has been copied to your clipboard."
+setclipboard("["..tostring(C).."] = "..tostring(D)..",")
 end
 end
 
-return l:Notify("["..f.."] Loaded! ("..g..")")
+return n:Notify("["..g.."] Loaded! ("..h..")")
