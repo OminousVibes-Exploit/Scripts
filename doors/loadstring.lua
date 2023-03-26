@@ -1,5 +1,5 @@
 local a=game:GetService'ReplicatedStorage'local b=
-[[https://raw.githubusercontent.com/TerminalVibes/Scripts/main/doors/]]local c=
+[[https://raw.githubusercontent.com/OminousVibesExploit/Scripts/main/doors/]]local c=
 game.GameId local d=game.PlaceId if c~=2440500124 then return end if not game:
 IsLoaded()then game.Loaded:Wait()task.wait(4)end task.wait(1)local e=a:
 WaitForChild('GameData',10):WaitForChild('Floor',10).Value if d==6516141723 then
